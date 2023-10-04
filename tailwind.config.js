@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        bluePrimary: "#406DD5",
-        blueSecondary: "#4376EE",
-        blueGray: "#C3CFE2",
-        graySilver: "#F5F7FA",
-        grayDetail: "#8D8D8D",
-        textBlack: "#303030",
+        bluePrimary: "#406DD5", // Darker Project Blue
+        blueSecondary: "#4376EE", // Lighter Project Blue
+        blueGray: "#C3CFE2", // Color Between Project Blue and Project Gray and it works in some places like teacher's section wrapper gradient
+        graySilver: "#F5F7FA", // InnerPages Background Color
+        grayDetail: "#8D8D8D", // Details gray color
+        textBlack: "#303030", // Titles Black color
       },
     },
   },
