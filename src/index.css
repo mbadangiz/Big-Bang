@@ -4,7 +4,7 @@
 
 @layer components {
   .width-handler {
-    @apply xl:max-w-7xl xl:mx-auto min-w-[400px];
+    @apply xl:max-w-7xl xl:mx-auto;
   }
   .flex-row-all-center {
     @apply flex flex-row flex-wrap justify-center items-center content-center;
@@ -17,6 +17,10 @@
   }
   .f-semiBold {
     font-family: "KalamehWeb-SemiBold";
+  }
+  .bg-landing-historySection {
+    background-image: url("./Img/historySectionbackground.svg");
+    background-size: 100% 100%;
   }
 }
 * {
