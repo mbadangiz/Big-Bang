@@ -18,22 +18,25 @@ const Navbar = () => {
         </a>
       </div>
       <div className="w-6/12 h-16 border-2  text-center font-semibold text-xl flex items-center justify-center flex-row-reverse mx-auto">
-        <a href="#" className="p-4 text-bluePrimary ">
+        <a
+          href="#"
+          className="px-1 py-1 text-bluePrimary border-b-4 rounded-sm border-solid border-bluePrimary ml-6"
+        >
           خانه
         </a>
-        <a href="#" className="p-4">
+        <a href="#" className="px-1 py-1 ml-6">
           دوره ها
         </a>
-        <a href="#" className="p-4">
+        <a href="#" className="px-1 py-1 ml-6">
           اساتید
         </a>
-        <a href="#" className="p-4">
+        <a href="#" className="px-1 py-1 ml-6">
           اخبار مقالات
         </a>
-        <a href="#" className="p-4">
+        <a href="#" className="px-1 py-1 ml-6">
           درباره ما
         </a>
-        <a href="#" className="p-4">
+        <a href="#" className="px-1 py-1 ml-6">
           تماس با ما
         </a>
       </div>
