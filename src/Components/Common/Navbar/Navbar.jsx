@@ -1,5 +1,56 @@
+import IconBahr from "./../../../Assets/Images/Group 4.png";
+
 const Navbar = () => {
-  return <div>Navbar</div>;
+  return (
+    <div className="w-full h-28 border-2  flex items-center ">
+      <div className="font-semibold text-xl flex justify-end">
+        <a
+          href="#"
+          className="bg-bluePrimary text-white rounded-full py-2 px-6 mr-2"
+        >
+          ورود
+        </a>
+        <a
+          href="#"
+          className=" text-bluePrimary rounded-full py-1 px-5 border-2 border-solid border-bluePrimary"
+        >
+          ثبت نام
+        </a>
+      </div>
+      <div className="w-6/12 h-16 border-2  text-center font-semibold text-xl flex items-center justify-center flex-row-reverse mx-auto">
+        <a href="#" className="p-4 text-bluePrimary ">
+          خانه
+        </a>
+        <a href="#" className="p-4">
+          دوره ها
+        </a>
+        <a href="#" className="p-4">
+          اساتید
+        </a>
+        <a href="#" className="p-4">
+          اخبار مقالات
+        </a>
+        <a href="#" className="p-4">
+          درباره ما
+        </a>
+        <a href="#" className="p-4">
+          تماس با ما
+        </a>
+      </div>
+      <div>
+        <div className="w-36 h-16 flex mb-4">
+          <div className="mt-4 text-base text-bluePrimary">
+            <p>
+              آکادمی کدنویسی
+              <br />
+              بحرالعلومی
+            </p>
+          </div>
+          <img src={IconBahr} alt="Logo" className="" />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export { Navbar };
