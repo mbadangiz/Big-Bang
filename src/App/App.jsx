@@ -1,6 +1,4 @@
-import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
 import { InnerPagesLayout } from "../Components/InnerPages/InnerPagesLayout/Index";
 import { Landing } from "../Screens/Landing/Index";
 

@@ -6,9 +6,18 @@
   .width-handler {
     @apply xl:max-w-7xl xl:mx-auto min-w-[400px];
   }
+  .flex-row-all-center {
+    @apply flex flex-row flex-wrap justify-center items-center content-center;
+  }
 }
 
 @layer utilities {
+  .f-bold {
+    font-family: "KalamehWeb-Bold";
+  }
+  .f-semiBold {
+    font-family: "KalamehWeb-SemiBold";
+  }
 }
 * {
   margin: 0;
@@ -25,12 +34,12 @@ input {
 }
 :root {
   /* set bg and text colors here for project */
-  color: #082f49;
 }
 body {
   width: 100%;
   height: 100%;
   background-color: var(--bgColor);
+  background-color: #f5f7fa;
 }
 
 input::-webkit-outer-spin-button,

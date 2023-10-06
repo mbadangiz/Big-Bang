@@ -1,5 +1,11 @@
+import { LandingPopularCoursesSection } from "./LandingPopularCoursesSection/LandingPopularCoursesSection";
+
 const LandingHolder = () => {
-  return <h1>Landing</h1>;
+  return (
+    <>
+      <LandingPopularCoursesSection />
+    </>
+  );
 };
 
 export { LandingHolder };
