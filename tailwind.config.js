@@ -10,6 +10,7 @@ export default {
         graySilver: "#F5F7FA", // InnerPages Background Color
         grayDetail: "#8D8D8D", // Details gray color
         textBlack: "#303030", // Titles Black color
+        errorColor: "#f24073",
       },
     },
   },
