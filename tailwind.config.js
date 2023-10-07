@@ -11,6 +11,12 @@ export default {
         grayDetail: "#8D8D8D", // Details gray color
         textBlack: "#303030", // Titles Black color
       },
+      spacing: {
+        300: "300px",
+        350: "350px",
+        375: "375px",
+        450: "540px",
+      },
     },
   },
   plugins: [],
