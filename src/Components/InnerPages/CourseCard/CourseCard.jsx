@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { TomanLogo } from "../../../Common/TomanLogo/TomanLogo";
+import { TomanLogo } from "../../Common/TomanLogo/TomanLogo";
 
 const CourseCard = ({ data }) => {
   const {
@@ -13,10 +13,12 @@ const CourseCard = ({ data }) => {
     coursePrice,
   } = data;
   return (
-    <div className="w-[300px] p-4 bg-white rounded-xl shadow-md space-y-2.5 mt-8 cursor-pointer ">
+    <div className="w-300 p-4 bg-white rounded-[20px] shadow-md space-y-2.5 mt-8 cursor-pointer ">
       <img src={imgPath} className="w-full rounded-xl " alt="" />
-      <h3 className="f-semiBold text-textBlack text-base">{courseTitle}</h3>
-      <p className="text-textBlack/50 text-sm ">{courseDesc}</p>
+      <h3 className="f-semiBold text-textBlack text-base   text-center">
+        {courseTitle}
+      </h3>
+      <p className="text-textBlack/50 text-sm">{courseDesc}</p>
       <SubjectiveText subject="استاد دوره" subjectText={courseMaster} />
       <SubjectiveText
         subject="تعداد شرکت کننده ها"
@@ -25,7 +27,9 @@ const CourseCard = ({ data }) => {
       <SubjectiveText subject="وضعیت دوره" subjectText={courseStatus} />
       <div className="flex-row-all-center justify-between">
         <div className="flex-row-all-center gap-x-1 w-max">
-          <p className="f-bold relative top-1">{coursePrice}</p>
+          <p className="f-bold relative top-1 text-bluePrimary">
+            {coursePrice}
+          </p>
           <TomanLogo />
         </div>
         <div>
@@ -33,15 +37,15 @@ const CourseCard = ({ data }) => {
           <span>2.5</span>
         </div>
       </div>
-      <div className="w-full h-1 bg-textBlack/20 rounded-xl"></div>
-      <div>
-        <Link
-          to="#"
-          className="text-bluePrimary/80 hover:text-bluePrimary/100 transition-all duration-100 f-bold my-4"
-        >
-          مشاهده ی کامل اطلاعات دوره...
-        </Link>
-      </div>
+      {/* <div className="w-full h-1 bg-textBlack/20 rounded-xl"></div>
+        <div>
+          <Link
+            to="#"
+            className="text-bluePrimary/80 hover:text-bluePrimary/100 transition-all duration-100 f-bold my-4"
+          >
+            مشاهده ی کامل اطلاعات دوره...
+          </Link>
+        </div> */}
     </div>
   );
 };

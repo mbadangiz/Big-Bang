@@ -1,5 +1,5 @@
 import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/LandingSectionsTitle";
-import { CourseCard } from "../CourseCard/CourseCard";
+import { CourseCard } from "../../CourseCard/CourseCard";
 import ImageSample from "./../../../../Assets/Image/sampleImage.png";
 const LandingPopularCoursesSection = () => {
   const list = [
