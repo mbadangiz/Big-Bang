@@ -45,6 +45,11 @@ body {
   background-color: #f5f7fa;
 }
 
+#root {
+  padding: 0;
+  margin: 0;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -78,6 +83,6 @@ input[type="number"] {
 }
 .leaflet-bar {
   position: relative;
-  left: 1125px;
+  left: 1435px;
   top: 120px;
 }
