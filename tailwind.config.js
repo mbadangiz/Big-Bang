@@ -12,6 +12,12 @@ export default {
         textBlack: "#303030", // Titles Black color
         errorColor: "#f24073",
       },
+      spacing: {
+        300: "300px",
+        350: "350px",
+        375: "375px",
+        450: "540px",
+      },
     },
   },
   plugins: [],

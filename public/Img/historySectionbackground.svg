@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="500" viewBox="0 0 1920 500">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: #4376ee;
+      }
+
+      .cls-1 {
+        opacity: 0.1;
+      }
+
+      .cls-2 {
+        opacity: 0.2;
+      }
+
+      .cls-3 {
+        opacity: 0.3;
+      }
+    </style>
+  </defs>
+  <g id="img" transform="translate(-4 -3214)">
+    <path id="Path_8" data-name="Path 8" class="cls-1" d="M0,147.685s460.448,9.695,940.448,9.695S1920,147.685,1920,147.685V636.769s-499.552,10.916-979.552,10.916S0,636.769,0,636.769Z" transform="translate(4 3066.315)"/>
+    <path id="Path_3" data-name="Path 3" class="cls-2" d="M0,131.768s479.73,15.557,959.73,15.557S1920,131.768,1920,131.768V563.779s-480.27,17.989-960.269,17.989S0,563.779,0,563.779Z" transform="translate(4 3107.232)"/>
+    <path id="Path_7" data-name="Path 7" class="cls-3" d="M0,220.419s500.555,7.427,980.555,7.427S1920,220.419,1920,220.419V584.769s-459.445,10.651-939.445,10.651S0,584.769,0,584.769Z" transform="translate(4 3056.581)"/>
+    <path id="Path_6" data-name="Path 6" class="cls-4" d="M0,59.505S498.641,71.9,978.641,71.9,1920,59.505,1920,59.505V362.287s-461.359,27.218-941.359,27.218S0,362.287,0,362.287Z" transform="translate(4 3239.495)"/>
+  </g>
+</svg>
