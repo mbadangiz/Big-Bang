@@ -34,7 +34,7 @@ const CommentSectionForm = () => {
     <>
       <ToastContainer />
       <div
-        className={`${Style.CommentSectionBackground} border-2 border-solid border-transparent mt-7 w-full h-[702px]  bg-primary`}
+        className={`${Style.CommentSectionBackground} border-2 border-solid border-transparent w-full h-[702px]  bg-primary`}
       >
         <Formik
           initialValues={{ email: "", text: "" }}
