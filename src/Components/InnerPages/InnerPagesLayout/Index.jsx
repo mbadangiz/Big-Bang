@@ -1,5 +1,5 @@
 import { Navbar } from "../../Common/Navbar/Navbar";
-import { Footer } from "../../Common/Footer/Footer";
+import { Footer } from "../../Common/Footer/index";
 import { Outlet } from "react-router-dom";
 
 const InnerPagesLayout = () => {
