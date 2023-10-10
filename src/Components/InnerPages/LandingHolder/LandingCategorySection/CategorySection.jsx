@@ -1,4 +1,5 @@
 import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/LandingSectionsTitle";
+import Style from "./CategorySection.module.css";
 
 const CategorySection = () => {
   return (
@@ -7,7 +8,7 @@ const CategorySection = () => {
         mainText="دسته بندی ها"
         subText="گستره وسیعی از موضوعات رو می توانید انتخاب کنید"
       />
-      <div className="w-full h-[806px]"></div>
+      <div className="w-full h-[806px] CategorySectionBackground"></div>
     </div>
   );
 };
