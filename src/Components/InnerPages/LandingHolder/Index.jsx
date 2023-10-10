@@ -1,3 +1,4 @@
+import { CategorySection } from "./LandingCategorySection/CategorySection";
 import { LandingHistorySection } from "./LandingHistorySection/LandingHistorySection";
 import { LandingPopularCoursesSection } from "./LandingPopularCoursesSection/LandingPopularCoursesSection";
 import { LandingTeachersSection } from "./LandingTeachersSection/LandingTeachersSection";
@@ -5,6 +6,7 @@ import { LandingTeachersSection } from "./LandingTeachersSection/LandingTeachers
 const LandingHolder = () => {
   return (
     <>
+      <CategorySection />
       <LandingPopularCoursesSection />
       <LandingHistorySection />
       <LandingTeachersSection />
