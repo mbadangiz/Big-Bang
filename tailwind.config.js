@@ -17,6 +17,9 @@ export default {
         375: "375px",
         450: "540px",
       },
+      fontSize: {
+        "10xl": "135px",
+      },
     },
   },
   plugins: [],
