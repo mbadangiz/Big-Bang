@@ -12,6 +12,8 @@ export default {
         textBlack: "#303030", // Titles Black color
       },
       spacing: {
+        0.75: "3px",
+        280: "280px",
         300: "300px",
         350: "350px",
         375: "375px",

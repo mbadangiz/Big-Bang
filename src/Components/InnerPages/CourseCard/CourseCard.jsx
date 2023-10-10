@@ -13,7 +13,7 @@ const CourseCard = ({ data }) => {
     coursePrice,
   } = data;
   return (
-    <div className="w-300 p-4 bg-white rounded-[20px] shadow-md space-y-2.5 mt-8 cursor-pointer ">
+    <div className="cardsDefaultSettings  w-300">
       <img src={imgPath} className="w-full rounded-xl " alt="" />
       <h3 className="f-semiBold text-textBlack text-base   text-center">
         {courseTitle}
