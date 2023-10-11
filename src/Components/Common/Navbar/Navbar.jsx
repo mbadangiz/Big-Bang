@@ -42,14 +42,7 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div>
-        <div className="w-36 h-16 flex mb-4">
-          <div className="mt-4 text-base text-bluePrimary">
-            <p>
-              آکادمی کدنویسی
-              <br />
-              بحرالعلومی
-            </p>
-          </div>
+        <div className=" h-16 flex mb-4">
           <img src={IconBahr} alt="Logo" className="" />
         </div>
       </div>
