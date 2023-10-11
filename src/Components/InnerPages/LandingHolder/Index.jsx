@@ -1,3 +1,4 @@
+import { CommentSection } from "./CommentSection/CommentSection";
 import { LandingHistorySection } from "./LandingHistorySection/LandingHistorySection";
 import { LandingPopularCoursesSection } from "./LandingPopularCoursesSection/LandingPopularCoursesSection";
 import { ServicesSection } from "./LandingServicesSection/ServicesSection";
@@ -14,6 +15,7 @@ const LandingHolder = () => {
       <LandingHistorySection />
       <LandingTeachersSection />
       <LandingArticlesNewsSection />
+      <CommentSection />
     </>
   );
 };
