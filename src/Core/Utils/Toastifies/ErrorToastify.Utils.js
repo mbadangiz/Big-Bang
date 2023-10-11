@@ -1,10 +1,10 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ErrorToastify = (error, errorText) => {
+const ErrorToastify = (errorText) => {
   toast.error(
     `${errorText}
-  ${error}`,
+ `,
     {
       position: "top-center",
       autoClose: 3000,
