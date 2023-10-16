@@ -1,5 +1,5 @@
 const ArticleAndNewsHolder = () => {
-  return <div>ArticleAndNewsHolder</div>;
+  return <div className="width-handler h-[1080px]">ArticleAndNewsHolder</div>;
 };
 
 export { ArticleAndNewsHolder };

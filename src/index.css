@@ -44,6 +44,7 @@ body {
   height: 100%;
   background-color: var(--bgColor);
   background-color: #fff;
+  font-family: "KalamehWeb-Regular";
 }
 
 #root {
