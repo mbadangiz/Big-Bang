@@ -67,7 +67,7 @@ const LoginForm = () => {
         </Form>
       </Formik>
 
-      <p className="text-[17px] text-center mt-[14px]">
+      <p className="text-[17px] text-center mt-[16px]">
         برای ثبت نام
         <span className="text-bluePrimary text-[17px] text-center mx-1 cursor-pointer">
           اینجا
