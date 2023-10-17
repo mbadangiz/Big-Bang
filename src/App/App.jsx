@@ -8,6 +8,9 @@ import { Courses } from "../Screens/Courses/Courses";
 import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
 import { Page404 } from "../Screens/Page404/Page404";
 import { UserPanel } from "../Screens/UserPanel/UserPanel";
+import { LoginHolder } from "../Components/LoginRegisterForgetpass/LoginHolder/index";
+import { LoginRegisterForgetpassLayout } from "../Components/LoginRegisterForgetpass/LoginRegisterForgetpassLayout";
+import { LoginForm } from "../Components/LoginRegisterForgetpass/LoginHolder/LoginForm/LoginForm";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +24,11 @@ function App() {
         { path: "/Courses", element: <Courses /> },
         { path: "/CoursesDetails", element: <CoursesDetails /> },
       ],
+    },
+    {
+      path: "/User",
+      element: <LoginRegisterForgetpassLayout />,
+      children: [{ path: "/User/Login", element: <LoginHolder /> }],
     },
     { path: "/test", element: <Test /> },
     { path: "/Profile", element: <UserPanel /> },
