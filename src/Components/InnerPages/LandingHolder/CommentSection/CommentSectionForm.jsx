@@ -21,7 +21,7 @@ const CommentSectionForm = () => {
     try {
       await axios
         .post(
-          "https://64ff2f97f8b9eeca9e29c64c.mockapi.io/LandingCommentSecti",
+          "https://64ff2f97f8b9eeca9e29c64c.mockapi.io/LandingCommentSection",
           value
         )
         .then(() => SuccessToastify("پیام شما با موفقیت ثبت شده است"));
