@@ -1,5 +1,7 @@
+import CoursesPage from "./CoursesPage/CoursesPage";
+
 const CoursesHolder = () => {
-  return <div>CoursesHolder</div>;
+  return <CoursesPage />;
 };
 
 export { CoursesHolder };
