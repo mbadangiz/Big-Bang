@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const LoginSchema = yup.object().shape({
+const UserLoginSchema = yup.object().shape({
   email: yup
     .string()
     .email("لطفا ایمیل خود را درست وارد کنید")
@@ -11,4 +11,4 @@ const LoginSchema = yup.object().shape({
     .required("لطفا رمز عبور خود را وارد کنید"),
 });
 
-export { LoginSchema };
+export { UserLoginSchema };

@@ -5,11 +5,9 @@ import { ErrorToastify } from "../../../../Core/Utils/Toastifies/ErrorToastify.U
 import { BlueInputField } from "../../../Common/InputFields/BlueInputField";
 import { BlueCheckBox } from "../../../Common/InputFields/BlueCheckBox/index";
 import { BlueButton } from "../../../Common/Buttons/BlueButton";
-import { LoginSchema } from "../../../../Core/Validation/Schemas/Login&Register&Forgetpass/LoginSchema";
+import { UserLoginSchema } from "../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserLoginSchema";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
-
-import { BigBangLoading } from "../../../Common/BigBangLoading/index";
 
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -37,12 +35,12 @@ const LoginForm = () => {
 
       <Formik
         initialValues={{ email: "", password: "", toggle: false }}
-        validationSchema={LoginSchema}
+        validationSchema={UserLoginSchema}
         onSubmit={onSubmit}
       >
         <Form className="mt-6">
           <BlueInputField
-            type="text"
+            type="email"
             name="email"
             placeholder="ایمیل"
             iconClass="fi fi-rr-at"

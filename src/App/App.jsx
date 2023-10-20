@@ -11,6 +11,7 @@ import { UserPanel } from "../Screens/UserPanel/UserPanel";
 import { LoginHolder } from "../Components/LoginRegisterForgetpass/LoginHolder/index";
 import { LoginRegisterForgetpassLayout } from "../Components/LoginRegisterForgetpass/LoginRegisterForgetpassLayout";
 import { LoginForm } from "../Components/LoginRegisterForgetpass/LoginHolder/LoginForm/LoginForm";
+import { RegisterHolder } from "../Components/LoginRegisterForgetpass/RegisterHolder";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,7 +29,10 @@ function App() {
     {
       path: "/User",
       element: <LoginRegisterForgetpassLayout />,
-      children: [{ path: "/User/Login", element: <LoginHolder /> }],
+      children: [
+        { path: "/User/Login", element: <LoginHolder /> },
+        { path: "/User/Register", element: <RegisterHolder /> },
+      ],
     },
     { path: "/test", element: <Test /> },
     { path: "/Profile", element: <UserPanel /> },
