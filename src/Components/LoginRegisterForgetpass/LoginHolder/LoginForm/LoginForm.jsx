@@ -8,6 +8,7 @@ import { BlueButton } from "../../../Common/Buttons/BlueButton";
 import { UserLoginSchema } from "../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserLoginSchema";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -67,14 +68,14 @@ const LoginForm = () => {
 
       <p className="text-[17px] text-center mt-[16px]">
         برای ثبت نام
-        <span className="text-bluePrimary text-[17px] text-center mx-1 cursor-pointer">
+        <Link
+          to="/User/Register"
+          className="text-bluePrimary text-[17px] text-center mx-1 cursor-pointer"
+        >
           اینجا
-        </span>
+        </Link>
         کلیک کنید
       </p>
-      <h3 className="text-[20px] text-bluePrimary text-center cursor-pointer mt-[10px]">
-        ورود کاربران
-      </h3>
     </div>
   );
 };

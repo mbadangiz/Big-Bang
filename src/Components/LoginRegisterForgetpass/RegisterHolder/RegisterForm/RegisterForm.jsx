@@ -58,7 +58,7 @@ const RegisterForm = () => {
 
           {/* Email */}
           <BlueInputField
-            type="email"
+            type="string"
             name="email"
             placeholder="ایمیل"
             iconClass="fi fi-rr-at"
