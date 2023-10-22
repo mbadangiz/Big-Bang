@@ -1,11 +1,11 @@
 import { Formik, Form } from "formik";
 import axios from "axios";
-import { SuccessToastify } from "../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
-import { ErrorToastify } from "../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
-import { BlueInputField } from "../../../Common/InputFields/BlueInputField";
-import { BlueCheckBox } from "../../../Common/InputFields/BlueCheckBox/index";
-import { BlueButton } from "../../../Common/Buttons/BlueButton";
-import { UserLoginSchema } from "../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserLoginSchema";
+import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
+import { BlueInputField } from "../../../../Common/InputFields/BlueInputField";
+import { BlueCheckBox } from "../../../../Common/InputFields/BlueCheckBox/index";
+import { BlueButton } from "../../../../Common/Buttons/BlueButton";
+import { UserLoginSchema } from "../../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserLoginSchema";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -60,7 +60,12 @@ const LoginForm = () => {
               name="toggle"
               labelName="مرا به خاطر بسپار"
             />
-            <h3 className="text-bluePrimary text-[16px] ">فراموشی رمز</h3>
+            <Link
+              to="/User/Forgetpass"
+              className="text-bluePrimary hover:text-blue-900 text-[16px] "
+            >
+              فراموشی رمز
+            </Link>
           </div>
           <BlueButton type="submit" buttonText="ورود" isDisabled={isDisabled} />
         </Form>
@@ -70,7 +75,7 @@ const LoginForm = () => {
         برای ثبت نام
         <Link
           to="/User/Register"
-          className="text-bluePrimary text-[17px] text-center mx-1 cursor-pointer"
+          className="text-bluePrimary hover:text-blue-900 text-[17px] text-center mx-1 cursor-pointer"
         >
           اینجا
         </Link>

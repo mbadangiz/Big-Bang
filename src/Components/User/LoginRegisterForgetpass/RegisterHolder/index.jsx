@@ -1,6 +1,6 @@
 import { RegisterForm } from "./RegisterForm/RegisterForm";
 
-import UserRegisterLogo from "../../../Assets/Images/LoginRegisterForgetpass/UserRegisterLogo.png";
+import UserRegisterLogo from "../../../../Assets/Images/LoginRegisterForgetpass/UserRegisterLogo.png";
 import { Link } from "react-router-dom";
 
 const RegisterHolder = () => {

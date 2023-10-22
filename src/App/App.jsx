@@ -8,10 +8,11 @@ import { Courses } from "../Screens/Courses/Courses";
 import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
 import { Page404 } from "../Screens/Page404/Page404";
 import { UserPanel } from "../Screens/UserPanel/UserPanel";
-import { LoginHolder } from "../Components/LoginRegisterForgetpass/LoginHolder/index";
-import { LoginRegisterForgetpassLayout } from "../Components/LoginRegisterForgetpass/LoginRegisterForgetpassLayout";
-import { LoginForm } from "../Components/LoginRegisterForgetpass/LoginHolder/LoginForm/LoginForm";
-import { RegisterHolder } from "../Components/LoginRegisterForgetpass/RegisterHolder";
+import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
+import { LoginHolder } from "../Components/User/LoginRegisterForgetpass/LoginHolder/index";
+import { RegisterHolder } from "../Components/User/LoginRegisterForgetpass/RegisterHolder/index";
+import { ForgetpassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/index";
+import { ForgetpassChangepassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/ForgetpassChangepassHolder/index";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,14 @@ function App() {
       children: [
         { path: "/User/Login", element: <LoginHolder /> },
         { path: "/User/Register", element: <RegisterHolder /> },
+        {
+          path: "/User/Forgetpass",
+          element: <ForgetpassHolder />,
+        },
+        {
+          path: "/User/Forgetpass/Changepass",
+          element: <ForgetpassChangepassHolder />,
+        },
       ],
     },
     { path: "/test", element: <Test /> },

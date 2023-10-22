@@ -1,14 +1,14 @@
 import { Formik, Form } from "formik";
 
 import { ToastContainer } from "react-toastify";
-import { BlueInputField } from "../../../Common/InputFields/BlueInputField";
-import { BlueButton } from "../../../Common/Buttons/BlueButton";
+import { BlueInputField } from "../../../../Common/InputFields/BlueInputField";
+import { BlueButton } from "../../../../Common/Buttons/BlueButton";
 
-import { UserRegisterSchema } from "../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserRegisterSchema";
+import { UserRegisterSchema } from "../../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserRegisterSchema";
 import { useState } from "react";
 import axios from "axios";
-import { SuccessToastify } from "../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
-import { ErrorToastify } from "../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
+import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 
 const RegisterForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);

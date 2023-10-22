@@ -1,5 +1,5 @@
 import { LoginForm } from "./LoginForm/LoginForm";
-import UserLoginLogo from "../../../Assets/Images/LoginRegisterForgetpass/UserLoginLogo.png";
+import UserLoginLogo from "../../../../Assets/Images/LoginRegisterForgetpass/UserLoginLogo.png";
 import { Link } from "react-router-dom";
 
 const LoginHolder = () => {
