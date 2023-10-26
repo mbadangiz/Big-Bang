@@ -11,6 +11,8 @@ export default {
         grayDetail: "#8D8D8D", // Details gray color
         textBlack: "#303030", // Titles Black color
         errorColor: "#f24073",
+        lightGray: "#F6F6F6",
+        divider: "#D9D9D9",
       },
       spacing: {
         0.75: "3px",
