@@ -1,0 +1,29 @@
+/* SidebarProfileMenuItem Hover */
+
+.SidebarProfileMenuItem:hover {
+  cursor: pointer;
+}
+
+.SidebarProfileMenuItem:hover div:nth-child(1) {
+  background: white;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.SidebarProfileMenuItem:hover h2 {
+  color: #676767;
+}
+
+/* SidebarProfileMenuItem Active */
+.SidebarProfileMenuItem:active div:nth-child(1) {
+  background: #406dd5;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.16);
+}
+
+.SidebarProfileMenuItem:active div:nth-child(1) i {
+  color: white;
+}
+
+.SidebarProfileMenuItem:active h2 {
+  color: #406dd5;
+  font-weight: 600;
+}
