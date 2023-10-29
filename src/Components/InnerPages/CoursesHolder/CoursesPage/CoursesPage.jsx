@@ -61,7 +61,7 @@ const CoursesPage = () => {
 
   return (
     <div className="w-full width-handler flex justify-center gap-4">
-      <ul className="w-[300px] rounded-[15px] shadow-md bg-[#F6F6F6]">
+      <ul className="w-[300px] rounded-[15px] shadow-md bg-[#F6F6F6] h-[max-content]">
         <li className="py-3 w-[93%] m-auto text-[#635B5B] text-[16px] font-bold mb-1 ">
           <input type="checkbox" id="d0" name="r" className="hidden" />
           <label htmlFor="d0" className="px-6">
