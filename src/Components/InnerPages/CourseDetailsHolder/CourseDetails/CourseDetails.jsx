@@ -115,19 +115,13 @@ const CourseDetails = () => {
           </div>
           <Accardion />
         </div>
-        <div className="w-[416px] mr-8">
-          <div className="h-[251px] shadow-md rounded-[12px] mb-4">
-            <div className="w-[126px] h-[126px] border-4 border-solid border-blue-400 rounded-[100px] mt-2 m-auto"></div>
-            <h2 className="text-center text-[19px] font-bold py-3">
-              استاد بحر
-            </h2>
-            <p className="text-center text-[#606060] py-2">یچیزایی بلده.....</p>
-          </div>
-          <div className="h-[251px] shadow-md rounded-[12px] mb-4 overflow-hidden">
+        <div className="w-full mr-8">
+          <div className="shadow-md rounded-[12px] mb-4"></div>
+          <div className="shadow-md rounded-[12px] mb-4 overflow-hidden">
             <div className="h-[68px] bg-[#d9dde848] font-bold text-[20px] p-4">
               تگ های محبوب
             </div>
-            <div className="mt-2 p-1">
+            <div className="mt-2 p-3">
               <h3 className="rounded-lg bg-[#d9dde848] inline-block p-3">
                 #Tailwindcss
               </h3>
