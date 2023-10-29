@@ -26,8 +26,8 @@ const CourseDetails = () => {
       <div className="p-3 rounded-[12px] shadow-md">
         <div className="flex border-b-2 border-solid border-gray-300">
           <div className="">
-            <h1 className="text-[29px] font-bold">اموزش Tailwindcss</h1>
-            <p className="w-[780px] text-[23px] mt-4">
+            <h1 className="text-[27px] f-bold">اموزش Tailwindcss</h1>
+            <p className="w-[780px] text-xl mt-4 text-grayDetail">
               در قالب آموزش tailwind سعی کردیم این ابزار بسیار کاربردی را در
               قالب پروژه قدم به قدم، به شما آموزش دهیم. با دوره آموزش
               tailwindcss شما میتوانید به شکل کامل با tailwind آشنا شوید.
