@@ -46,7 +46,7 @@ const CommentSectionForm = () => {
               <SilverInputField name="email" type="email" placeholder="ایمیل" />
               <TextAreaField name="text" placeholder="متن مورد نظر" />
 
-              <SilverButton type="submit" />
+              <SilverButton type="submit" buttonText="ثبت" />
             </div>
           </Form>
         </Formik>

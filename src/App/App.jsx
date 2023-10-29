@@ -13,7 +13,7 @@ import { RegisterHolder } from "../Components/User/LoginRegisterForgetpass/Regis
 import { ForgetpassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/index";
 import { ForgetpassChangepassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/ForgetpassChangepassHolder/index";
 import { PanelHolder } from "../Components/User/Panel/PanelHolder";
-import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/PanelDashboard";
+import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/index";
 
 function App() {
   const router = createBrowserRouter([

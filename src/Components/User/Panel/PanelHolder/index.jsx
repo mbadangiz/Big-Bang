@@ -10,7 +10,7 @@ const PanelHolder = () => {
       <div className="col-span-2 ">
         <PanelSidebar />
       </div>
-      <div className="col-span-10">
+      <div className="col-span-10 ">
         <PanelContent />
       </div>
     </div>
