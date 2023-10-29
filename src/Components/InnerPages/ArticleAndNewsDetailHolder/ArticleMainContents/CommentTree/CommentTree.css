@@ -1,0 +1,155 @@
+.CommentTreeContainer {
+  display: inline-block;
+  position: relative;
+  float: right;
+  clear: right;
+  margin: 0.25em;
+  padding: 0;
+  background: pink;
+}
+.CommentTreeContainer:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0.25em;
+  right: auto;
+  bottom: 0;
+  right: 1.75em;
+  margin: auto;
+  border-right: dotted black 0.1em;
+  width: 0;
+  height: auto;
+  background: blue;
+}
+.CommentTreeContainer:after {
+  content: "-";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: -0.5em;
+  margin: 0.65em;
+  padding: 0;
+  width: 0.8em;
+  height: 0.8em;
+  text-align: center;
+  line-height: 0.6em;
+  font-size: 1em;
+  background: blue;
+}
+.CommentTreeContainer > .CommentTreeItems {
+  display: block;
+  position: relative;
+  float: right;
+  clear: both;
+  right: auto;
+  padding-right: 1em;
+  width: auto;
+  text-align: center;
+  color: white;
+  background: gray;
+}
+.CommentTreeContainer > .CommentTreeItems > input {
+  display: block;
+  position: absolute;
+  float: right;
+  z-index: 4;
+  margin: 0 0 0 -1em;
+  padding: 0;
+  width: 1em;
+  height: 2em;
+  font-size: 1em;
+  opacity: 0;
+  cursor: pointer;
+}
+.CommentTreeContainer
+  > .CommentTreeItems
+  > input:checked
+  ~ .CommentTreeContainer:before {
+  display: none;
+}
+.CommentTreeContainer
+  > .CommentTreeItems
+  > input:checked
+  ~ .CommentTreeContainer:after {
+  content: "+";
+}
+.CommentTreeContainer
+  > .CommentTreeItems
+  > input:checked
+  ~ .CommentTreeContainer
+  * {
+  display: none;
+}
+.CommentTreeContainer > .CommentTreeItems > div {
+  display: block;
+  position: relative;
+  float: right;
+  z-index: 3;
+  margin: 0.25em;
+  padding: 0.25em;
+  background: lightblue;
+}
+.CommentTreeContainer > .CommentTreeItems > div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -1em;
+  top: 0;
+  bottom: 0;
+  margin: auto 0.25em auto 0.25em;
+  border-top: dotted black 0.1em;
+  width: 0.75em;
+  height: 0;
+}
+
+.CommentTreeContainer > .CommentTreeItems:last-child:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 1em;
+  right: 0;
+  bottom: -0.25em;
+  width: 0.75em;
+  height: auto;
+  background: lightblue;
+}
+
+#tree {
+  position: relative;
+}
+#tree:before {
+  right: 0.5em;
+}
+#tree:after {
+  display: none;
+}
+
+.CommentTreeContainer,
+.CommentTreeContainer > .CommentTreeItems:last-child:before {
+  background: white;
+}
+.CommentTreeContainer > .CommentTreeItems {
+  background: transparent;
+}
+.CommentTreeContainer:after {
+  background: white;
+  color: black;
+  border: solid gray 1px;
+  border-radius: 0.1em;
+}
+.CommentTreeContainer > .CommentTreeItems > div {
+  border-radius: 0.25em;
+  color: black;
+  background: white;
+}
+.CommentTreeContainer > .CommentTreeItems > input ~ div:before {
+  content: "";
+  display: inline-block;
+  margin: 0 0.25em 0 0;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

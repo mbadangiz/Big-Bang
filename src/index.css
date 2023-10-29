@@ -9,6 +9,9 @@
   .flex-row-all-center {
     @apply flex flex-row flex-wrap justify-center items-center content-center;
   }
+  .artcileDeailtCardsSettings {
+    @apply w-full bg-white rounded-lg py-6 px-11;
+  }
 }
 
 @layer utilities {
@@ -30,7 +33,6 @@
   border: 0;
   box-sizing: border-box;
   font-family: "KalamehWeb-Regular";
-  direction: rtl;
   direction: rtl;
 }
 textarea,

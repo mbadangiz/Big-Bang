@@ -9,11 +9,12 @@ const Navbar = () => {
     window.addEventListener("scroll", () => {
       const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
-      if (Math.floor(winScroll) > 100) {
+      if (Math.floor(winScroll) > 0) {
         setIsFixed(true);
       } else {
         setIsFixed(false);
       }
+      console.log(isFixed);
     });
   }, []);
 
