@@ -14,6 +14,7 @@ import { ForgetpassHolder } from "../Components/User/LoginRegisterForgetpass/For
 import { ForgetpassChangepassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/ForgetpassChangepassHolder/index";
 import { PanelHolder } from "../Components/User/Panel/PanelHolder";
 import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/PanelDashboard";
+import { PanelCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/PanelCoursesList/PanelCoursesList";
 
 function App() {
   const router = createBrowserRouter([
@@ -49,6 +50,7 @@ function App() {
       element: <PanelHolder />,
       children: [
         { path: "/User/Panel/Dashboard", element: <PanelDashboard /> },
+        { path: "/User/Panel/CoursesList", element: <PanelCoursesList /> },
       ],
     },
     { path: "/test", element: <Test /> },
