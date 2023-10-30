@@ -4,10 +4,7 @@ import { pageUrl } from "../ArticleMainContents.jsx";
 
 const ArticleSharing = () => {
   return (
-    <div
-      dir="ltr"
-      className="text-left flex-row-all-center justify-end select-none"
-    >
+    <div className="text-left flex-row-all-center justify-end select-none">
       <ToastContainer />
       <p className="text-xs ml-2 text-gray-400">
         این مقاله را با دوستان خود به اشتراک بگذارید
@@ -16,7 +13,7 @@ const ArticleSharing = () => {
         <p className="text-sm px-4 text-gray-500">{pageUrl}</p>
         <div
           className="h-full flex-row-all-center bg-graySilver 
-    text-gray-500 w-11  rounded-l-lg cursor-pointer"
+        text-gray-500 w-11  rounded-l-lg cursor-pointer"
           onClick={() => {
             SuccessToastify("لینک مورد نظر با موفقیت کپی شد.");
             navigator.clipboard.writeText(pageUrl);

@@ -54,7 +54,7 @@ const ArticleMainBody = () => {
   const TagsList = ["تگ 1", "تگ 2", "تگ 3", "تگ 4"];
   return (
     <div className="w-full">
-      <img src={Image} className="h-350 rounded-lg mx-auto" alt="" />
+      <img src={Image} className="h-400 rounded-lg mx-auto" alt="" />
       <ArticleTextContets />
       <TagsContainer TagsList={TagsList} />
       <ArticleSharing />

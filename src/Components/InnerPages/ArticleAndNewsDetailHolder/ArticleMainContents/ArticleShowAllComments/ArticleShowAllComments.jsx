@@ -1,4 +1,4 @@
-import { CommentTree } from "../CommentTree/CommentTree";
+import { CommentTree } from "../../../../Common/CommentTree/CommentTree";
 
 const ArticleShowAllComments = () => {
   return (

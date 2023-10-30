@@ -14,7 +14,7 @@ const Navbar = () => {
       } else {
         setIsFixed(false);
       }
-      console.log(isFixed);
+      console.log(winScroll);
     });
   }, []);
 
