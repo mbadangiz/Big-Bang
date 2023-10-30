@@ -1,21 +1,24 @@
+import { Element } from "react-scroll";
 import Image from "./../../../../Assets/Image/sampleImage.png";
 import { ArticleCommets } from "./ArticleCommets/ArticleCommets";
 import { ArticleSharing } from "./ArticleSharing/ArticleSharing";
 import { ArticleTextContets } from "./ArticleTextContets/ArticleTextContets.jsx";
 import { ArticleThereIsNoCommets } from "./ArticleThereIsNoCommets/ArticleThereIsNoCommets";
 import { TagsContainer } from "./TagsContainer/TagsContainer.jsx";
+import { SimilarArticles } from "./SimilarArticles/SimilarArticles";
 export const pageUrl = window.location.href;
 //
 const ArticleMainContents = () => {
   const commetCount = 0;
   return (
     <div className="w-[70%] space-y-5">
-      <div className="artcileDeailtCardsSettings">
+      <Element name="article" className="artcileDeailtCardsSettings">
         <ArticleMainHead />
         <div className="w-full h-1 bg-black/5 rounded-full my-8"></div>
         <ArticleMainBody />
-      </div>
+      </Element>
       <ArticleCommets />
+      <SimilarArticles />
     </div>
   );
 };

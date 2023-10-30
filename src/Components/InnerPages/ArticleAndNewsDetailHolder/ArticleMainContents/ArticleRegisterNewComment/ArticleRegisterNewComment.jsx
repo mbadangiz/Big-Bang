@@ -2,13 +2,14 @@ import Rating from "react-rating";
 import { Field, Form, Formik } from "formik";
 import { BlueButton } from "../../../../Common/Buttons/BlueButton";
 import { useState } from "react";
+import { Element } from "react-scroll";
 
 const ArticleRegisterNewComment = () => {
   const [rate, setRate] = useState(0);
   const [comment, setComment] = useState("");
 
   return (
-    <div className="artcileDeailtCardsSettings">
+    <Element name="newComment" className="artcileDeailtCardsSettings">
       <Formik initialValues={{ commet: comment }} onSubmit={() => {}}>
         <Form>
           <div
@@ -65,7 +66,7 @@ const ArticleRegisterNewComment = () => {
           />
         </Form>
       </Formik>
-    </div>
+    </Element>
   );
 };
 export { ArticleRegisterNewComment };

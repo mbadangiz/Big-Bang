@@ -1,8 +1,12 @@
+import { Element } from "react-scroll";
 import { BlueButton } from "../../../../Common/Buttons/BlueButton";
 import ThereIsNoCommentImage from "./../../../../../Assets/Image/thereisnocomment.png";
 const ArticleThereIsNoCommets = ({ ClickHandler }) => {
   return (
-    <div className="artcileDeailtCardsSettings text-center">
+    <Element
+      name="newComment"
+      className="artcileDeailtCardsSettings text-center"
+    >
       <img src={ThereIsNoCommentImage} className="mx-auto " alt="" />
       <p className="mb-5">
         متاسفانه تا کنون هیچ دیدگاهی برای این مقاله ثبت نشده است، برای ثبت
@@ -18,7 +22,7 @@ const ArticleThereIsNoCommets = ({ ClickHandler }) => {
         type={"button"}
         ClickHandler={ClickHandler}
       />
-    </div>
+    </Element>
   );
 };
 

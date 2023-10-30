@@ -4,11 +4,11 @@ import { ArticleShowAllComments } from "../ArticleShowAllComments/ArticleShowAll
 import { ArticleRegisterNewComment } from "../ArticleRegisterNewComment/ArticleRegisterNewComment";
 
 const ArticleCommets = () => {
-  const [commetStatus, setCommetStatus] = useState(2);
+  const [commetStatus, setCommetStatus] = useState(0);
   return (
     <>
       {commetStatus === 0 ? (
-        <ArticleThereIsNoCommets ClickHandler={() => setCommetStatus(1)} />
+        <ArticleThereIsNoCommets ClickHandler={() => setCommetStatus(2)} />
       ) : commetStatus === 1 ? (
         <>
           <ArticleRegisterNewComment />
