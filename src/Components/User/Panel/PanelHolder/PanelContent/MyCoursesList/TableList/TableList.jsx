@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 const TableList = () => {
   const list = [
@@ -53,6 +54,7 @@ const TableList = () => {
       coursePrice: 2500000,
     },
   ];
+
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-slate-100">
@@ -100,12 +102,12 @@ const TableList = () => {
                       {course.coursePrice}
                     </td>
                     <td className="px-6 py-4">
-                      <a
-                        href="#"
+                      <button
+                        type="submit"
                         className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                       >
                         <i className="fi fi-rr-minus-circle"></i>
-                      </a>
+                      </button>
                     </td>
                   </tr>
                 </>
