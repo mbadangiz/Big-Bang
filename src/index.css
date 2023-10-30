@@ -33,6 +33,11 @@
     background-image: url("./Img/historySectionbackground.svg");
     background-size: 100% 100%;
   }
+  .bg-heroSectoin {
+    background-image: url("./Img/bg-heroSection.png");
+    background-size: 100% 950px;
+    background-position: 0 0;
+  }
 }
 * {
   margin: 0;

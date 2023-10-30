@@ -5,11 +5,15 @@ import { ServicesSection } from "./LandingServicesSection/ServicesSection";
 import { LandingTeachersSection } from "./LandingTeachersSection/LandingTeachersSection";
 import { CategorySection } from "./LandingCategorySection/CategorySection";
 import { LandingArticlesNewsSection } from "./LandingArticlesNewsSection/LandingArticlesNewsSection";
+import { LandingHeroSection } from "./LandingHeroSection/LandingHeroSection";
 
 const LandingHolder = () => {
   return (
     <>
-      <ServicesSection />
+      <div className="w-full  bg-heroSectoin">
+        <LandingHeroSection />
+        <ServicesSection />
+      </div>
       <CategorySection />
       <LandingPopularCoursesSection />
       <LandingHistorySection />
