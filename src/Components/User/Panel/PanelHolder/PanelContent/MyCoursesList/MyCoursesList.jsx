@@ -58,7 +58,10 @@ const MyCoursesList = () => {
     <div className=" p-3 rounded-3xl bg-slate-100">
       <h1>لیست دوره های من</h1>
 
-      <div className="bg-bluePrimary p-4 rounded-lg text-white  mr-auto cursor-default  flex justify-around mt-2">
+      <div
+        className="bg-bluePrimary p-4 rounded-lg text-white mr-auto
+      cursor-default flex justify-around mt-2"
+      >
         <div className="">نام دوره </div>
         <div className="">استاد دوره </div>
         <div className=""> ظرفیت دوره </div>
@@ -74,7 +77,8 @@ const MyCoursesList = () => {
           <>
             <div
               key={course.id}
-              className="bg-[#E8ECF1] p-4 rounded-lg text-[#5E5E64]  mr-auto cursor-default mt-3 flex justify-around hover:shadow-sm hover:scale-[1.005]"
+              className="bg-[#E8ECF1] p-4 rounded-lg text-[#5E5E64]
+              mr-auto cursor-default mt-3 flex justify-around hover:shadow-sm hover:scale-[1.005]"
             >
               <div className="">{course.courseTitle}</div>
               <div className="">{course.courseMaster}</div>
@@ -84,7 +88,7 @@ const MyCoursesList = () => {
               <div className="">{course.courseStatus}</div>
               <div className="text-red-500">{course.coursePrice}</div>
               <div className="hover:cursor-pointer">
-                <i className="fi fi-rr-shopping-cart"></i>
+                <i className="fi fi-rr-minus-circle"></i>
               </div>
             </div>
           </>
