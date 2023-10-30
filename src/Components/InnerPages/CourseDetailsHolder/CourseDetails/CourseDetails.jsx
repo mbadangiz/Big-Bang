@@ -1,5 +1,7 @@
-import React from "react";
 import { Accardion } from "../../../Common/Accardion/Accardion";
+import React, { Component } from "react";
+
+import EmojiRating from "react-emoji-rating";
 
 const CourseDetails = () => {
   const information = [
@@ -116,7 +118,11 @@ const CourseDetails = () => {
           <Accardion />
         </div>
         <div className="w-full mr-8">
-          <div className="shadow-md rounded-[12px] mb-4"></div>
+          <div className="shadow-md rounded-[12px] mb-4">
+            <div className="">
+              <EmojiRating variant="classic" className="w-full" />
+            </div>
+          </div>
           <div className="shadow-md rounded-[12px] mb-4 overflow-hidden">
             <div className="h-[68px] bg-[#d9dde848] font-bold text-[20px] p-4">
               تگ های محبوب
