@@ -1,0 +1,5 @@
+.UserPanelChangePasswordBackground {
+  background: url("../../../../Assets/Images/Panel/User/ChangePassword/ChangePasswordBackground.jpg")
+    50% 50% no-repeat;
+  background-size: cover;
+}

@@ -4,9 +4,18 @@ import { PanelEditProfileUserProfilePicture } from "./PanelEditProfileUserProfil
 import { BlueInputField } from "../../../Common/InputFields/BlueInputField/index";
 import { BlueButton } from "../../../Common/Buttons/BlueButton";
 
+import { UserPanelEditProfileSchema } from "../../../../Core/Validation/Schemas/Panel/User/UserPanelEditProfileSchema";
+import { SuccessToastify } from "../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
+
 const PanelEditProfile = () => {
   const onSubmit = async (value) => {
-    console.log(value);
+    try {
+      console.log(value);
+      SuccessToastify("درخواست ویرایش حساب شما با موفقیت انجام شده است");
+    } catch (error) {
+      ErrorToastify("درخواست ویرایش حساب شما با مشکل مواجه شده است");
+    }
   };
   return (
     <Formik
@@ -18,6 +27,7 @@ const PanelEditProfile = () => {
         nationalNumber: "1234567890",
         phoneNumber: "09112345678",
       }}
+      validationSchema={UserPanelEditProfileSchema}
       onSubmit={onSubmit}
     >
       <Form className="w-full">
