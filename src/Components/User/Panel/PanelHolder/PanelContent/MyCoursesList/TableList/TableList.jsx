@@ -58,7 +58,7 @@ const TableList = () => {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-slate-100">
-        <table className="w-full text-base text-left text-gray-500 dark:text-gray-400">
+        <table className="w-full text-base text-center text-gray-500 dark:text-gray-400">
           <thead className="text-base text-white uppercase bg-bluePrimary">
             <tr>
               <th scope="col" className="px-6 py-3">
