@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
 import IconBahr from "./../../../Assets/Images/Group 4.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
+
+  const [isHeroBgOn, setIsHeroBgOn] = useState(true);
+
+  const matches = useLocation();
+  useEffect(() => {
+    if (matches.pathname !== "/") {
+      setIsHeroBgOn(false);
+    } else {
+      setIsHeroBgOn(true);
+    }
+  }, [matches]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -27,9 +38,8 @@ const Navbar = () => {
   ];
   return (
     <div
-      className={`w-full h-20 transition-all duration-300 bg-white/40 backdrop-blur-md sticky top-0 left-0 z-50 ${
-        isFixed && "fixed"
-      }`}
+      className={`w-full h-20 
+      ${isHeroBgOn ? "" : "bg-white/40 backdrop-blur-md "} z-50`}
     >
       <div className="width-handler h-full border-2 flex-row-all-center ">
         <img src={IconBahr} alt="Logo" className="h-12" />
