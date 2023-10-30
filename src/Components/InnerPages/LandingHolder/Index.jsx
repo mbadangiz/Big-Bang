@@ -10,10 +10,8 @@ import { LandingHeroSection } from "./LandingHeroSection/LandingHeroSection";
 const LandingHolder = () => {
   return (
     <>
-      <div className="w-full  bg-heroSectoin">
-        <LandingHeroSection />
-        <ServicesSection />
-      </div>
+      <LandingHeroSection />
+      <ServicesSection />
       <CategorySection />
       <LandingPopularCoursesSection />
       <LandingHistorySection />

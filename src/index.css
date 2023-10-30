@@ -9,6 +9,9 @@
   .flex-row-all-center {
     @apply flex flex-row flex-wrap justify-center items-center content-center;
   }
+  .flex-col-all-center {
+    @apply flex flex-col justify-center items-center content-center;
+  }
   .artcileDeailtCardsSettings {
     @apply w-full bg-white rounded-lg py-6 px-11;
   }
@@ -35,8 +38,12 @@
   }
   .bg-heroSectoin {
     background-image: url("./Img/bg-heroSection.png");
-    background-size: 100% 950px;
+    background-size: 100% 1000px;
+    background-repeat: no-repeat;
     background-position: 0 0;
+  }
+  .vertical-text {
+    writing-mode: vertical-lr;
   }
 }
 * {
