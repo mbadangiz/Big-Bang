@@ -9,6 +9,17 @@
   .flex-row-all-center {
     @apply flex flex-row flex-wrap justify-center items-center content-center;
   }
+  .artcileDeailtCardsSettings {
+    @apply w-full bg-white rounded-lg py-6 px-11;
+  }
+  .commentRepley {
+    @apply before:w-[36px] before:h-1 before:bg-grayDetail/30 before:block
+    before:absolute before:top-1/2  before:-right-[36px];
+  }
+  .cardsDefaultSettings {
+    @apply shadow-md hover:shadow-xl bg-white rounded-2xl p-2.5 transition-all 
+    border-[1px] border-solid border-[#efefef] duration-300 cursor-pointer;
+  }
 }
 
 @layer utilities {
@@ -30,8 +41,6 @@
   border: 0;
   box-sizing: border-box;
   font-family: "KalamehWeb-Regular";
-  direction: rtl;
-  direction: rtl;
 }
 textarea,
 input {

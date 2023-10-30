@@ -18,6 +18,7 @@ export default {
         300: "300px",
         350: "350px",
         375: "375px",
+        400: "400px",
         450: "540px",
       },
       fontSize: {
