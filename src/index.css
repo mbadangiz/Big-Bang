@@ -118,7 +118,7 @@ input[type="number"] {
 .react-calendar {
   border: 3px solid #d9d9d9;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .react-calendar abbr {
@@ -126,19 +126,19 @@ input[type="number"] {
 }
 
 .react-calendar__navigation__label:hover {
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar__navigation__label:active {
   background: #406dd5;
   color: white;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar__navigation__label::after {
   background: #406dd5;
   color: white;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar__decade-view__years__year:active {
@@ -147,12 +147,12 @@ input[type="number"] {
 }
 
 .react-calendar__navigation__arrow {
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar__navigation__arrow:active {
   background: #406dd5;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar__navigation__next-button {
@@ -161,31 +161,31 @@ input[type="number"] {
 
 .react-calendar .react-calendar__tile:active {
   background: #406dd5;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar .react-calendar__tile:hover {
-  border-radius: 7px;
+  border-radius: 12px;
 }
 
 .react-calendar .react-calendar__tile:active abbr {
   color: white;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar .react-calendar__tile:focus {
   background: #406dd5;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar__tile--now {
   background: rgb(64 109 213);
   color: white;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .react-calendar__tile--now:active {
   background: #406dd5;
   color: white;
-  border-radius: 8px;
+  border-radius: 12px;
 }

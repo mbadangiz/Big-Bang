@@ -15,9 +15,9 @@ const PanelDashboardCalendar = () => {
           DashboardItemTitle="تقویم"
         />
       </div>
-      <div className="rounded-[15px] px-[14px] w-full h-5/6">
+      <div className="rounded-[15px] w-full h-5/6">
         <Calendar
-          defaultValue={new Date()}
+          activeStartDate={new Date()}
           calendarType="islamic"
           locale="fa"
         />
