@@ -1,6 +1,7 @@
 import { data } from "autoprefixer";
 import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/LandingSectionsTitle";
 import SampleImage from "./../../../../Assets/Image/sampleImage.png";
+import { ViewMoreBtn } from "../../../Common/ViewMoreBtn/ViewMore";
 
 const LandingArticlesNewsSection = () => {
   return (
@@ -16,7 +17,10 @@ const LandingArticlesNewsSection = () => {
         <div className="w-1 h-full bg-black/30 rounded-md"></div>
         <ArticleAndNewsWrapper title={"اخبار"} />
       </div>
-      <div>view More</div>
+      <ViewMoreBtn
+        text={"مشاهده ی کامل اخبار و مقالات"}
+        to={"/ArticleAndNews"}
+      />
     </div>
   );
 };

@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/LandingSectionsTitle";
 import { CourseCard } from "../../CourseCard/CourseCard";
 import ImageSample from "./../../../../Assets/Image/sampleImage.png";
+import { ViewMoreBtn } from "../../../Common/ViewMoreBtn/ViewMore";
 const LandingPopularCoursesSection = () => {
   const list = [
     {
@@ -48,6 +50,7 @@ const LandingPopularCoursesSection = () => {
           return <CourseCard key={course.id} data={course} />;
         })}
       </div>
+      <ViewMoreBtn text={"مشاهده ی همه دوره ها"} to={"/Courses"} />
     </div>
   );
 };
