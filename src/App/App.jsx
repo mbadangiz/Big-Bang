@@ -54,14 +54,12 @@ function App() {
       element: <PanelHolder />,
       children: [
         { path: "/User/Panel/Dashboard", element: <PanelDashboard /> },
-
         { path: "/User/Panel/MyCoursesList", element: <MyCoursesList /> },
       ],
     },
     { path: "/test", element: <Test /> },
     { path: "/Profile", element: <UserPanel /> },
     { path: "*", element: <Error404 /> },
-    { path: "*", element: <Page404 /> },
   ]);
 
   return <RouterProvider router={router} />;
