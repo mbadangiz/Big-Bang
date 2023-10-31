@@ -1,5 +1,7 @@
+import { CourseDetails } from "./CourseDetails/CourseDetails";
+
 const CourseDetailsHolder = () => {
-  return <div>CourseDetailsHolder</div>;
+  return <CourseDetails />;
 };
 
 export { CourseDetailsHolder };
