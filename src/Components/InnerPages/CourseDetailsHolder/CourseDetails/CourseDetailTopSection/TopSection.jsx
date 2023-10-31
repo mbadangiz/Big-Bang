@@ -1,6 +1,7 @@
 import { data } from "browserslist";
 import React from "react";
-
+import ImgTemp from "./../../../../../Assets/Image/sampleImage.png";
+import { TomanLogo } from "../../../../Common/TomanLogo/TomanLogo";
 const TopSection = ({ info }) => {
   const information = [
     {
@@ -41,21 +42,21 @@ const TopSection = ({ info }) => {
             میتوانید به شکل کامل با tailwind آشنا شوید.
           </p>
           <div className="flex mt-16 mb-5 relative justify-between items-center">
-            <div className="w-[297px] h-[57px] rounded-[12px] bg-[#4376EE] text-[20px] font-semibold text-white flex items-center gap-x-7">
-              <i className="fi fi-rr-shopping-cart flex px-3"></i>
-              <h3 className="text-center">افزودن به سبد خرید</h3>
+            <div className="w-[250px] h-[57px] rounded-[12px] bg-[#4376EE] font-semibold text-white flex-row-all-center gap-3">
+              <i className="fi fi-rr-shopping-cart relative top-1.5 text-2xl"></i>
+              <h3 className="text-lg">افزودن به سبد خرید</h3>
             </div>
-            <div className="flex gap-x-2 text-2xl">
-              <h2>566,000</h2>
-              <p className="text-bluePrimary">تومان</p>
+            <div className=" text-2xl flex-row-all-center gap-2">
+              <TomanLogo />
+              <h2 className="f-bold text-bluePrimary">566,000</h2>
             </div>
           </div>
         </div>
         <div className="m-auto">
           <img
-            src="./img/2.jpg"
+            src={ImgTemp}
             alt=""
-            className="w-[420px] h-[290px] inline-block rounded-[12px]"
+            className="h-[215px] inline-block rounded-[12px]"
           />
         </div>
       </div>
