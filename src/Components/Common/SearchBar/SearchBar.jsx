@@ -99,12 +99,10 @@ const SearchBar = ({ data, ControlData }) => {
     <div>
       <input
         type="text"
-        value={searchValue}
         onChange={(e) => {
-          setSearchValue(e.target.value);
           ControlData(
             articlesList.filter((items) =>
-              items.articleTitle.toLowerCase().includes(searchValue.toLowerCase)
+              items.articleTitle.toLowerCase().includes(e.target.value)
             )
           );
         }}
