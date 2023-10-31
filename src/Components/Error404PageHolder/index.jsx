@@ -2,8 +2,11 @@ import Style from "./index.module.css";
 
 import Error404ImageBackground from "../../Assets/Images/Error404/Background/Error404ImageBackground.png";
 import { BlueButton } from "../Common/Buttons/BlueButton";
+import { useNavigate } from "react-router";
 
 const Error404PageHolder = () => {
+  const Navigate = useNavigate();
+
   return (
     <div
       className={`${Style.Error404PageBackground} w-full h-screen grid grid-cols-12 gap-4 px-6 pt-6 pb-60`}
@@ -32,7 +35,10 @@ const Error404PageHolder = () => {
 
       <div className="col-span-4 h-[100px]"></div>
       <div className="col-span-4 h-[100px]">
-        <BlueButton buttonText="بازگشت به صفحه اصلی" />
+        <BlueButton
+          buttonText="بازگشت به صفحه اصلی"
+          ClickHandler={() => Navigate("/")}
+        />
       </div>
       <div className="col-span-4 h-[100px]"></div>
     </div>

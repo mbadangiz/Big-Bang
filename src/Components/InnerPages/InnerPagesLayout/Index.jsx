@@ -8,7 +8,7 @@ const InnerPagesLayout = () => {
   const [isHeroBgOn, setIsHeroBgOn] = useState(false);
   const matches = useLocation();
   useEffect(() => {
-    if (matches.pathname === "/") {
+    if (matches.pathname === "/" || matches.pathname.includes("/User")) {
       setIsHeroBgOn(true);
     } else {
       setIsHeroBgOn(false);
