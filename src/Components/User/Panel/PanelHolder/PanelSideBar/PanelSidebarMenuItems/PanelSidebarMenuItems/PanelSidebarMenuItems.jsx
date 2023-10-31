@@ -1,10 +1,12 @@
 // Component module style import
+import { NavLink } from "react-router-dom";
 import Style from "./PanelSidebarMenuItems.module.css";
 
 const PanelSidebarMenuItems = () => {
   return (
     <ul>
-      <li
+      <NavLink
+        to={"Dashboard"}
         className={`${Style.SidebarMenuItems} my-1  w-full h-[50px] px-[9px] py-[4px] flex justify-between `}
       >
         <div className="w-[40px] h-[40px] rounded-md py-[2.5px] px-[5.5px]">
@@ -13,9 +15,10 @@ const PanelSidebarMenuItems = () => {
         <div className="w-full mr-5 h-[45px]">
           <h2 className="text-[20px] text-[#969696] leading-[36px]">داشبورد</h2>
         </div>
-      </li>
+      </NavLink>
 
-      <li
+      <NavLink
+        to={"CoursesList"}
         className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
       >
         <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
@@ -26,9 +29,10 @@ const PanelSidebarMenuItems = () => {
             لیست دوره ها
           </h2>
         </div>
-      </li>
+      </NavLink>
 
-      <li
+      <NavLink
+        to={"MyCoursesList"}
         className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
       >
         <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
@@ -39,9 +43,9 @@ const PanelSidebarMenuItems = () => {
             دوره های من
           </h2>
         </div>
-      </li>
+      </NavLink>
 
-      <li
+      {/* <li
         className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
       >
         <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
@@ -52,9 +56,10 @@ const PanelSidebarMenuItems = () => {
             سبد خرید
           </h2>
         </div>
-      </li>
+      </li> */}
 
-      <li
+      <NavLink
+        to={"ChangePassword"}
         className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
       >
         <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
@@ -65,9 +70,10 @@ const PanelSidebarMenuItems = () => {
             تغییر رمز
           </h2>
         </div>
-      </li>
+      </NavLink>
 
-      <li
+      <NavLink
+        to={"EditProfile"}
         className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
       >
         <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
@@ -78,7 +84,7 @@ const PanelSidebarMenuItems = () => {
             ویرایش پروفایل
           </h2>
         </div>
-      </li>
+      </NavLink>
     </ul>
   );
 };

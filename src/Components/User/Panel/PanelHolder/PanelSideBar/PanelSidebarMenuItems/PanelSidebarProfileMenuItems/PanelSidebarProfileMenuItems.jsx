@@ -3,13 +3,15 @@ import Style from "./PanelSidebarProfileMenuItems.module.css";
 
 // Sidebar Profile Picture import
 import UserProfilePicture from "../../../../../../../Assets/Images/Panel/User/UserProfilePicture/UserProfilePicture.jpg";
+import { NavLink } from "react-router-dom";
 
 const PanelSidebarProfileMenuItems = () => {
   return (
     <div className="border-2 border-solid border-transparent h-full relative">
       <div>
         <ul>
-          <li
+          <NavLink
+            to={"/"}
             className={`${Style.SidebarProfileMenuItem} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
           >
             <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
@@ -20,7 +22,7 @@ const PanelSidebarProfileMenuItems = () => {
                 خروج از پنل
               </h2>
             </div>
-          </li>
+          </NavLink>
 
           {/* Sidebar Profile Picture */}
           <li

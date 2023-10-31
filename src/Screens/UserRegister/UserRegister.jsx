@@ -5,4 +5,4 @@ const UserRegister = () => {
   return <RegisterHolder />;
 };
 
-export default UserRegister;
+export { UserRegister };
