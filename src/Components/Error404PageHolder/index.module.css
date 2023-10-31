@@ -1,0 +1,11 @@
+.Error404PageBackground {
+  background: url("../../Assets/Images/Error404/Background/Error404PageBackground.png")
+    50% 50% no-repeat;
+  background-size: cover;
+}
+
+.Error404PageGif {
+  background: url("../../Assets/Gifs/Error404Page/Error404PageGif.gif") 51% 48%
+    no-repeat;
+  background-size: 267%;
+}

@@ -6,7 +6,7 @@ import { ArticleAndNews } from "../Screens/ArticleAndNews/ArticleAndNews";
 import { ArticleAndNewsDetail } from "../Screens/ArticleAndNewsDetail/ArticleAndNewsDetail";
 import { Courses } from "../Screens/Courses/Courses";
 import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
-import { Page404 } from "../Screens/Page404/Page404";
+import { Error404PageHolder } from "../Components/Error404PageHolder";
 import { UserPanel } from "../Screens/UserPanel/UserPanel";
 import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
 import { LoginHolder } from "../Components/User/LoginRegisterForgetpass/LoginHolder/index";
@@ -45,7 +45,7 @@ function App() {
     },
     { path: "/test", element: <Test /> },
     { path: "/Profile", element: <UserPanel /> },
-    { path: "*", element: <Page404 /> },
+    { path: "*", element: <Error404PageHolder /> },
   ]);
 
   return <RouterProvider router={router} />;
