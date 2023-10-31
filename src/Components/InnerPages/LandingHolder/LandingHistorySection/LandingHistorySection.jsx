@@ -1,5 +1,5 @@
+import CountUp from "react-countup/";
 import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/LandingSectionsTitle";
-
 const LandingHistorySection = () => {
   const historyList = [
     { id: 1, imgPath: "studenst.png", title: "دانشجو", count: 150 },
@@ -28,7 +28,9 @@ const HistoryItems = ({ data }) => {
   return (
     <div className="text-center text-white">
       <img src={`./Img/${imgPath}`} className="w-16 mx-auto" alt="" />
-      <p className="text-6xl f-bold mt-2">{count}</p>
+      <p className="text-6xl f-bold mt-2">
+        <CountUp end={count} duration={5} />
+      </p>
       <p className="mt-2">{title}</p>
     </div>
   );

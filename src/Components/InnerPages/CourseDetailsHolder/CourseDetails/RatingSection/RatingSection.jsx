@@ -1,17 +1,31 @@
 import React, { useState, Component } from "react";
-import { RatingComponent } from "react-rating-emoji";
-import "react-rating-emoji/dist/index.css";
+import Rating from "react-rating";
 
 const RatingSection = () => {
-  const [rating, setRating] = useState(0);
-  const handleRating = (newRating) => {
-    setRating(newRating);
-  };
+  const [rate, setRate] = useState(0);
 
   return (
-    <div className="shadow-md rounded-[12px] mb-4">
-      <div className="p-3">
-        <RatingComponent rating={rating} onClick={handleRating} />{" "}
+    <div className="shadow-md rounded-[12px] mb-4 text-center">
+      <p>چه امتیازی برای این دوره میدهید؟</p>
+
+      <div className="flex-row-all-center p-4">
+        {rate ? <span> 5 / {rate} </span> : ""}
+        <Rating
+          className="mx-2"
+          initialRating={rate}
+          start={0}
+          stop={5}
+          step={1}
+          emptySymbol={
+            <i className="ml-1 fi fi-rr-star  text-lg relative top-0.5  opacity-50"></i>
+          }
+          fullSymbol={
+            <i className="ml-1 fi fi-sr-star text-lg  text-yellow-400 relative top-0.5"></i>
+          }
+          onChange={(value) => {
+            setRate(value);
+          }}
+        />
       </div>
     </div>
   );
