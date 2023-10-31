@@ -15,6 +15,7 @@ import { ForgetpassChangepassHolder } from "../Components/User/LoginRegisterForg
 import { PanelHolder } from "../Components/User/Panel/PanelHolder";
 import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/index";
 import { PanelEditProfile } from "../Components/User/Panel/PanelEditProfile";
+import { PanelChangePassword } from "../Components/User/Panel/PanelChangePassword";
 
 function App() {
   const router = createBrowserRouter([
@@ -51,6 +52,10 @@ function App() {
       children: [
         { path: "/User/Panel/Dashboard", element: <PanelDashboard /> },
         { path: "/User/Panel/EditProfile", element: <PanelEditProfile /> },
+        {
+          path: "/User/Panel/ChangePassword",
+          element: <PanelChangePassword />,
+        },
       ],
     },
     { path: "/test", element: <Test /> },
