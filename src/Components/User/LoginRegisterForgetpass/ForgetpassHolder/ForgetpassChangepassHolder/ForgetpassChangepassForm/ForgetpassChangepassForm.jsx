@@ -27,7 +27,7 @@ const ForgetpassChangepassForm = () => {
         .then(() =>
           SuccessToastify("درخواست تغییر رمز شما با موفقیت انجام شده است")
         )
-        .then(() => Navigate("/User/Login"));
+        .then(() => setTimeout(() => Navigate("/User/Login"), 4000));
     } catch (error) {
       ErrorToastify("متاسفانه درخواست تغییر رمز شما با مشکل مواجهه شده است");
     }
@@ -36,7 +36,7 @@ const ForgetpassChangepassForm = () => {
 
   return (
     <div>
-      <ToastContainer />
+      <ToastContainer rtl />
       <h1 className="text-[30px]  text-bluePrimary text-center">
         ورود کاربران
       </h1>

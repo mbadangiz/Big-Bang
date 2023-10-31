@@ -28,7 +28,9 @@ const ForgetpassForm = () => {
           value
         )
         .then(() => SuccessToastify("در خواست شما با موفقیت انجام شده است"))
-        .then(() => Navigate("/User/Forgetpass/Changepass"));
+        .then(() =>
+          setTimeout(() => Navigate("/User/Forgetpass/Changepass"), 4000)
+        );
     } catch (error) {
       ErrorToastify("درخواست شما با مشکل مواجه شده است");
     }
@@ -37,7 +39,7 @@ const ForgetpassForm = () => {
 
   return (
     <div>
-      <ToastContainer />
+      <ToastContainer rtl />
       <div className="mx-auto">
         <h1 className="text-[30px]  text-center text-bluePrimary">
           ورود کاربران

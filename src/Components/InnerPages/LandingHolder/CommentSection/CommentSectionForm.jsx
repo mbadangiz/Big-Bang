@@ -32,7 +32,7 @@ const CommentSectionForm = () => {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer rtl />
       <div
         className={`${Style.CommentSectionBackground} border-2 border-solid border-transparent w-full h-[702px]  bg-primary`}
       >
