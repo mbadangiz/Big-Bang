@@ -6,7 +6,6 @@ import { ArticleAndNews } from "../Screens/ArticleAndNews/ArticleAndNews";
 import { ArticleAndNewsDetail } from "../Screens/ArticleAndNewsDetail/ArticleAndNewsDetail";
 import { Courses } from "../Screens/Courses/Courses";
 import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
-import { UserPanel } from "../Screens/UserPanel/UserPanel";
 import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
 import { Error404 } from "../Screens/Error404/Error404";
 import { UserLogin } from "../Screens/UserLogin/UserLogin";
@@ -65,7 +64,6 @@ function App() {
     },
 
     { path: "/test", element: <Test /> },
-    { path: "/Profile", element: <UserPanel /> },
     { path: "*", element: <Error404 /> },
   ]);
 
