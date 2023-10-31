@@ -6,13 +6,13 @@ import { ArticleAndNews } from "../Screens/ArticleAndNews/ArticleAndNews";
 import { ArticleAndNewsDetail } from "../Screens/ArticleAndNewsDetail/ArticleAndNewsDetail";
 import { Courses } from "../Screens/Courses/Courses";
 import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
-import { Error404PageHolder } from "../Components/Error404PageHolder";
 import { UserPanel } from "../Screens/UserPanel/UserPanel";
 import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
 import { LoginHolder } from "../Components/User/LoginRegisterForgetpass/LoginHolder/index";
 import { RegisterHolder } from "../Components/User/LoginRegisterForgetpass/RegisterHolder/index";
 import { ForgetpassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/index";
 import { ForgetpassChangepassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/ForgetpassChangepassHolder/index";
+import { Error404 } from "../Screens/Error404/Error404";
 
 function App() {
   const router = createBrowserRouter([
@@ -45,7 +45,7 @@ function App() {
     },
     { path: "/test", element: <Test /> },
     { path: "/Profile", element: <UserPanel /> },
-    { path: "*", element: <Error404PageHolder /> },
+    { path: "*", element: <Error404 /> },
   ]);
 
   return <RouterProvider router={router} />;
