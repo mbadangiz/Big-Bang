@@ -1,22 +1,32 @@
+import { data } from "browserslist";
 import React from "react";
 
 const TopSection = ({ info }) => {
   const information = [
     {
       id: 1,
+      title: "استاد دوره",
       info: "استاد بحر",
+      icon: "fi fi-rs-chalkboard-user",
+      //
     },
     {
       id: 2,
+      title: "وضعیت دوره",
       info: "درحال برگذاری",
+      icon: "fi fi-rr-play-circle",
     },
     {
+      icon: "fi fi-rr-graduation-cap",
+      title: "تعداد دانشجو ",
       id: 3,
       info: 198,
     },
 
     {
       id: 3,
+      title: "زمان دوره",
+      icon: "fi fi-rr-clock",
       info: "1402/01/01",
     },
   ];
@@ -50,29 +60,22 @@ const TopSection = ({ info }) => {
         </div>
       </div>
       <div className="flex justify-evenly">
-        <div className=" p-3 flex gap-x-2">
-          <i className="fi fi-rs-chalkboard-user text-bluePrimary text-2xl "></i>
-          <p> استاد دوره:</p>
-          <p>{information[0].info}</p>
-        </div>
-        <div className=" p-3 flex gap-x-2">
-          <i className="fi fi-rr-play-circle text-bluePrimary text-2xl "></i>
-          <p> وضعیت دوره :</p>
-          <p>{information[1].info}</p>
-        </div>
-        <div className=" p-3 flex gap-x-2">
-          <i className="fi fi-rr-graduation-cap text-bluePrimary text-2xl"></i>
-          <p> تعداد دانشجو :</p>
-          <p>{information[2].info}</p>
-        </div>
-        <div className=" p-3 flex gap-x-2">
-          <i className="fi fi-rr-clock text-bluePrimary text-2xl"></i>
-          <p> زمان دوره :</p>
-          <p>{information[3].info}</p>
-        </div>
+        {information.map((items) => {
+          return <InfoItems data={items} key={items.id} />;
+        })}
       </div>
     </div>
   );
 };
 
 export { TopSection };
+const InfoItems = ({ data }) => {
+  const { id, info, icon, title } = data;
+  return (
+    <div className=" p-3 flex gap-x-2">
+      <i className={`${icon} text-bluePrimary text-2xl`}></i>
+      <p> {title} : </p>
+      <p>{info}</p>
+    </div>
+  );
+};
