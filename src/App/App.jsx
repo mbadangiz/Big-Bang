@@ -6,15 +6,18 @@ import { ArticleAndNews } from "../Screens/ArticleAndNews/ArticleAndNews";
 import { ArticleAndNewsDetail } from "../Screens/ArticleAndNewsDetail/ArticleAndNewsDetail";
 import { Courses } from "../Screens/Courses/Courses";
 import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
-import { UserPanel } from "../Screens/UserPanel/UserPanel";
+
 import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
-import { ForgetpassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/index";
-import { ForgetpassChangepassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/ForgetpassChangepassHolder/index";
+
 import { Error404 } from "../Screens/Error404/Error404";
 import { UserLogin } from "../Screens/UserLogin/UserLogin";
-import UserRegister from "../Screens/UserRegister/UserRegister";
+import { UserRegister } from "../Screens/UserRegister/UserRegister";
 import { UserForgetpass } from "../Screens/UserForgetpass/UserForgetpass";
 import { UserChangepass } from "../Screens/UserChangepass/UserChangepass";
+import { PanelHolder } from "../Components/User/Panel/PanelHolder";
+import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/index";
+import { PanelEditProfile } from "../Components/User/Panel/PanelEditProfile";
+import { PanelChangePassword } from "../Components/User/Panel/PanelChangePassword";
 
 function App() {
   const router = createBrowserRouter([
@@ -45,8 +48,19 @@ function App() {
         },
       ],
     },
+    {
+      path: "/User/Panel",
+      element: <PanelHolder />,
+      children: [
+        { path: "/User/Panel/Dashboard", element: <PanelDashboard /> },
+        { path: "/User/Panel/EditProfile", element: <PanelEditProfile /> },
+        {
+          path: "/User/Panel/ChangePassword",
+          element: <PanelChangePassword />,
+        },
+      ],
+    },
     { path: "/test", element: <Test /> },
-    { path: "/Profile", element: <UserPanel /> },
     { path: "*", element: <Error404 /> },
   ]);
 
