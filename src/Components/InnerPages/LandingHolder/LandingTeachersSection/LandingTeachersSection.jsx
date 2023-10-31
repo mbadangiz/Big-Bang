@@ -4,25 +4,25 @@ const LandingTeachersSection = () => {
   const teacherList = [
     {
       id: 1,
-      fullName: "یه اسمی",
+      fullName: "یه بابایی",
       occupation: "یه چیزایی بلده داداشمون",
       img: "img-sampleMasters.png",
     },
     {
       id: 2,
-      fullName: "یه اسمی",
+      fullName: "یه بابایی",
       occupation: "یه چیزایی بلده داداشمون",
       img: "img-sampleMasters.png",
     },
     {
       id: 3,
-      fullName: "یه اسمی",
+      fullName: "یه بابایی",
       occupation: "یه چیزایی بلده داداشمون",
       img: "img-sampleMasters.png",
     },
     {
       id: 4,
-      fullName: "یه اسمی",
+      fullName: "یه بابایی",
       occupation: "یه چیزایی بلده داداشمون",
       img: "img-sampleMasters.png",
     },
@@ -58,7 +58,7 @@ const TeachersCard = ({ data }) => {
       >
         <img src={`./Img/${img}`} className="w-full " alt="" />
       </div>
-      <div className="w-full h-4/6 bg-bluePrimary  rounded-[30px] pt-[84px] px-3 text-center space-y-2">
+      <div className="w-full h-4/6 bg-bluePrimary  rounded-[50px]  pt-[84px] px-3 text-center space-y-2">
         <h2 className="f-bold text-lg"> {fullName}</h2>
         <p className="opacity-75 text-sm">{occupation}</p>
       </div>

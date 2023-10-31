@@ -8,7 +8,7 @@ const HeroSectionLeftSide = () => {
     { id: 4, type: "facebook", to: "" },
   ];
   return (
-    <div className="w-1/2 text-center flex-row-all-center gap-20">
+    <div className="w-1/2 text-center flex-row-all-center  justify-end gap-10">
       <img
         src={Img}
         className="h-450 rounded-3xl outline-4 outline-bluePrimary outline p-2"
@@ -34,7 +34,7 @@ const SocialMedia = ({ data }) => {
   const { id, type, to } = data;
   return (
     <Link to={to}>
-      <div className="opacity-75 hover:text-bluePrimary hover:opacity-100 cursor-pointer">
+      <div className=" hover:text-bluePrimary  cursor-pointer">
         <i className={`text-2xl fi fi-brands-${type}`}></i>
       </div>
     </Link>

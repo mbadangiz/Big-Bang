@@ -1,6 +1,7 @@
 import { Element } from "react-scroll";
 import { ArticleCards } from "../../../ArticleCards/ArticleCards";
 import ImgTemp from "./../../../../../Assets/Image/sampleImage.png";
+import { ArticleCardSmall } from "../../../ArticleCardSmall/ArticleCardSmall";
 const SimilarArticles = () => {
   const articleList = [
     {
@@ -41,7 +42,7 @@ const SimilarArticles = () => {
       </div>
       <div className="w-full flex-row-all-center">
         {articleList.map((items) => {
-          return <LandinArticleCard key={items.id} data={items} />;
+          return <ArticleCardSmall key={items.id} data={items} />;
         })}
       </div>
     </Element>
@@ -49,31 +50,3 @@ const SimilarArticles = () => {
 };
 
 export { SimilarArticles };
-const LandinArticleCard = ({ data }) => {
-  const { id, img, articleTitle, date } = data;
-  return (
-    <div
-      className="cardsDefaultSettings w-280 h-[200px] shadow-none  
-      border-2 border-gray-400/50 border-solid mx-auto p-0 space-y-0"
-    >
-      <img
-        src={img}
-        className="w-full h-4/6 rounded-t-[20px] object-fill"
-        alt=""
-      />
-      <div className=" w-full h-2/6 text-right px-2 pt-0.5 space-y-2">
-        <h2 className="f-bold text-sm">{articleTitle}</h2>
-        <div className="w-full flex-row-all-center  justify-between">
-          <div className="flex-row-all-center">
-            <i className="fi fi-rr-clock relative top-0.5"></i>
-            <p className="text-sm">{date}</p>
-          </div>
-          <div>
-            <i className="fi fi-sr-star relative top-0.75"></i>
-            <span className="ml-1">2.5</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
