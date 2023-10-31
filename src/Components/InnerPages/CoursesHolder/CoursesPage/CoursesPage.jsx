@@ -1,3 +1,4 @@
+import SearchBar from "../../../Common/SearchBar/SearchBar";
 import { CourseCard } from "../../CourseCard/CourseCard";
 import ImageSample from "./../../../../Assets/Image/sampleImage.png";
 import { CoursesAccardion } from "./CoursesAccardion/CoursesAccardion";
@@ -63,7 +64,8 @@ const CoursesPage = () => {
 
   return (
     <div className="w-full width-handler">
-      <InputSearch />
+      {/* <InputSearch /> */}
+      <SearchBar />
       <div className=" flex justify-center gap-4 width-handler">
         <CoursesAccardion />
         <div>

@@ -32,7 +32,7 @@ const TopSection = ({ info }) => {
     },
   ];
   return (
-    <div className="p-3 rounded-[12px] shadow-md">
+    <div className="p-3 rounded-[12px] bg-white ">
       <div className="flex border-b-2 border-solid border-gray-300">
         <div className="">
           <h1 className="text-[27px] f-bold">اموزش Tailwindcss</h1>

@@ -5,7 +5,7 @@ const RatingSection = () => {
   const [rate, setRate] = useState(0);
 
   return (
-    <div className="shadow-md rounded-[12px] mb-4 text-center">
+    <div className=" rounded-[12px] mb-4 text-center bg-white">
       <p>چه امتیازی برای این دوره میدهید؟</p>
 
       <div className="flex-row-all-center p-4">

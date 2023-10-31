@@ -1,6 +1,6 @@
 const ArticleNewsCourseAside = ({ children }) => {
   return (
-    <div className="w-300 bg-divider rounded-2xl sticky top-[100px]  border-2 border-solid border-grayDetail/10">
+    <div className="w-300 bg-divider rounded-2xl sticky top-4  border-2 border-solid border-grayDetail/10">
       {children}
     </div>
   );

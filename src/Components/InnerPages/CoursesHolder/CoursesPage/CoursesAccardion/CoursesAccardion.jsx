@@ -4,7 +4,7 @@ import "react-range-slider-input/dist/style.css";
 
 const CoursesAccardion = () => {
   return (
-    <ul className="w-[300px] rounded-[15px] shadow-md bg-[#F6F6F6] h-[max-content]">
+    <ul className="w-[300px] rounded-[15px]   h-[max-content] sticky top-5   border-2 border-solid border-grayDetail/10">
       <li className="py-3 w-[93%] m-auto text-[#635B5B] text-[16px] font-bold mb-1 ">
         <input type="checkbox" id="d0" name="r" className="hidden" />
         <label htmlFor="d0" className="px-6">

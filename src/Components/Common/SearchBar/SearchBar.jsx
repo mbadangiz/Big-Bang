@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ImgTemp from "./../../../Assets/Image/sampleImage.png";
+
 const articlesList = [
   {
     id: 1,
@@ -92,7 +93,6 @@ const articlesList = [
     date: "29 شهریور 1402",
   },
 ];
-
 const SearchBar = ({ data, ControlData }) => {
   const [searchValue, setSearchValue] = useState("");
   return (

@@ -6,8 +6,12 @@ import { LandingTeachersSection } from "./LandingTeachersSection/LandingTeachers
 import { CategorySection } from "./LandingCategorySection/CategorySection";
 import { LandingArticlesNewsSection } from "./LandingArticlesNewsSection/LandingArticlesNewsSection";
 import { LandingHeroSection } from "./LandingHeroSection/LandingHeroSection";
+import { useEffect } from "react";
 
 const LandingHolder = () => {
+  useEffect(() => {
+    document.body.style.background = "#fff";
+  }, []);
   return (
     <>
       <LandingHeroSection />

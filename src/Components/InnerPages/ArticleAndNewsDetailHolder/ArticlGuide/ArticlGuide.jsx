@@ -9,7 +9,7 @@ const ArticlGuide = () => {
   ];
   return (
     <div
-      className="w-1/4 sticky top-[100px] border-solid border-2
+      className="w-1/4 sticky top-4 border-solid border-2
        border-grayDetail/20 px-4 py-3 rounded-lg"
     >
       <h1 className="f-bold">راهنمای مقاله</h1>

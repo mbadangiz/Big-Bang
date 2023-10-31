@@ -11,10 +11,10 @@ const Accardion = ({ myClass, Acc_Title }) => {
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
   return (
-    <>
+    <div cla>
       <Accordion
         open={open === 1}
-        className="bg-[#D9DDE8] rounded-[8px] mt-3 mb-2 p-3"
+        className="bg-[#fff] rounded-[8px] mt-3 mb-2 p-3 "
       >
         <AccordionHeader onClick={() => handleOpen(1)} className="px-2">
           معرفی دوره
@@ -26,10 +26,7 @@ const Accardion = ({ myClass, Acc_Title }) => {
           dreams.
         </AccordionBody>
       </Accordion>
-      <Accordion
-        open={open === 2}
-        className="bg-[#D9DDE8] rounded-[8px] mb-2 p-3"
-      >
+      <Accordion open={open === 2} className="bg-[#fff] rounded-[8px] mb-2 p-3">
         <AccordionHeader onClick={() => handleOpen(2)} className="px-2">
           نصب و راه اندازی
         </AccordionHeader>
@@ -40,10 +37,7 @@ const Accardion = ({ myClass, Acc_Title }) => {
           dreams.
         </AccordionBody>
       </Accordion>
-      <Accordion
-        open={open === 3}
-        className="bg-[#D9DDE8] rounded-[8px] mb-2 p-3"
-      >
+      <Accordion open={open === 3} className="bg-[#fff] rounded-[8px] mb-2 p-3">
         <AccordionHeader onClick={() => handleOpen(3)} className="px-2">
           مفاهیم پایه
         </AccordionHeader>
@@ -54,7 +48,7 @@ const Accardion = ({ myClass, Acc_Title }) => {
           dreams.
         </AccordionBody>
       </Accordion>
-    </>
+    </div>
   );
 };
 
