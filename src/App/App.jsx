@@ -7,12 +7,19 @@ import { ArticleAndNewsDetail } from "../Screens/ArticleAndNewsDetail/ArticleAnd
 import { Courses } from "../Screens/Courses/Courses";
 import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
 import { UserPanel } from "../Screens/UserPanel/UserPanel";
+import { Page404 } from "../Screens/Page404/Page404";
 import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
-import { LoginHolder } from "../Components/User/LoginRegisterForgetpass/LoginHolder/index";
-import { RegisterHolder } from "../Components/User/LoginRegisterForgetpass/RegisterHolder/index";
 import { ForgetpassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/index";
 import { ForgetpassChangepassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/ForgetpassChangepassHolder/index";
 import { Error404 } from "../Screens/Error404/Error404";
+import { UserLogin } from "../Screens/UserLogin/UserLogin";
+import UserRegister from "../Screens/UserRegister/UserRegister";
+import { UserForgetpass } from "../Screens/UserForgetpass/UserForgetpass";
+import { UserChangepass } from "../Screens/UserChangepass/UserChangepass";
+import { PanelHolder } from "../Components/User/Panel/PanelHolder";
+import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/PanelDashboard";
+import { MyCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/MyCoursesList/MyCoursesList";
+import { PanelCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/PanelCoursesList/PanelCoursesList";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,16 +38,25 @@ function App() {
       path: "/User",
       element: <LoginRegisterForgetpassLayout />,
       children: [
-        { path: "/User/Login", element: <LoginHolder /> },
-        { path: "/User/Register", element: <RegisterHolder /> },
+        { path: "/User/Login", element: <UserLogin /> },
+        { path: "/User/Register", element: <UserRegister /> },
         {
           path: "/User/Forgetpass",
-          element: <ForgetpassHolder />,
+          element: <UserForgetpass />,
         },
         {
           path: "/User/Forgetpass/Changepass",
-          element: <ForgetpassChangepassHolder />,
+          element: <UserChangepass />,
         },
+      ],
+    },
+    {
+      path: "/User/Panel",
+      element: <PanelHolder />,
+      children: [
+        { path: "/User/Panel/Dashboard", element: <PanelDashboard /> },
+        { path: "/User/Panel/MyCoursesList", element: <MyCoursesList /> },
+        { path: "/User/Panel/CoursesList", element: <PanelCoursesList /> },
       ],
     },
     { path: "/test", element: <Test /> },

@@ -31,7 +31,7 @@ const LoginForm = () => {
 
   return (
     <div>
-      <ToastContainer />
+      <ToastContainer rtl />
       <h1 className="text-[30px] text-center text-bluePrimary">ورود کاربران</h1>
 
       <Formik
