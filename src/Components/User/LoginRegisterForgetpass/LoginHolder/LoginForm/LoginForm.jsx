@@ -8,12 +8,14 @@ import { BlueButton } from "../../../../Common/Buttons/BlueButton";
 import { UserLoginSchema } from "../../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserLoginSchema";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const Navigate = useNavigate();
 
   const onSubmit = async (value) => {
     setIsDisabled(true);
@@ -21,7 +23,8 @@ const LoginForm = () => {
     try {
       await axios
         .post("https://user1697223215770.requestly.dev/BigBangUserLogin", value)
-        .then(() => SuccessToastify("!خوش آمدید"));
+        .then(() => SuccessToastify("!خوش آمدید"))
+        .then(() => setTimeout(() => Navigate("/User/Panel/Dashboard"), 4000));
     } catch (error) {
       ErrorToastify("متاسفانه درخواست ورود شما با مشکل مواجه شده است");
     }

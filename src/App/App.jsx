@@ -9,9 +9,6 @@ import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
 
 import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
 
-import { UserPanel } from "../Screens/UserPanel/UserPanel";
-import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
-
 import { Error404 } from "../Screens/Error404/Error404";
 import { UserLogin } from "../Screens/UserLogin/UserLogin";
 import { UserRegister } from "../Screens/UserRegister/UserRegister";
@@ -21,7 +18,6 @@ import { PanelHolder } from "../Components/User/Panel/PanelHolder";
 import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/index";
 import { PanelEditProfile } from "../Components/User/Panel/PanelEditProfile";
 import { PanelChangePassword } from "../Components/User/Panel/PanelChangePassword";
-import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/PanelDashboard";
 import { MyCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/MyCoursesList/MyCoursesList";
 import { PanelCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/PanelCoursesList/PanelCoursesList";
 
@@ -70,7 +66,6 @@ function App() {
     },
 
     { path: "/test", element: <Test /> },
-    { path: "/Profile", element: <UserPanel /> },
     { path: "*", element: <Error404 /> },
   ]);
 
