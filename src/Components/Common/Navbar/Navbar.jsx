@@ -38,7 +38,7 @@ const Navbar = () => {
   return (
     <div
       className={`w-full h-20 
-      ${isHeroBgOn ? "" : "bg-white/40 backdrop-blur-md "} z-50 sticky top-0`}
+      ${isHeroBgOn ? "" : "bg-white/40 backdrop-blur-md "} z-50 `}
     >
       <div className="width-handler h-full border-2 flex-row-all-center ">
         <img src={IconBahr} alt="Logo" className="h-12" />
