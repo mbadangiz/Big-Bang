@@ -65,7 +65,6 @@ function App() {
     },
 
     { path: "/test", element: <Test /> },
-    { path: "/Profile", element: <UserPanel /> },
     { path: "*", element: <Error404 /> },
   ]);
 
