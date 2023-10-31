@@ -7,10 +7,7 @@ import { ArticleAndNewsDetail } from "../Screens/ArticleAndNewsDetail/ArticleAnd
 import { Courses } from "../Screens/Courses/Courses";
 import { CoursesDetails } from "../Screens/CoursesDetails/CoursesDetails";
 import { UserPanel } from "../Screens/UserPanel/UserPanel";
-import { Page404 } from "../Screens/Page404/Page404";
 import { LoginRegisterForgetpassLayout } from "../Components/User/LoginRegisterForgetpass/LoginRegisterForgetpassLayout/index";
-import { ForgetpassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/index";
-import { ForgetpassChangepassHolder } from "../Components/User/LoginRegisterForgetpass/ForgetpassHolder/ForgetpassChangepassHolder/index";
 import { Error404 } from "../Screens/Error404/Error404";
 import { UserLogin } from "../Screens/UserLogin/UserLogin";
 import { UserRegister } from "../Screens/UserRegister/UserRegister";
