@@ -1,3 +1,5 @@
+import { Tags } from "../../../../Common/Tages/Tages";
+
 const TagsContainer = ({ TagsList }) => {
   return (
     <div className="flex-row-all-center justify-start my-5 gap-4">
@@ -7,11 +9,5 @@ const TagsContainer = ({ TagsList }) => {
     </div>
   );
 };
-const Tags = ({ text }) => {
-  return (
-    <div className="text-[#333333]/80 cursor-pointer rounded-lg bg-graySilver h-9 flex-row-all-center px-5 py-0">
-      #{text}
-    </div>
-  );
-};
+
 export { TagsContainer };

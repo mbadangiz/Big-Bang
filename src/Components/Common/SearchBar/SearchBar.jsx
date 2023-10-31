@@ -96,17 +96,23 @@ const articlesList = [
 const SearchBar = ({ data, ControlData }) => {
   const [searchValue, setSearchValue] = useState("");
   return (
-    <div>
-      <input
-        type="text"
-        onChange={(e) => {
-          ControlData(
-            articlesList.filter((items) =>
-              items.articleTitle.toLowerCase().includes(e.target.value)
-            )
-          );
-        }}
-      />
+    <div className="w-full h-40 flex-row-all-center">
+      <div className="w-450 h-12  rounded-full relative">
+        <input
+          className="w-full h-full rounded-full bg-white border-2 border-solid border-grayDetail/20 pr-4 pl-12 text-sm 
+          focus:border-bluePrimary transition-all duration-150"
+          type="text"
+          onChange={(e) => {
+            ControlData(
+              articlesList.filter((items) =>
+                items.articleTitle.toLowerCase().includes(e.target.value)
+              )
+            );
+          }}
+          placeholder="عنوان مقاله ی مورد نظر خود را جست و جوی کنید..."
+        />
+        <i className="fi fi-br-search absolute top-[53%] left-4 -translate-y-1/2 text-xl text-grayDetail/30"></i>
+      </div>
     </div>
   );
 };
