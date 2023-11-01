@@ -1,4 +1,7 @@
 import { useRef } from "react";
+
+import Typewriter from "typewriter-effect";
+
 const HeroSectionRightSide = () => {
   const inputContainer = useRef(null);
   return (
@@ -9,10 +12,20 @@ const HeroSectionRightSide = () => {
         خوش آمدید
       </h1>
       <p className="text-justify my-5 opacity-90">
-        آکادمی کدنویسی بحر با افتخارات فراوان و سال ها تجربه آماده تدریس به روز
-        ترین روش های روز دنیا با اساتید حرفه ای است. بعد از گذراندن تمام دوره
-        های آموزشی و کارگاه ها حرفه ای برای شما عزیزان رزومه نوشته !خواهد تا به
-        راحتی بتوانید وارد بازار کار شوید. با خیالی راحت به ما اعتماد کنید
+        <Typewriter
+          options={{
+            strings: [
+              `آکادمی کدنویسی بحر با افتخارات فراوان و سال ها تجربه آماده تدریس به روز
+            ترین روش های روز دنیا با اساتید حرفه ای است. بعد از گذراندن تمام دوره
+            های آموزشی و کارگاه ها حرفه ای برای شما عزیزان رزومه نوشته !خواهد تا به
+            راحتی بتوانید وارد بازار کار شوید. با خیالی راحت به ما اعتماد کنید`,
+            ],
+            autoStart: true,
+            loop: true,
+            delay: 20,
+            deleteSpeed: 20,
+          }}
+        />
       </p>
       <div
         className="mt-20 w-full h-16  rounded-full
@@ -25,8 +38,12 @@ const HeroSectionRightSide = () => {
           className="w-1/5 h-full rounded-r-full bg-transparent
   text-center border-l-2 border-solid border-white f-bold text-lg text-white"
         >
-          <option value="">دوره</option>
-          <option value="">مقالات</option>
+          <option className="text-textBlack" value="">
+            دوره
+          </option>
+          <option className="text-textBlack" value="">
+            مقالات
+          </option>
         </select>
         <input
           type="text"

@@ -49,13 +49,13 @@ const Navbar = () => {
         </div>
         <div className="font-semibold text-base flex justify-end">
           <NavLink
-            href="#"
+            to="User/Register"
             className="bg-bluePrimary text-white rounded-full text-base flex-row-all-center h-10 px-6 ml-2"
           >
             ثبت نام
           </NavLink>
           <NavLink
-            href="#"
+            to="User/Login"
             className=" text-bluePrimary rounded-full text-base flex-row-all-center h-10 px-6  border-2 border-solid border-bluePrimary"
           >
             ورود
