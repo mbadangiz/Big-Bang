@@ -5,7 +5,7 @@ const HeroSectionRightSide = () => {
     <div className="w-1/2 h-max">
       <h1 className="f-bold text-6xl leading-normal">
         به آکادمی برنامه نویسی
-        <span className="f-bold mx-1 text-bluePrimary">بحر</span>
+        <span className="f-bold mx-3 text-bluePrimary">بحر</span>
         خوش آمدید
       </h1>
       <p className="text-justify my-5 opacity-90">

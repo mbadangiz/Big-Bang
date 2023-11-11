@@ -7,8 +7,9 @@ const Navbar = () => {
   const [isHeroBgOn, setIsHeroBgOn] = useState(true);
 
   const matches = useLocation();
+  const thisisLink = matches.pathname.includes("/User/");
   useEffect(() => {
-    if (matches.pathname !== "/" || matches.pathname.includes("/User")) {
+    if (matches.pathname !== "/") {
       setIsHeroBgOn(false);
     } else {
       setIsHeroBgOn(true);
