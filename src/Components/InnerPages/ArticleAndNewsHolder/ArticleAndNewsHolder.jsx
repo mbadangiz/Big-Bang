@@ -11,18 +11,14 @@ import {
 import { Tags } from "../../Common/Tages/Tages";
 
 const ArticleAndNewsHolder = () => {
-  const { articleData, setArticleData } = useArticleData();
-
   useEffect(() => {
     document.body.style.background = "#F5F7FA";
   }, []);
 
   return (
     <ArticleNewsCourseLayout
-      ControlData={setArticleData}
-      data={articleData}
       aside={<ArticleFilters />}
-      mainContents={<ArticleMainContent data={articleData} />}
+      mainContents={<ArticleMainContent />}
     />
   );
 };
