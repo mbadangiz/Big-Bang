@@ -1,7 +1,6 @@
 import instance from "../Interceptor/Interceptor";
 
 const SearchInCourses = async (searchQuery) => {
-  // console.log(searchQuery);
   try {
     const result = await instance.get(
       `/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=9&Query=${searchQuery}`

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { TomanLogo } from "../../Common/TomanLogo/TomanLogo";
+import { ThreeNumberSpiliter } from "../../../Core/Utils/ThreeNumberSpiliter/ThreeNumberSpiliter";
 
 const CourseCard = ({ data }) => {
   const {
@@ -43,7 +44,9 @@ const CourseCard = ({ data }) => {
         </div>
         <div className="flex-row-all-center justify-between">
           <div className="flex-row-all-center gap-x-1 w-max">
-            <p className="f-bold relative top-1 text-bluePrimary">{cost}</p>
+            <p className="f-bold text-lg relative top-1 text-bluePrimary">
+              {ThreeNumberSpiliter(cost)}
+            </p>
             <TomanLogo />
           </div>
           <div>

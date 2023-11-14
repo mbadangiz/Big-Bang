@@ -29,3 +29,5 @@ instance.interceptors.request.use((opt) => {
 });
 
 export default instance;
+
+// use instance instead of axios
