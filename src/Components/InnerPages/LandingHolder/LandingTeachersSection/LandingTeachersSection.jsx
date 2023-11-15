@@ -1,32 +1,48 @@
 import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/LandingSectionsTitle";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getTeachersList } from "../../../../Core/Services/Api/Landing/GetTeacherList";
 
 const LandingTeachersSection = () => {
-  const teacherList = [
-    {
-      id: 1,
-      fullName: "یه بابایی",
-      occupation: "یه چیزایی بلده داداشمون",
-      img: "img-sampleMasters.png",
-    },
-    {
-      id: 2,
-      fullName: "یه بابایی",
-      occupation: "یه چیزایی بلده داداشمون",
-      img: "img-sampleMasters.png",
-    },
-    {
-      id: 3,
-      fullName: "یه بابایی",
-      occupation: "یه چیزایی بلده داداشمون",
-      img: "img-sampleMasters.png",
-    },
-    {
-      id: 4,
-      fullName: "یه بابایی",
-      occupation: "یه چیزایی بلده داداشمون",
-      img: "img-sampleMasters.png",
-    },
-  ];
+  const [teacherlist, setTeacherList] = useState();
+
+  const getTeachers = async () => {
+    const res = await getTeachersList();
+    setTeacherList(res);
+  };
+
+  useEffect(() => {
+    getTeachers();
+  }, []);
+
+  console.log(teacherlist);
+
+  // const teacherList = [
+  //   {
+  //     id: 1,
+  //     fullName: teacherlist ? teacherlist.fullName : "",
+  //     occupation: "یه چیزایی بلده داداشمون",
+  //     img: "img-sampleMasters.png",
+  //   },
+  //   {
+  //     id: 2,
+  //     fullName: teacherlist ? teacherlist.fullName : "",
+  //     occupation: "یه چیزایی بلده داداشمون",
+  //     img: "img-sampleMasters.png",
+  //   },
+  //   {
+  //     id: 3,
+  //     fullName: teacherlist ? teacherlist.fullName : "",
+  //     occupation: "یه چیزایی بلده داداشمون",
+  //     img: "img-sampleMasters.png",
+  //   },
+  //   {
+  //     id: 4,
+  //     fullName: teacherlist ? teacherlist.fullName : "",
+  //     occupation: "یه چیزایی بلده داداشمون",
+  //     img: "img-sampleMasters.png",
+  //   },
+  // ];
   return (
     <div className="width-handler my-10 space-y-9">
       <LandingSectionsTitle
@@ -34,34 +50,33 @@ const LandingTeachersSection = () => {
         subText="اساتید برجسته آکادمی با چندین سال تجربه در کنار شما خواهند بود"
       />
       <div
-        className="w-full lg:h-375 bg-gradient-to-t rounded-[50px]
-        flex-row-all-center gap-10 from-blueGray to-graySilver  
-        border-solid border-[0.5px] border-blueGray/20"
+        className="w-full
+        flex-row-all-center gap-5"
       >
-        {teacherList.map((teacher) => (
-          <TeachersCard data={teacher} key={teacher.id} />
-        ))}
+        {teacherlist
+          ? teacherlist.map((teacher, index) => {
+              if (index < 3) {
+                return <TeachersCard data={teacher} key={teacher.id} />;
+              }
+            })
+          : "در حال حاضر دوره ایی برای نمایش موجود نمیباشد"}
       </div>
     </div>
   );
 };
 const TeachersCard = ({ data }) => {
-  const { id, fullName, occupation, img } = data;
+  const { id, fullName, courseCounts, pictureAddress } = data;
   return (
     <div
-      className="w-[250px] h-[290px] flex flex-row flex-wrap justify-end 
-      items-end content-end relative top-4 text-white"
+      className="h-350 w-300 rounded-sm overflow-hidden 
+    text-center hover:translate-y-[-5px] transition-all duration-200"
     >
-      <div
-        className="w-3/5 h-4/6 relative top-20  rounded-[50px] border-[3px] border-solid
-        border-bluePrimary overflow-hidden  "
-      >
-        <img src={`./Img/${img}`} className="w-full " alt="" />
-      </div>
-      <div className="w-full h-4/6 bg-bluePrimary  rounded-[50px]  pt-[84px] px-3 text-center space-y-2">
-        <h2 className="f-bold text-lg"> {fullName}</h2>
-        <p className="opacity-75 text-sm">{occupation}</p>
-      </div>
+      <img
+        src={pictureAddress}
+        alt=""
+        className="w-300 h-280 object-fill rounded-md hover:shadow-md "
+      />
+      <h3 className="f-bold text-lg mt-2 opacity-95">{fullName}</h3>
     </div>
   );
 };

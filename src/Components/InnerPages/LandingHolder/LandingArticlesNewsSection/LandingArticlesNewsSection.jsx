@@ -3,20 +3,33 @@ import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/Landi
 import SampleImage from "./../../../../Assets/Image/sampleImage.png";
 import { ViewMoreBtn } from "../../../Common/ViewMoreBtn/ViewMore";
 import { ArticleCardSmall } from "../../ArticleCardSmall/ArticleCardSmall";
-
+import { useState } from "react";
+import { useEffect } from "react";
+import { getLandingNews } from "../../../../Core/Services/Api/Landing/GetLandingNews";
 const LandingArticlesNewsSection = () => {
+  const [News, setNews] = useState();
+
+  const getNews = async () => {
+    const res = await getLandingNews();
+    setNews(res);
+  };
+
+  useEffect(() => {
+    getNews();
+  }, []);
+
+  console.log(News);
+
   return (
-    <div className="width-handler   lg:h-[calc(768px-90px)]  pt-4  px-0  ">
+    <div className="width-handler  pt-4  px-0  ">
       <LandingSectionsTitle
         mainText={"اخبار و مقالات"}
         subText={
           "شما عزیزان می توانید تمام اخبار ومقالات برنامه نویسی را مشاهده بفرمایید"
         }
       />
-      <div className="w-full h-[calc(100%-180px)] flex-row-all-center  py-5  gap-4">
+      <div className="w-full  flex-row-all-center  py-5  gap-4">
         <ArticleAndNewsWrapper title={"مقالات"} />
-        <div className="w-1 h-full bg-black/30 rounded-md"></div>
-        <ArticleAndNewsWrapper title={"اخبار"} />
       </div>
       <ViewMoreBtn
         text={"مشاهده ی کامل اخبار و مقالات"}
@@ -43,12 +56,11 @@ const ArticleAndNewsWrapper = ({ title }) => {
   ];
 
   return (
-    <div className=" space-y-2.5 text-center ">
-      <h1 className="text-xl opacity-70">{title}</h1>
+    <>
       {list.map((item) => {
         return <ArticleCardSmall key={item.id} data={item} />;
       })}
-    </div>
+    </>
   );
 };
 

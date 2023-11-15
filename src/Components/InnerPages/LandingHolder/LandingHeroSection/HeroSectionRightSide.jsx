@@ -1,9 +1,9 @@
 import { useRef } from "react";
 
 import Typewriter from "typewriter-effect";
+import { HeroSearchBox } from "./HeroSearchBox/HeroSearchBox";
 
 const HeroSectionRightSide = () => {
-  const inputContainer = useRef(null);
   return (
     <div className="w-1/2 h-max">
       <h1 className="f-bold text-6xl leading-normal">
@@ -27,37 +27,7 @@ const HeroSectionRightSide = () => {
           }}
         />
       </p>
-      <div
-        className="mt-20 w-full h-16  rounded-full
-      border-4 border-solid border-white bg-gray-500/20 backdrop-blur-sm py-2"
-        ref={inputContainer}
-      >
-        <select
-          name=""
-          id=""
-          className="w-1/5 h-full rounded-r-full bg-transparent
-  text-center border-l-2 border-solid border-white f-bold text-lg text-white"
-        >
-          <option className="text-textBlack" value="">
-            دوره
-          </option>
-          <option className="text-textBlack" value="">
-            مقالات
-          </option>
-        </select>
-        <input
-          type="text"
-          className="w-4/5 h-full bg-transparent rounded-l-full px-3
-  text-bluePrimary text-lg f-bold placeholder:text-bluePrimary/75"
-          placeholder="عبارت مورد نظر خود را جست  و جو کنید"
-          onFocus={() => {
-            inputContainer.current.style.borderColor = "#406dd58f";
-          }}
-          onBlur={() => {
-            inputContainer.current.style.borderColor = "#fff";
-          }}
-        />
-      </div>
+      <HeroSearchBox />
     </div>
   );
 };

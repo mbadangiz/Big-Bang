@@ -3,42 +3,55 @@ import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/Landi
 import { CourseCard } from "../../CourseCard/CourseCard";
 import ImageSample from "./../../../../Assets/Image/sampleImage.png";
 import { ViewMoreBtn } from "../../../Common/ViewMoreBtn/ViewMore";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getPopularCourse } from "../../../../Core/Services/Api/Landing/GetPopularCourse";
 const LandingPopularCoursesSection = () => {
-  const list = [
-    {
-      id: 1,
-      imgPath: ImageSample,
-      courseTitle: "دوره ی آموزشی ری اکت",
-      courseDesc:
-        "این یک متن تست می باشد و ارزش دیگری نخواد داشت کلا الکی حساب میاد",
-      courseMaster: "یه بابایی",
-      courseParticipants: 120,
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-    {
-      id: 2,
-      imgPath: ImageSample,
-      courseTitle: "دوره ی آموزشی ری اکت",
-      courseDesc:
-        "این یک متن تست می باشد و ارزش دیگری نخواد داشت کلا الکی حساب میاد",
-      courseMaster: "یه بابایی",
-      courseParticipants: 120,
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2680000,
-    },
-    {
-      id: 3,
-      imgPath: ImageSample,
-      courseTitle: "دوره ی آموزشی ری اکت",
-      courseDesc:
-        "این یک متن تست می باشد و ارزش دیگری نخواد داشت کلا الکی حساب میاد",
-      courseMaster: "یه بابایی",
-      courseParticipants: 120,
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2680000,
-    },
-  ];
+  const [PopularCourse, setPopularCourse] = useState();
+
+  const getTopCourse = async () => {
+    const topCourse = await getPopularCourse();
+    setPopularCourse(topCourse);
+  };
+
+  useEffect(() => {
+    getTopCourse();
+  }, []);
+  // const list = [
+  //   {
+  //     id: 1,
+  //     imgPath: ImageSample,
+  //     courseTitle: "دوره ی آموزشی ری اکت",
+  //     courseDesc:
+  //       "این یک متن تست می باشد و ارزش دیگری نخواد داشت کلا الکی حساب میاد",
+  //     courseMaster: "یه بابایی",
+  //     courseParticipants: 120,
+  //     courseStatus: "اتمام ضبط",
+  //     coursePrice: 2500000,
+  //   },
+  //   {
+  //     id: 2,
+  //     imgPath: ImageSample,
+  //     courseTitle: "دوره ی آموزشی ری اکت",
+  //     courseDesc:
+  //       "این یک متن تست می باشد و ارزش دیگری نخواد داشت کلا الکی حساب میاد",
+  //     courseMaster: "یه بابایی",
+  //     courseParticipants: 120,
+  //     courseStatus: "اتمام ضبط",
+  //     coursePrice: 2680000,
+  //   },
+  //   {
+  //     id: 3,
+  //     imgPath: ImageSample,
+  //     courseTitle: "دوره ی آموزشی ری اکت",
+  //     courseDesc:
+  //       "این یک متن تست می باشد و ارزش دیگری نخواد داشت کلا الکی حساب میاد",
+  //     courseMaster: "یه بابایی",
+  //     courseParticipants: 120,
+  //     courseStatus: "اتمام ضبط",
+  //     coursePrice: 2680000,
+  //   },
+  // ];
   return (
     <div className="width-handler select-none">
       <LandingSectionsTitle
@@ -46,9 +59,11 @@ const LandingPopularCoursesSection = () => {
         subText="شما عزیزان می توانید در دوره های ما ثبت نام کنید"
       />
       <div className="w-full flex-row-all-center gap-10 mt-5">
-        {list.map((course) => {
-          return <CourseCard key={course.id} data={course} />;
-        })}
+        {PopularCourse
+          ? PopularCourse.map((course) => {
+              return <CourseCard key={course.id} data={course} />;
+            })
+          : "وجود ندارد"}
       </div>
       <ViewMoreBtn text={"مشاهده ی همه دوره ها"} to={"/Courses"} />
     </div>

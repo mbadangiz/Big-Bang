@@ -1,5 +1,5 @@
 const ArticleCardSmall = ({ data }) => {
-  const { id, img, articleTitle, date } = data;
+  const { id, date, articleTitle, img } = data;
   return (
     <div
       className="cardsDefaultSettings w-280 h-[200px] shadow-none  

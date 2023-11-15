@@ -62,9 +62,10 @@ const LandingHistorySection = () => {
 };
 
 const HistoryItems = ({ data }) => {
-  const { id, count, title } = data;
+  const { id, count, title, imgPath } = data;
   return (
     <div className="text-center text-white">
+      <img src={`./Img/${imgPath}`} className="w-16 mx-auto" alt="" />
       <p className="text-6xl f-bold mt-2">
         <CountUp end={count} duration={5} />
       </p>
