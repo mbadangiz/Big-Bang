@@ -6,8 +6,11 @@ import { SilverButton } from "../../../../Common/Buttons/SilverButton";
 
 // ID user card profile picture import
 import IDUserProfilePicture from "../../../../../Assets/Images/Panel/User/IDUserProfilePicture/IDUserProfilePicture.jpg";
+import { useNavigate } from "react-router";
 
 const PanelDashboardIDUserCard = () => {
+  const Navigate = useNavigate();
+
   return (
     <>
       <div className="rounded-t-lg w-full h-1/6 flex">
@@ -87,7 +90,10 @@ const PanelDashboardIDUserCard = () => {
               </div>
             </div>
             <div className="h-[60px] col-span-12">
-              <SilverButton buttonText="ویرایش" />
+              <SilverButton
+                buttonText="ویرایش"
+                ClickHandler={() => Navigate("/User/Panel/EditProfile")}
+              />
             </div>
           </div>
         </div>

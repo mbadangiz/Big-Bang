@@ -24,7 +24,7 @@ const LoginForm = () => {
       await axios
         .post("https://user1697223215770.requestly.dev/BigBangUserLogin", value)
         .then(() => SuccessToastify("!خوش آمدید"))
-        .then(() => setTimeout(() => Navigate("/User/Panel/Dashboard"), 4000));
+        .then(() => setTimeout(() => Navigate("/User/Panel/Dashboard"), 2500));
     } catch (error) {
       ErrorToastify("متاسفانه درخواست ورود شما با مشکل مواجه شده است");
     }

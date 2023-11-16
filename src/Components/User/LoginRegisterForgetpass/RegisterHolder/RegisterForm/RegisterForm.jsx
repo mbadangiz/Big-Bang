@@ -9,9 +9,12 @@ import { useState } from "react";
 import axios from "axios";
 import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
 import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
+import { useNavigate } from "react-router";
 
 const RegisterForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
+
+  const Navigate = useNavigate();
 
   const onSubmit = async (value) => {
     setIsDisabled(true);
@@ -21,7 +24,8 @@ const RegisterForm = () => {
           "https://user1697223215770.requestly.dev/BigBangUserRegister",
           value
         )
-        .then(() => SuccessToastify("ثبت نام با موفقیت انجام شد!"));
+        .then(() => SuccessToastify("ثبت نام با موفقیت انجام شد!"))
+        .then(() => setTimeout(() => Navigate("/User/Login"), 2500));
       console.log(value);
     } catch (error) {
       ErrorToastify("متاسفانه درخواست ثبت نام شما با مشکل مواجه شده است");

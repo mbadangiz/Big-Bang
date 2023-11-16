@@ -27,7 +27,7 @@ const ForgetpassChangepassForm = () => {
         .then(() =>
           SuccessToastify("درخواست تغییر رمز شما با موفقیت انجام شده است")
         )
-        .then(() => setTimeout(() => Navigate("/User/Login"), 4000));
+        .then(() => setTimeout(() => Navigate("/User/Login"), 2500));
     } catch (error) {
       ErrorToastify("متاسفانه درخواست تغییر رمز شما با مشکل مواجهه شده است");
     }

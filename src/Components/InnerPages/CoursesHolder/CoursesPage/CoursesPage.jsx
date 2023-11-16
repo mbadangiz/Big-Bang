@@ -60,6 +60,17 @@ const CoursesPage = () => {
       courseStatus: "اتمام ضبط",
       coursePrice: 2680000,
     },
+    {
+      id: 6,
+      imgPath: ImageSample,
+      courseTitle: "دوره ی آموزشی ری اکت",
+      courseDesc:
+        "این یک متن تست می باشد و ارزش دیگری نخواد داشت کلا الکی حساب میاد",
+      courseMaster: "یه بابایی",
+      courseParticipants: 120,
+      courseStatus: "اتمام ضبط",
+      coursePrice: 2500000,
+    },
   ];
 
   return (

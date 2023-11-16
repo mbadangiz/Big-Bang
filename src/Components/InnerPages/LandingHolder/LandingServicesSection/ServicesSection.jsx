@@ -8,7 +8,7 @@ const ServicesSection = () => {
         subText="شما عزیزان می توانید از خدمات ما استفاده کنید"
       />
       <div className="w-full h-[280px] border-2 border-solid border-transparent flex items-center justify-center gap-7 mt-6 mb-6">
-        <div className="w-[200px] h-[270px] border-2 border-solid border-transparent rounded-[16px] bg-white shadow-lg">
+        <div className="w-[200px] h-[270px] border-2 border-solid border-transparent rounded-[16px] bg-white hover:bg-bluePrimary hover:text-white shadow-lg">
           <div className="text-[#575757] text-center">
             <i className="fi fi-rr-diploma text-8xl text-textBlack block mt-6"></i>
             <h1 className="text-textBlack font-extrabold text-[22px] mb-3">

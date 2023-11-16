@@ -29,7 +29,7 @@ const ForgetpassForm = () => {
         )
         .then(() => SuccessToastify("در خواست شما با موفقیت انجام شده است"))
         .then(() =>
-          setTimeout(() => Navigate("/User/Forgetpass/Changepass"), 4000)
+          setTimeout(() => Navigate("/User/Forgetpass/Changepass"), 2500)
         );
     } catch (error) {
       ErrorToastify("درخواست شما با مشکل مواجه شده است");

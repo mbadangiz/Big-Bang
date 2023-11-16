@@ -3,7 +3,7 @@ import { FooterMap } from "./FooterMap/FooterMap";
 
 const Footer = () => {
   return (
-    <footer className="w-full h-max relative">
+    <footer className="w-full h-max">
       <FooterDetails />
       <FooterMap />
     </footer>
