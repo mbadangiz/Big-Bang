@@ -14,7 +14,7 @@ const InnerPagesLayout = () => {
       setIsHeroBgOn(false);
     }
   }, [matches]);
-
+  console.log(matches.pathname);
   return (
     <ArticleListProvider>
       <div className={`${isHeroBgOn ? "bg-heroSectoin" : ""}`}>

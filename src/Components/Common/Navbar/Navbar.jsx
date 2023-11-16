@@ -7,8 +7,9 @@ const Navbar = () => {
   const [isHeroBgOn, setIsHeroBgOn] = useState(true);
 
   const matches = useLocation();
+  const thisisLink = matches.pathname.includes("/User/");
   useEffect(() => {
-    if (matches.pathname !== "/" || matches.pathname.includes("/User")) {
+    if (matches.pathname !== "/") {
       setIsHeroBgOn(false);
     } else {
       setIsHeroBgOn(true);
@@ -42,7 +43,7 @@ const Navbar = () => {
     >
       <div className="width-handler h-full border-2 flex-row-all-center ">
         <img src={IconBahr} alt="Logo" className="h-12" />
-        <div className="  h-full border-2  text-center font-semibold text-base flex-row-all-center  mx-auto">
+        <div className="  h-full border-2  text-center  f-bold text-base flex-row-all-center  mx-auto">
           {navItemsList.map((items) => {
             return <NavBarItems key={items.id} data={items} />;
           })}
