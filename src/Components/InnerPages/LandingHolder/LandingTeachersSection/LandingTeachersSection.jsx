@@ -2,6 +2,8 @@ import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/Landi
 import { useState } from "react";
 import { useEffect } from "react";
 import { getTeachersList } from "../../../../Core/Services/Api/Landing/GetTeacherList";
+import SampleImg from "../../../../Assets/Image/sampleImage.png";
+import LinkImg from "../../../../Assets/Image/linkedin.png";
 
 const LandingTeachersSection = () => {
   const [teacherlist, setTeacherList] = useState();
@@ -71,12 +73,27 @@ const TeachersCard = ({ data }) => {
       className="h-350 w-300 rounded-sm overflow-hidden 
     text-center hover:translate-y-[-5px] transition-all duration-200"
     >
-      <img
-        src={pictureAddress}
-        alt=""
-        className="w-300 h-280 object-fill rounded-md hover:shadow-md "
-      />
-      <h3 className="f-bold text-lg mt-2 opacity-95">{fullName}</h3>
+      <div id="TeacherImage" className="relative overflow-hidden">
+        <img
+          src={pictureAddress ? pictureAddress : SampleImg}
+          alt=""
+          className="w-300 h-280 object-fill rounded-[1rem] hover:shadow-md"
+        />
+        <div
+          className="HoverBox w-full h-full 
+        bg-black/40 absolute top-0 rounded-[1rem] hidden"
+        >
+          <div
+            className="flex-row-all-center mt-16 cursor-pointer
+          "
+          >
+            <img src={LinkImg} alt="" className="w-[30%]" />
+          </div>
+        </div>
+      </div>
+      <h3 className="f-bold text-lg mt-2 opacity-95">
+        {fullName ? fullName : "ی بابایی"}
+      </h3>
     </div>
   );
 };

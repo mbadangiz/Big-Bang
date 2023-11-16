@@ -20,6 +20,21 @@ const LandingArticlesNewsSection = () => {
 
   console.log(News);
 
+  // const list = [
+  //   {
+  //     id: 1,
+  //     img: SampleImage,
+  //     articleTitle: "عنوان مقاله یا اخبار",
+  //     date: "16 شهریور 1402",
+  //   },
+  //   {
+  //     id: 2,
+  //     img: SampleImage,
+  //     articleTitle: "عنوان مقاله یا اخبار",
+  //     date: "16 شهریور 1402",
+  //   },
+  // ];
+
   return (
     <div className="width-handler  pt-4  px-0  ">
       <LandingSectionsTitle
@@ -29,7 +44,11 @@ const LandingArticlesNewsSection = () => {
         }
       />
       <div className="w-full  flex-row-all-center  py-5  gap-4">
-        <ArticleAndNewsWrapper title={"مقالات"} />
+        {News
+          ? News.news.map((item) => {
+              return <ArticleCardSmall key={item.id} data={item} />;
+            })
+          : "bvx"}
       </div>
       <ViewMoreBtn
         text={"مشاهده ی کامل اخبار و مقالات"}
@@ -39,29 +58,33 @@ const LandingArticlesNewsSection = () => {
   );
 };
 
-const ArticleAndNewsWrapper = ({ title }) => {
-  const list = [
-    {
-      id: 1,
-      img: SampleImage,
-      articleTitle: "عنوان مقاله یا اخبار",
-      date: "16 شهریور 1402",
-    },
-    {
-      id: 2,
-      img: SampleImage,
-      articleTitle: "عنوان مقاله یا اخبار",
-      date: "16 شهریور 1402",
-    },
-  ];
+// const ArticleAndNewsWrapper = ({ title }) => {
+//   const [News, setNews] = useState();
+//   console.log(News);
+//   // const list = [
+//   //   {
+//   //     id: 1,
+//   //     img: SampleImage,
+//   //     articleTitle: "عنوان مقاله یا اخبار",
+//   //     date: "16 شهریور 1402",
+//   //   },
+//   //   {
+//   //     id: 2,
+//   //     img: SampleImage,
+//   //     articleTitle: "عنوان مقاله یا اخبار",
+//   //     date: "16 شهریور 1402",
+//   //   },
+//   // ];
 
-  return (
-    <>
-      {list.map((item) => {
-        return <ArticleCardSmall key={item.id} data={item} />;
-      })}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {News
+//         ? News.map((item) => {
+//             return <ArticleCardSmall key={item.id} data={item} />;
+//           })
+//         : "bvx"}
+//     </>
+//   );
+// };
 
 export { LandingArticlesNewsSection };

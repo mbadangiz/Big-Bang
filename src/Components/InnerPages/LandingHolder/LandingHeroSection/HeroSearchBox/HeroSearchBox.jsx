@@ -4,21 +4,34 @@ import { SearchCard } from "./SearchCard";
 import { SearchInCourses } from "../../../../../Core/Services/Api/SearchInCourses";
 import { useState } from "react";
 import { PuffLoader } from "react-spinners";
+import { SearchInNews } from "../../../../../Core/Services/Api/Landing/LandingSearchinNews";
 
 const HeroSearchBox = () => {
   const [searchItem, setSearchItem] = useState();
   const [isSearchModalShow, setisSearchModalShow] = useState(false);
+  const [isSearchNews, setisSearchNews] = useState();
   const inputContainer = useRef(null);
   const searchInput = useRef(null);
 
   const SearchHero = (e) => {
     const value = e.target.value;
     setTimeout(async () => {
-      const res = await SearchInCourses(value);
-      setSearchItem(res);
+      if (isSearchNews != "News") {
+        const res = await SearchInCourses(value);
+        setSearchItem(res);
+      } else {
+        const res = await SearchInNews(value);
+        setSearchItem(res);
+      }
     }, 2000);
     console.log();
   };
+
+  const handleChange = (event) => {
+    setisSearchNews(event.target.value);
+  };
+
+  console.log(isSearchNews);
   return (
     <div
       className="mt-20 w-full h-16  rounded-full
@@ -27,21 +40,22 @@ const HeroSearchBox = () => {
     >
       <select
         name=""
-        id=""
+        value={isSearchNews}
+        onChange={handleChange}
         className="w-1/5 h-full rounded-r-full bg-transparent
 text-center border-l-2 border-solid border-white f-bold text-lg text-white"
       >
-        <option className="text-textBlack" value="">
+        <option className="text-textBlack" value="Courses">
           دوره
         </option>
-        <option className="text-textBlack" value="">
+        <option className="text-textBlack" value="News">
           مقالات
         </option>
       </select>
       <input
         type="text"
         className="w-4/5 h-full bg-transparent rounded-l-full px-3
-text-bluePrimary text-lg f-bold placeholder:text-bluePrimary/75"
+        text-bluePrimary text-lg f-bold placeholder:text-bluePrimary/75"
         placeholder="عبارت مورد نظر خود را جست  و جو کنید"
         onFocus={() => {
           inputContainer.current.style.borderColor = "#406dd58f";
@@ -57,8 +71,8 @@ text-bluePrimary text-lg f-bold placeholder:text-bluePrimary/75"
       <div
         className={`w-full  ${
           isSearchModalShow ? "h-350 p-1" : "h-0"
-        }  bg-gray-500  backdrop-blur-lg absolute bottom-20
-      rounded-lg transition-all duration-300 overflow-y-scroll`}
+        }  bg-white  backdrop-blur-lg absolute bottom-20
+        rounded-lg transition-all duration-300 overflow-y-scroll`}
       >
         {searchItem
           ? searchItem.courseFilterDtos.map((items) => {
