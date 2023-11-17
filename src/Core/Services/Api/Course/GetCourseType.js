@@ -1,4 +1,4 @@
-import instance from "../Interceptor/Interceptor";
+import instance from "../../Interceptor/Interceptor";
 
 const GetCourseType = async () => {
   const res = await instance.get("/CourseType/GetCourseTypes");

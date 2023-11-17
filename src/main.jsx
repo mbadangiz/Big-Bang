@@ -6,7 +6,7 @@ import "./index.css";
 import { PanelDashboardHotNewsSlide } from "./Components/User/Panel/PanelDashboard/PanelDashboardHotNews/PanelDashboardHotNewsSlider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <App />
+  // </React.StrictMode>
 );
