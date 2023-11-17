@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getItem } from "../common/storage.services";
+import { ErrorToastify } from "../../Utils/Toastifies/ErrorToastify.Utils";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 
@@ -12,7 +13,7 @@ const onSuccess = (response) => {
 };
 
 const onError = (err) => {
-  console.log(err);
+  ErrorToastify(err.message);
 
   if (err.response.status >= 400 && err.response.status < 500) {
     alert("Client error: " + err.response.status);
@@ -24,7 +25,7 @@ instance.interceptors.response.use(onSuccess, onError);
 
 instance.interceptors.request.use((opt) => {
   const token = getItem("token");
-  opt.headers.Athorization = `Bearer ${token}`;
+  if (token) opt.headers.Athorization = `Bearer ${token}`;
   return opt;
 });
 

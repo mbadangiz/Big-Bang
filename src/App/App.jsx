@@ -20,6 +20,9 @@ import { MyCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent
 import { PanelCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/PanelCoursesList/PanelCoursesList";
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import { RegisterFormStep1 } from "../Components/User/LoginRegisterForgetpass/RegisterHolder/RegisterForms/RegisterFormStep1";
+import { RegisterFormStep2 } from "../Components/User/LoginRegisterForgetpass/RegisterHolder/RegisterForms/RegisterFormStep2";
+import { RegisterFormStep3 } from "../Components/User/LoginRegisterForgetpass/RegisterHolder/RegisterForms/RegisterFormStep3";
 
 function App() {
   const router = createBrowserRouter([
@@ -39,7 +42,15 @@ function App() {
       element: <LoginRegisterForgetpassLayout />,
       children: [
         { path: "/User/Login", element: <UserLogin /> },
-        { path: "/User/Register", element: <UserRegister /> },
+        {
+          path: "/User/Register",
+          element: <UserRegister />,
+          children: [
+            { path: "/User/Register/Step1", element: <RegisterFormStep1 /> },
+            { path: "/User/Register/Step2", element: <RegisterFormStep2 /> },
+            { path: "/User/Register/Step3", element: <RegisterFormStep3 /> },
+          ],
+        },
         {
           path: "/User/Forgetpass",
           element: <UserForgetpass />,

@@ -5,7 +5,13 @@ const registerSlice = createSlice({
   initialState: {
     phoneNumber: "",
   },
-  reducers: {},
+  reducers: {
+    onSetPhoneNumber: (state, action) => {
+      state.phoneNumber = action.payload;
+    },
+  },
 });
+
+export const { onSetPhoneNumber } = registerSlice.actions;
 
 export default registerSlice.reducer;
