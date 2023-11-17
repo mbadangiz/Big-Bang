@@ -77,7 +77,7 @@ const TeachersCard = ({ data }) => {
         <img
           src={pictureAddress ? pictureAddress : SampleImg}
           alt=""
-          className="w-300 h-280 object-fill rounded-[1rem] hover:shadow-md"
+          className="w-300 h-250 object-fill rounded-[1rem] hover:shadow-md"
         />
         <div
           className="HoverBox w-full h-full 

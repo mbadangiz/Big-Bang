@@ -5,6 +5,7 @@ import { SearchInCourses } from "../../../../../Core/Services/Api/SearchInCourse
 import { useState } from "react";
 import { PuffLoader } from "react-spinners";
 import { SearchInNews } from "../../../../../Core/Services/Api/Landing/LandingSearchinNews";
+import { MyComponent } from "./Js";
 
 const HeroSearchBox = () => {
   const [searchItem, setSearchItem] = useState();
@@ -26,7 +27,7 @@ const HeroSearchBox = () => {
     }, 2000);
     console.log();
   };
-
+  MyComponent();
   const handleChange = (event) => {
     setisSearchNews(event.target.value);
   };
@@ -73,6 +74,7 @@ text-center border-l-2 border-solid border-white f-bold text-lg text-white"
           isSearchModalShow ? "h-350 p-1" : "h-0"
         }  bg-white  backdrop-blur-lg absolute bottom-20
         rounded-lg transition-all duration-300 overflow-y-scroll`}
+        id="SearchModal"
       >
         {searchItem
           ? searchItem.courseFilterDtos.map((items) => {

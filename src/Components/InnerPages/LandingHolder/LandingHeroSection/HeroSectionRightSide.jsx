@@ -11,7 +11,7 @@ const HeroSectionRightSide = () => {
         <span className="f-bold mx-3 text-bluePrimary">بحر</span>
         خوش آمدید
       </h1>
-      <p className="text-justify my-5 opacity-90">
+      <p className="text-justify my-5 opacity-90 h-24">
         <Typewriter
           options={{
             strings: [
