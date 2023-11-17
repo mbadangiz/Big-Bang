@@ -1,12 +1,14 @@
 import instance from "../../../Interceptor/Interceptor";
 
-const getCourseListAll = async (data) => {
+const getCourseAll = async () => {
   try {
-    const result = await instance.get(`/Home/GetCoursesWithPagination?`);
+    const result = await instance.get(
+      `/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=9`
+    );
     return result;
   } catch (err) {
     console.log(err.response);
     return [];
   }
 };
-export { getCourseListAll };
+export { getCourseAll };
