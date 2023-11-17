@@ -11,7 +11,7 @@ const Accardion = ({ myClass, Acc_Title }) => {
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
   return (
-    <div cla>
+    <div>
       <Accordion
         open={open === 1}
         className="bg-[#fff] rounded-[8px] mt-3 mb-2 p-3 "

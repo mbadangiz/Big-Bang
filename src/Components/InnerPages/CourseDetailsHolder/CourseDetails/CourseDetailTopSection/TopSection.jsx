@@ -25,7 +25,7 @@ const TopSection = ({ info }) => {
     },
 
     {
-      id: 3,
+      id: 4,
       title: "زمان دوره",
       icon: "fi fi-rr-clock",
       info: "1402/01/01",

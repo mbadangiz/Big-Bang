@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { TomanLogo } from "../../Common/TomanLogo/TomanLogo";
 import { ThreeNumberSpiliter } from "../../../Core/Utils/ThreeNumberSpiliter/ThreeNumberSpiliter";
-
+import { TomanLogo } from "../../Common/TomanLogo/TomanLogo";
 const CourseCard = ({ data }) => {
   const {
     teacherName,

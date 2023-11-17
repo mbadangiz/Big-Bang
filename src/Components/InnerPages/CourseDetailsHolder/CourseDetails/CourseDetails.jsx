@@ -7,15 +7,19 @@ import { RatingSection } from "./RatingSection/RatingSection";
 import { Comment } from "../../../Common/CommentTree/Comment";
 import { CommentTree } from "../../../Common/CommentTree/CommentTree";
 import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const CourseDetails = () => {
+  const [searchParams] = useSearchParams();
+  const courseId = searchParams.get("courseId");
+  console.log(courseId);
   useEffect(() => {
     document.body.style.background = "#F5F7FA";
   }, []);
-  return (
-    <div className="width-handler mt-2">
-      <TopSection />
 
+  return (
+    <div className="width-handler mt-10">
+      <TopSection />
       <div className="w-full mt-11 flex ">
         <div className="w-[830px]">
           <div
