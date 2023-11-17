@@ -18,6 +18,8 @@ import { PanelEditProfile } from "../Components/User/Panel/PanelEditProfile";
 import { PanelChangePassword } from "../Components/User/Panel/PanelChangePassword";
 import { MyCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/MyCoursesList/MyCoursesList";
 import { PanelCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/PanelCoursesList/PanelCoursesList";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 function App() {
   const router = createBrowserRouter([
@@ -67,7 +69,11 @@ function App() {
     { path: "*", element: <Error404 /> },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
 export default App;
