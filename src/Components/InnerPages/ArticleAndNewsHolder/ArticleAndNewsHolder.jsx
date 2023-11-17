@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { ArticleCards } from "../ArticleCards/ArticleCards";
 import ArticleNewsCourseLayout from "../ArticleNewsCourseLayout/";
-import { useArticleData } from "../../../Core/Providers/ArticleListProvider";
+import ArticleListProvider, {
+  useArticleData,
+} from "../../../Core/Providers/ArticleListProvider";
 import { useState } from "react";
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
 } from "@material-tailwind/react";
+
 import { Tags } from "../../Common/Tages/Tages";
 
 const ArticleAndNewsHolder = () => {
@@ -16,10 +19,12 @@ const ArticleAndNewsHolder = () => {
   }, []);
 
   return (
-    <ArticleNewsCourseLayout
-      aside={<ArticleFilters />}
-      mainContents={<ArticleMainContent />}
-    />
+    <ArticleListProvider>
+      <ArticleNewsCourseLayout
+        aside={<ArticleFilters />}
+        mainContents={<ArticleMainContent />}
+      />
+    </ArticleListProvider>
   );
 };
 
@@ -32,6 +37,7 @@ const ArticleMainContent = ({ data }) => {
     </>
   );
 };
+
 const CUSTOM_ANIMATION = {
   mount: { heigh: 100 },
   unmount: { heigh: 0 },
