@@ -1,7 +1,12 @@
+import CourseDetailsProvider from "../../../Core/Providers/CourseDetailProvider";
 import { CourseDetails } from "./CourseDetails/CourseDetails";
 
 const CourseDetailsHolder = () => {
-  return <CourseDetails />;
+  return (
+    <CourseDetailsProvider>
+      <CourseDetails />
+    </CourseDetailsProvider>
+  );
 };
 
 export { CourseDetailsHolder };

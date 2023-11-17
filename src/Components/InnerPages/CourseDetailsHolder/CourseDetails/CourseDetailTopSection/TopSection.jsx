@@ -1,61 +1,81 @@
-import { data } from "browserslist";
-import React from "react";
-import ImgTemp from "./../../../../../Assets/Image/sampleImage.png";
 import { TomanLogo } from "../../../../Common/TomanLogo/TomanLogo";
-const TopSection = ({ info }) => {
+import { ThreeNumberSpiliter } from "../../../../../Core/Utils/ThreeNumberSpiliter/ThreeNumberSpiliter";
+import { useEffect } from "react";
+import { GetTeacherById } from "../../../../../Core/Services/Api/Common/GetTeacherById";
+import { useState } from "react";
+
+const TopSection = ({ data }) => {
+  const {
+    imageAddress,
+    title,
+    googleTitle,
+    cost,
+    teacherId,
+    courseStatusName,
+    currentRegistrants,
+    capacity,
+    startTime,
+    teacherName,
+  } = data;
+  let start = new Date(startTime).toLocaleDateString("fa-IR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+  console.log(data);
+  // useEffect(() => {}, []);
+
   const information = [
     {
       id: 1,
       title: "استاد دوره",
-      info: "استاد بحر",
+      info: teacherName,
       icon: "fi fi-rs-chalkboard-user",
-      //
     },
     {
       id: 2,
       title: "وضعیت دوره",
-      info: "درحال برگذاری",
+      info: courseStatusName,
       icon: "fi fi-rr-play-circle",
     },
     {
       icon: "fi fi-rr-graduation-cap",
       title: "تعداد دانشجو ",
       id: 3,
-      info: 198,
+      info: capacity + " / " + currentRegistrants,
     },
-
     {
       id: 4,
       title: "زمان دوره",
       icon: "fi fi-rr-clock",
-      info: "1402/01/01",
+      info: start,
     },
   ];
   return (
-    <div className="p-3 rounded-[12px] bg-white ">
+    <div className="p-3 rounded-[12px] bg-white shadow-sm ">
       <div className="flex border-b-2 border-solid border-gray-300">
         <div className="">
-          <h1 className="text-[27px] f-bold">اموزش Tailwindcss</h1>
-          <p className="w-[780px] text-xl mt-4 text-grayDetail">
-            در قالب آموزش tailwind سعی کردیم این ابزار بسیار کاربردی را در قالب
-            پروژه قدم به قدم، به شما آموزش دهیم. با دوره آموزش tailwindcss شما
-            میتوانید به شکل کامل با tailwind آشنا شوید.
+          <h1 className="text-[24px] f-bold">{title}</h1>
+          <p className="w-[780px] text-base mt-4 text-grayDetail">
+            {googleTitle}
           </p>
           <div className="flex mt-16 mb-5 relative justify-between items-center">
-            <div className="w-[250px] h-[57px] rounded-[12px] bg-[#4376EE] font-semibold text-white flex-row-all-center gap-3">
+            <div className="w-[230px] h-[50px] rounded-[12px] bg-[#4376EE] text-white flex-row-all-center gap-3">
               <i className="fi fi-rr-shopping-cart relative top-1.5 text-2xl"></i>
-              <h3 className="text-lg">افزودن به سبد خرید</h3>
+              <h3 className="text-lg  f-semiBold">افزودن به سبد خرید</h3>
             </div>
             <div className=" text-2xl flex-row-all-center gap-2">
               <TomanLogo />
-              <h2 className="f-bold text-bluePrimary">566,000</h2>
+              <h2 className="f-bold text-bluePrimary">
+                {ThreeNumberSpiliter(cost)}
+              </h2>
             </div>
           </div>
         </div>
         <div className="m-auto">
           <img
-            src={ImgTemp}
-            alt=""
+            src={imageAddress}
+            alt={title}
             className="h-[215px] inline-block rounded-[12px]"
           />
         </div>
@@ -70,11 +90,12 @@ const TopSection = ({ info }) => {
 };
 
 export { TopSection };
+
 const InfoItems = ({ data }) => {
   const { id, info, icon, title } = data;
   return (
     <div className=" p-3 flex gap-x-2">
-      <i className={`${icon} text-bluePrimary text-2xl`}></i>
+      <i className={`${icon} text-bluePrimary text-2xl relative top-0.5 `}></i>
       <p> {title} : </p>
       <p>{info}</p>
     </div>
