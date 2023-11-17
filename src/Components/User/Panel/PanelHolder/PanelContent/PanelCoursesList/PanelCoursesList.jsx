@@ -2,6 +2,9 @@ import React from "react";
 import { TableCoursesList } from "./TableCoursesList/TableCoursesList";
 
 const PanelCoursesList = () => {
+  const getAllCoursesInPanel = async () => {
+    // const AllCourses = await
+  };
   return (
     <>
       <h1>لیست دوره ها</h1>
