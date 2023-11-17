@@ -6,6 +6,7 @@ import { ViewMoreBtn } from "../../../Common/ViewMoreBtn/ViewMore";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getPopularCourse } from "../../../../Core/Services/Api/Landing/GetPopularCourse";
+import { MyComponent } from "../../../Common/Landing Animation/Js";
 const LandingPopularCoursesSection = () => {
   const [PopularCourse, setPopularCourse] = useState();
 
@@ -16,6 +17,7 @@ const LandingPopularCoursesSection = () => {
 
   useEffect(() => {
     getTopCourse();
+    MyComponent();
   }, []);
   // const list = [
   //   {
@@ -58,7 +60,7 @@ const LandingPopularCoursesSection = () => {
         mainText="محبوبترین دوره ها"
         subText="شما عزیزان می توانید در دوره های ما ثبت نام کنید"
       />
-      <div className="w-full flex-row-all-center gap-10 mt-5">
+      <div className="w-full flex-row-all-center gap-10 mt-5 items hide">
         {PopularCourse
           ? PopularCourse.map((course) => {
               return <CourseCard key={course.id} data={course} />;

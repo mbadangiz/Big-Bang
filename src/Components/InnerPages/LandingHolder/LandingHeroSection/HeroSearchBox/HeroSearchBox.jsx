@@ -5,7 +5,6 @@ import { SearchInCourses } from "../../../../../Core/Services/Api/SearchInCourse
 import { useState } from "react";
 import { PuffLoader } from "react-spinners";
 import { SearchInNews } from "../../../../../Core/Services/Api/Landing/LandingSearchinNews";
-import { MyComponent } from "./Js";
 
 const HeroSearchBox = () => {
   const [searchItem, setSearchItem] = useState();
@@ -27,7 +26,7 @@ const HeroSearchBox = () => {
     }, 2000);
     console.log();
   };
-  MyComponent();
+
   const handleChange = (event) => {
     setisSearchNews(event.target.value);
   };

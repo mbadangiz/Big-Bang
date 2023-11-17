@@ -275,3 +275,27 @@ input[type="range"]::-webkit-slider-thumb {
 .ServCard:hover > div {
   color: #fff !important;
 }
+
+.items1.show {
+  animation: anim2 1s;
+  transition: 0.5s;
+}
+
+.items2.show {
+  animation: anim2 1s;
+}
+
+.items.show {
+  animation: anim2 1s;
+}
+
+@keyframes anim2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px) rotateX(-70deg) translateY(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotateX(0deg) translateY(0px);
+  }
+}

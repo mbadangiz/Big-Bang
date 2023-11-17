@@ -4,7 +4,7 @@ import Style from "./CategorySection.module.css";
 const CategorySection = () => {
   return (
     <div
-      className={`${Style.CategorySectionBackground}  width-handler h-screen px-0 py-10 flex-row-all-center`}
+      className={`${Style.CategorySectionBackground}  width-handler h-screen px-0 py-10 flex-row-all-center  items2 hide`}
     >
       <LandingSectionsTitle
         mainText="دسته بندی ها"

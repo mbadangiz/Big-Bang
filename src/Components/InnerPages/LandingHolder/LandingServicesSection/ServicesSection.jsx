@@ -7,7 +7,10 @@ const ServicesSection = () => {
         mainText="خدمات ما"
         subText="شما عزیزان می توانید از خدمات ما استفاده کنید"
       />
-      <div className="w-full h-[280px] border-2 border-solid border-transparent flex items-center justify-center gap-7 mt-6 mb-6">
+      <div
+        className="w-full h-[280px] border-2 border-solid border-transparent
+       flex items-center justify-center gap-7 mt-6 mb-6 items1 hide"
+      >
         <div
           className="ServCard w-[200px] h-[270px] border-2 border-solid border-transparent
          rounded-[16px] bg-white shadow-lg text-textBlack
