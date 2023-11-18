@@ -59,10 +59,10 @@ const TopSection = ({ data }) => {
               <h3 className="text-lg  f-semiBold">افزودن به سبد خرید</h3>
             </div>
             <div className=" text-2xl flex-row-all-center gap-2">
-              <TomanLogo />
               <h2 className="f-bold text-bluePrimary">
                 {ThreeNumberSpiliter(cost)}
-              </h2>
+              </h2>{" "}
+              <TomanLogo />
             </div>
           </div>
         </div>

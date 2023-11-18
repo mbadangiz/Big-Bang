@@ -8,7 +8,7 @@ const GetCourseDetails = async (courseId) => {
     return result;
   } catch (err) {
     console.log(err.response);
-    return [];
+    return 0;
   }
 };
 export { GetCourseDetails };

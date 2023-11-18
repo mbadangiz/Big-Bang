@@ -10,11 +10,13 @@ import { GetCourseDetails } from "../../../../Core/Services/Api/CourseDetails/Ge
 import { useState } from "react";
 import { useMyCourseDetail } from "../../../../Core/Providers/CourseDetailProvider";
 import { Element, Link as RSlisnk } from "react-scroll";
+import PleaseWait from "../../../Common/PleaseWait/PleaseWait";
 
 const CourseDetails = () => {
   const [searchParams] = useSearchParams();
   const courseId = searchParams.get("courseId");
   const { courseDetails, setCourseDetails } = useMyCourseDetail();
+
   const getCourseById = async () => {
     const res = await GetCourseDetails(courseId);
     setCourseDetails(res);
@@ -24,6 +26,7 @@ const CourseDetails = () => {
     document.body.style.background = "#F5F7FA";
     getCourseById();
   }, []);
+  console.log(courseDetails);
   return (
     <div className="width-handler mt-10">
       {courseDetails ? (
@@ -75,7 +78,7 @@ const CourseDetails = () => {
           </div>
         </>
       ) : (
-        "داده ایی برای نمایش وجود ندارد"
+        <PleaseWait />
       )}
     </div>
   );
