@@ -60,7 +60,10 @@ const LandingPopularCoursesSection = () => {
         mainText="محبوبترین دوره ها"
         subText="شما عزیزان می توانید در دوره های ما ثبت نام کنید"
       />
-      <div className="w-full flex-row-all-center gap-10 mt-5 items hide">
+      <div
+        data-aos="fade-down"
+        className="w-full flex-row-all-center gap-10 mt-5 items hide"
+      >
         {PopularCourse
           ? PopularCourse.map((course) => {
               return <CourseCard key={course.id} data={course} />;

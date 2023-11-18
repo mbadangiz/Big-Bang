@@ -18,7 +18,8 @@ import { PanelEditProfile } from "../Components/User/Panel/PanelEditProfile";
 import { PanelChangePassword } from "../Components/User/Panel/PanelChangePassword";
 import { MyCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/MyCoursesList/MyCoursesList";
 import { PanelCoursesList } from "../Components/User/Panel/PanelHolder/PanelContent/PanelCoursesList/PanelCoursesList";
-
+import Aos from "aos";
+Aos.init();
 function App() {
   const router = createBrowserRouter([
     {
