@@ -55,8 +55,11 @@ const TableCoursesList = () => {
             {allCourse
               ? allCourse.courseFilterDtos.map((course) => {
                   return (
-                    <Link className="w-full" to={""}>
-                      <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
+                    <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
+                      <Link
+                        className="w-full"
+                        to={`/CoursesDetails?courseId=${course.courseId}`}
+                      >
                         <th
                           scope="row"
                           className="py-4 font-medium whitespace-nowrap"
@@ -90,8 +93,8 @@ const TableCoursesList = () => {
                             <i className="fi fi-rr-add"></i>
                           </a>
                         </td>
-                      </tr>
-                    </Link>
+                      </Link>
+                    </tr>
                   );
                 })
               : " "}
