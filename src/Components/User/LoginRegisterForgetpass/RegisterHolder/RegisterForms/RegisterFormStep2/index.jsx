@@ -9,6 +9,8 @@ import { BlueInputField } from "../../../../../Common/InputFields/BlueInputField
 import { BlueButton } from "../../../../../Common/Buttons/BlueButton";
 import { useSelector } from "react-redux";
 import { RegisterVerifyMessage } from "../../../../../../Core/Services/Api/Auth/Register/RegisterVerifyMessage";
+import { ErrorToastify } from "../../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
+import { SuccessToastify } from "../../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
 
 const RegisterFormStep2 = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -25,11 +27,16 @@ const RegisterFormStep2 = () => {
     const newValue = { ...register, ...value };
 
     try {
-      await RegisterVerifyMessage(newValue).then(() =>
+      const result = await RegisterVerifyMessage(newValue);
+
+      if (result.success === false) {
+        SuccessToastify("کد تایید شما با موفقیت ثبت شد");
         setTimeout(() => {
           Navigate("/User/Register/Step3");
-        }, 1500)
-      );
+        }, 2000);
+      } else if (result.success === true) {
+        ErrorToastify(result.message);
+      }
     } catch (error) {
       return false;
     }

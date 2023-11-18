@@ -1,34 +1,39 @@
 import { Formik, Form } from "formik";
-import axios from "axios";
-import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
-import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
-import { BlueInputField } from "../../../../Common/InputFields/BlueInputField";
-import { BlueCheckBox } from "../../../../Common/InputFields/BlueCheckBox/index";
-import { BlueButton } from "../../../../Common/Buttons/BlueButton";
-import { UserLoginSchema } from "../../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserLoginSchema";
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import { BlueInputField } from "../../../../Common/InputFields/BlueInputField";
+import { BlueCheckBox } from "../../../../Common/InputFields/BlueCheckBox/index";
+import { BlueButton } from "../../../../Common/Buttons/BlueButton";
+import { LoginSchema } from "../../../../../Core/Validation/Schemas/auth/Login/LoginSchema";
+import { LoginAPI } from "../../../../../Core/Services/Api/Auth/Login/LoginAPI";
+import { setItem } from "../../../../../Core/Services/common/storage.services";
+import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const Navigate = useNavigate();
+  const Naviagate = useNavigate();
 
   const onSubmit = async (value) => {
     setIsDisabled(true);
-    setIsLoading(true);
+
     try {
-      await axios
-        .post("https://user1697223215770.requestly.dev/BigBangUserLogin", value)
-        .then(() => SuccessToastify("!خوش آمدید"))
-        .then(() => setTimeout(() => Navigate("/User/Panel/Dashboard"), 2500));
+      const user = await LoginAPI(value);
+      console.log(user);
+
+      setItem("token", user.token);
+
+      SuccessToastify(user.message);
+
+      setTimeout(() => {
+        Naviagate("/User/Panel/Dashboard");
+      }, 2000);
     } catch (error) {
-      ErrorToastify("متاسفانه درخواست ورود شما با مشکل مواجه شده است");
+      return false;
     }
-    setIsLoading(false);
+
     setIsDisabled(false);
   };
 
@@ -38,29 +43,32 @@ const LoginForm = () => {
       <h1 className="text-[30px] text-center text-bluePrimary">ورود کاربران</h1>
 
       <Formik
-        initialValues={{ email: "", password: "", toggle: false }}
-        validationSchema={UserLoginSchema}
+        initialValues={{ phoneOrGmail: "", password: "", rememberMe: false }}
+        validationSchema={LoginSchema}
         onSubmit={onSubmit}
       >
         <Form className="mt-6">
+          {/* phoneOrGmail */}
           <BlueInputField
-            type="email"
-            name="email"
-            placeholder="ایمیل"
-            iconClass="fi fi-rr-at"
+            type="text"
+            name="phoneOrGmail"
+            placeholder="ایمیل یا شماره موبایل"
+            iconClass="fi fi-rr-at fi fi-rr-user"
           />
 
+          {/* password */}
           <BlueInputField
-            type={showPassword ? `text` : `password`}
+            type="password"
             name="password"
             placeholder="رمز عبور"
             iconClass="fi fi-rr-lock"
           />
 
           <div className="w-[370px] h-[30px] m-auto  flex justify-between">
+            {/* rememberMe */}
             <BlueCheckBox
               type="checkbox"
-              name="toggle"
+              name="rememberMe"
               labelName="مرا به خاطر بسپار"
             />
             <Link

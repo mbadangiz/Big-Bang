@@ -18,20 +18,22 @@ const RegisterFormStep1 = () => {
 
   const Navigate = useNavigate();
 
-  const register = useSelector((store) => store.register);
+  const register = useSelector((reducer) => reducer.register);
   const dispatch = useDispatch();
 
   const onSubmit = async (value) => {
     setIsDisabled(true);
 
     try {
-      await RegisterSendVerifyMessage(value)
-        .then(() => dispatch(onSetPhoneNumber(value.phoneNumber)))
-        .then(() =>
-          setTimeout(() => {
-            Navigate("/User/Register/Step2");
-          }, 1500)
-        );
+      const result = await RegisterSendVerifyMessage(value);
+
+      if (result.success === true) {
+        dispatch(onSetPhoneNumber(value.phoneNumber));
+        SuccessToastify("شماره موبایل شما با موفقیت ثبت شد");
+        setTimeout(() => {
+          Navigate("/User/Register/Step2");
+        }, 2000);
+      }
     } catch (error) {
       return false;
     }

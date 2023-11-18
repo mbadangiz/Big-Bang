@@ -9,6 +9,7 @@ import { BlueInputField } from "../../../../../Common/InputFields/BlueInputField
 import { BlueButton } from "../../../../../Common/Buttons/BlueButton";
 import { RegisterStep3Schema } from "../../../../../../Core/Validation/Schemas/auth/Register/RegisterStep3Schema";
 import { RegisterLastStep } from "../../../../../../Core/Services/Api/Auth/Register/RegisterLastStep";
+import { SuccessToastify } from "../../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
 
 const RegisterFormStep3 = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -21,11 +22,14 @@ const RegisterFormStep3 = () => {
     const newValue = { ...value, ...register };
 
     try {
-      await RegisterLastStep(newValue).then(() =>
+      const result = await RegisterLastStep(newValue);
+
+      if (result.success === false) {
+        SuccessToastify("ثبت نام شما با موفقیت انجام شد");
         setTimeout(() => {
           Navigate("/User/Login");
-        }, 1500)
-      );
+        }, 2000);
+      }
     } catch (error) {
       return false;
     }

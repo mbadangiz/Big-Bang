@@ -1,6 +1,7 @@
 import { LoginForm } from "./LoginForm/LoginForm";
 import UserLoginLogo from "../../../../Assets/Images/LoginRegisterForgetpass/UserLoginLogo.png";
 import { Link } from "react-router-dom";
+import { LoginSocialMedia } from "./LoginSocialMedia";
 
 const LoginHolder = () => {
   return (
@@ -13,8 +14,8 @@ const LoginHolder = () => {
         <div className="col-span-3">
           <figure className="mx-auto w-[480px] mt-[40px] relative">
             <img className="w-full " src={UserLoginLogo} alt="UserLoginLogo" />
-            <figcaption className="text-[35px] text-bluePrimary hover:text-blue-900 w-[100px] text-center absolute bottom-4   right-[70px]  ">
-              <Link to="/">کاربران</Link>
+            <figcaption className=" text-bluePrimary w-[320px] h-[100px] text-center absolute bottom-[-20px] left-[280px]">
+              <LoginSocialMedia />
             </figcaption>
           </figure>
         </div>
