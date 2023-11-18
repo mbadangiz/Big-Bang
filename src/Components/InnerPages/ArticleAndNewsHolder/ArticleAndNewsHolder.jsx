@@ -12,6 +12,7 @@ import {
 } from "@material-tailwind/react";
 
 import { Tags } from "../../Common/Tages/Tages";
+import { getAllNews } from "../../../Core/Services/Api/Articles/getAllNews";
 
 const ArticleAndNewsHolder = () => {
   useEffect(() => {
@@ -29,11 +30,16 @@ const ArticleAndNewsHolder = () => {
 };
 
 const ArticleMainContent = ({ data }) => {
+  useEffect(() => {
+    getAllNews();
+  }, []);
+
   return (
     <>
-      {data.map((items) => {
+      {/* {data.map((items) => {
         return <ArticleCards key={items.id} data={items} />;
-      })}
+      })} */}
+      <div>dd</div>
     </>
   );
 };
@@ -83,7 +89,7 @@ const ArticleFilters = () => {
         >
           فیلتر بر اساس تگ
         </AccordionHeader>
-        <AccordionBody className="w-full text-base px-2"></AccordionBody>
+        <AccordionBody className="w-full text-base px-2">55555</AccordionBody>
       </Accordion>
       <Accordion
         open={openAcc2}

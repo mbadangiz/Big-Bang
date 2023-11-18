@@ -1,7 +1,4 @@
-import { useContext } from "react";
-import { useState } from "react";
-import { createContext } from "react";
-import ImgTemp from "./../../Assets/Image/sampleImage.png";
+import { createContext, useState, useContext } from "react";
 
 const ArticleDataContext = createContext();
 
