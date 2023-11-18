@@ -12,6 +12,7 @@ import register, {
 } from "../../../../../../redux/auth/register";
 import { useNavigate } from "react-router-dom";
 import { SuccessToastify } from "../../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 
 const RegisterFormStep1 = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -29,16 +30,18 @@ const RegisterFormStep1 = () => {
 
       if (result.success === true) {
         dispatch(onSetPhoneNumber(value.phoneNumber));
-        SuccessToastify("شماره موبایل شما با موفقیت ثبت شد");
+        SuccessToastify(result.message);
         setTimeout(() => {
           Navigate("/User/Register/Step2");
         }, 2000);
+      } else if (result.success === false) {
+        return ErrorToastify(result.message);
       }
     } catch (error) {
       return false;
     }
 
-    console.log(register);
+    // console.log(register);
 
     setIsDisabled(false);
   };

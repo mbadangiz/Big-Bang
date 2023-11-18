@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
-import { ForgetpassResetpassForm } from "./ForgetpassResetpassForm/ForgetpassChangepassForm";
+import { ForgetpassResetpassForm } from "./ForgetpassResetpassForm/ForgetpassResetpassForm";
 
 import ForgetpassLogo from "../../../../../Assets/Images/LoginRegisterForgetpass/ForgetpassBackground.png";
 
 const ForgetpassResetpassHolder = () => {
   return (
     <>
-      <div className="w-5/6 h-4/5 m-auto grid grid-cols-6">
-        <div className="col-span-2 mt-20">
+      <div className="w-5/6 h-4/5 m-auto grid grid-cols-8 px-[100px] backdrop-blur-sm bg-black/5 my-5 rounded-[22px] ">
+        <div className="col-span-3 pt-[150px]">
           <ForgetpassResetpassForm />
         </div>
-        <div className=" col-span-2"></div>
-        <div className=" col-span-2">
-          <figure className="w-[400px] mt-[70px]  relative">
+        <div className="col-span-2"></div>
+        <div className="col-span-3">
+          <figure className="mx-auto w-[480px] mt-[40px] relative">
             <img
               className="w-full "
               src={ForgetpassLogo}

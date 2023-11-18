@@ -56,7 +56,7 @@ function App() {
           element: <UserForgetpass />,
         },
         {
-          path: "/User/Forgetpass/Resetpass",
+          path: "/User/Forgetpass/Resetpass/:configValue",
           element: <UserResetpass />,
         },
       ],
