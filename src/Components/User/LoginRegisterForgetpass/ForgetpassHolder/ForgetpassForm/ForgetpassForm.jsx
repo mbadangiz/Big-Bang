@@ -2,7 +2,7 @@ import axios from "axios";
 import { Formik, Form } from "formik";
 import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
-import { UserForgetpassSchema } from "../../../../../Core/Validation/Schemas/Login&Register&Forgetpass/User/UserForgetpassSchema";
+import { ForgetpassSchema } from "../../../../../Core/Validation/Schemas/auth/Forgetpass/ForgetpassSchema";
 
 import { BlueInputField } from "../../../../Common/InputFields/BlueInputField";
 import { BlueButton } from "../../../../Common/Buttons/BlueButton";
@@ -10,10 +10,13 @@ import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToa
 import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 import { InfoToastify } from "../../../../../Core/Utils/Toastifies/InfoToastify.Utils";
 import { useNavigate } from "react-router-dom";
+import { ForgetpassAPI } from "../../../../../Core/Services/Api/Auth/Forgetpass/ForgetpassAPI";
 
 const ForgetpassForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const Navigate = useNavigate();
+
+  const baseUrl = "http://localhost:5173/User/Forgetpass/Resetpass";
 
   useEffect(() => {
     InfoToastify("برای تغییر رمز ابتدا ایمیل خود را وارد کنید");
@@ -21,18 +24,16 @@ const ForgetpassForm = () => {
 
   const onSubmit = async (value) => {
     setIsDisabled(true);
+
+    const newValue = { ...value, baseUrl };
     try {
-      await axios
-        .post(
-          "https://user1697223215770.requestly.dev/BigBangUserForgetpass",
-          value
-        )
-        .then(() => SuccessToastify("در خواست شما با موفقیت انجام شده است"))
-        .then(() =>
-          setTimeout(() => Navigate("/User/Forgetpass/Changepass"), 2500)
-        );
+      const result = await ForgetpassAPI(newValue);
+
+      if (result.success === true) {
+        SuccessToastify("پیام با موفقیت به ایمیل شما ارسال شد");
+      }
     } catch (error) {
-      ErrorToastify("درخواست شما با مشکل مواجه شده است");
+      return ErrorToastify(result.message);
     }
     setIsDisabled(false);
   };
@@ -52,7 +53,7 @@ const ForgetpassForm = () => {
       <Formik
         initialValues={{ email: "" }}
         onSubmit={onSubmit}
-        validationSchema={UserForgetpassSchema}
+        validationSchema={ForgetpassSchema}
       >
         <Form className="my-[35px]">
           <BlueInputField

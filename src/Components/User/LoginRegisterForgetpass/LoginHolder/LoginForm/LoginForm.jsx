@@ -10,6 +10,7 @@ import { LoginSchema } from "../../../../../Core/Validation/Schemas/auth/Login/L
 import { LoginAPI } from "../../../../../Core/Services/Api/Auth/Login/LoginAPI";
 import { setItem } from "../../../../../Core/Services/common/storage.services";
 import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -21,15 +22,21 @@ const LoginForm = () => {
 
     try {
       const user = await LoginAPI(value);
-      console.log(user);
+      // console.log(user);
 
-      setItem("token", user.token);
+      if (user.success === true) {
+        setItem("token", user.token);
 
-      SuccessToastify(user.message);
+        SuccessToastify(user.message);
 
-      setTimeout(() => {
-        Naviagate("/User/Panel/Dashboard");
-      }, 2000);
+        setTimeout(() => {
+          Naviagate("/User/Panel/Dashboard");
+        }, 2000);
+        setIsDisabled(false);
+      } else if (user.success === false) {
+        setIsDisabled(false);
+        return ErrorToastify(user.message);
+      }
     } catch (error) {
       return false;
     }

@@ -18,7 +18,7 @@ const ForgetpassHolder = () => {
               src={ForgetpassLogo}
               alt="ForgetpassLogo"
             />
-            <figcaption className="text-[31px] text-bluePrimary w-[350px] text-center absolute bottom-6   right-[-180px]">
+            <figcaption className="text-[31px] text-bluePrimary w-[350px] text-center absolute bottom-12   right-[-180px]">
               <h2>رمز عبورت رو فراموش کردی ؟</h2>
             </figcaption>
           </figure>
