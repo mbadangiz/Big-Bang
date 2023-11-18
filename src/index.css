@@ -285,6 +285,14 @@ input[type="range"]::-webkit-slider-thumb {
   animation: anim2 1s;
 }
 
+.items3.show {
+  animation: anim2 1s;
+}
+
+.items4.show {
+  animation: anim2 1s;
+}
+
 .items.show {
   animation: anim2 1s;
 }

@@ -43,7 +43,7 @@ const LandingArticlesNewsSection = () => {
           "شما عزیزان می توانید تمام اخبار ومقالات برنامه نویسی را مشاهده بفرمایید"
         }
       />
-      <div className="w-full  flex-row-all-center  py-5  gap-4">
+      <div className="w-full  flex-row-all-center  py-5  gap-4  items3 hide">
         {News
           ? News.news.map((item) => {
               return <ArticleCardSmall key={item.id} data={item} />;
