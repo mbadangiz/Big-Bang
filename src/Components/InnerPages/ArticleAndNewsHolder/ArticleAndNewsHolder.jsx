@@ -30,10 +30,11 @@ const ArticleAndNewsHolder = () => {
 };
 
 const ArticleMainContent = ({ data }) => {
+  const { articleData, setArticleData } = useArticleData();
   useEffect(() => {
-    getAllNews();
+    // getAllNews();
   }, []);
-
+  console.log(articleData);
   return (
     <>
       {/* {data.map((items) => {
