@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from "react";
 const ArticleDataContext = createContext();
 
 const ArticleListProvider = ({ children }) => {
-  const [articleData, setArticleData] = useState("sss");
+  const [articleData, setArticleData] = useState();
 
   return (
     <ArticleDataContext.Provider value={{ articleData, setArticleData }}>
