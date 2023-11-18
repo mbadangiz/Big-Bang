@@ -4,8 +4,11 @@ const CourseDetailsContext = createContext();
 
 const CourseDetailsProvider = ({ children }) => {
   const [courseDetails, setCourseDetails] = useState();
+  const [commets, setCommets] = useState();
   return (
-    <CourseDetailsContext.Provider value={{ courseDetails, setCourseDetails }}>
+    <CourseDetailsContext.Provider
+      value={{ courseDetails, setCourseDetails, commets, setCommets }}
+    >
       {children}
     </CourseDetailsContext.Provider>
   );

@@ -48,9 +48,15 @@ const CourseCard = ({ data }) => {
             </p>
             <TomanLogo />
           </div>
-          <div>
-            <i className="fi fi-sr-star relative top-[2.5px] mr-2"></i>{" "}
-            <span>{courseRate}</span>
+          <div className="flex-row-all-center gap-2">
+            <div>
+              <i className="fi fi-sr-star relative top-[2.5px] mr-1"></i>
+              <span>{courseRate}</span>
+            </div>
+            <div>
+              <i className="fi fi-sr-heart relative top-[2.5px] mr-1"></i>
+              <span>{likeCount}</span>
+            </div>
           </div>
         </div>
       </div>

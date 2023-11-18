@@ -3,25 +3,26 @@ import { TopSection } from "./CourseDetailTopSection/TopSection";
 import { PopularTag } from "./PopularTag/PopularTag";
 import { CourseDesc } from "./CourseDescription/CourseDesc";
 import { RatingSection } from "./RatingSection/RatingSection";
-import { CommentTree } from "../../../Common/CommentTree/CommentTree";
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { GetCourseDetails } from "../../../../Core/Services/Api/CourseDetails/GetCourseDetail";
-import { useState } from "react";
 import { useMyCourseDetail } from "../../../../Core/Providers/CourseDetailProvider";
 import { Element, Link as RSlisnk } from "react-scroll";
 import PleaseWait from "../../../Common/PleaseWait/PleaseWait";
+import { Comments } from "./Comments/Comments";
+import { LikeOrDislikeSectoin } from "./LikeOrDislikeSectoin/LikeOrDislikeSectoin";
+import CourseDetailCommetsArea from "./CourseDetailCommetsArea/CourseDetailCommetsArea";
 
 const CourseDetails = () => {
   const [searchParams] = useSearchParams();
   const courseId = searchParams.get("courseId");
+
   const { courseDetails, setCourseDetails } = useMyCourseDetail();
 
   const getCourseById = async () => {
     const res = await GetCourseDetails(courseId);
     setCourseDetails(res);
   };
-
   useEffect(() => {
     document.body.style.background = "#F5F7FA";
     getCourseById();
@@ -32,7 +33,7 @@ const CourseDetails = () => {
       {courseDetails ? (
         <>
           <TopSection data={courseDetails} />
-          <div className="w-full mt-11 flex">
+          <div className="w-full mt-11 flex mb-10">
             <div className="w-[830px]  ">
               <div
                 className="h-[74px]  rounded-[12px] text-[18px]
@@ -62,14 +63,14 @@ const CourseDetails = () => {
                 <Accardion />
               </Element>
 
-              <Element name="commets" className="pt-5">
-                <h3 className="f-bold text-xl mb-7">دیدگاه ها</h3>
-                <div className="artcileDeailtCardsSettings shadow-sm">
-                  <CommentTree />
-                </div>
-              </Element>
+              <CourseDetailCommetsArea data={courseDetails} />
+              {/* <Comments courseId={courseId} /> */}
             </div>
             <div className="w-full mr-8">
+              <LikeOrDislikeSectoin
+                currentUserDissLike={courseDetails.currentUserDissLike}
+                likeCount={courseDetails.likeCount}
+              />
               <RatingSection />
               <div className="shadow-md rounded-[12px] mb-4 overflow-hidden">
                 <PopularTag />
