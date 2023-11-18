@@ -6,7 +6,7 @@ import { PanelContent } from "./PanelContent";
 
 const PanelHolder = () => {
   return (
-    <div className="h-screen grid grid-cols-12">
+    <div className=" h-screen grid grid-cols-12 px-2">
       <div className="col-span-2 ">
         <PanelSidebar />
       </div>

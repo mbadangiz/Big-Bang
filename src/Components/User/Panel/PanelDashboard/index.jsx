@@ -8,22 +8,20 @@ import { PanelDashboardUserActivity } from "./PanelDashboardUserActivity";
 
 const PanelDashboard = () => {
   return (
-    <div className="w-full h-full rounded-lg grid grid-cols-12 gap-6 px-2 pt-2 pb-[22px]">
+    <div className="w-full h-full rounded-lg grid grid-cols-12 gap-x-16 gap-y-5">
       <div className="col-span-7  w-full h-[300px] rounded-lg">
         <PanelDashboardIDUserCard />
       </div>
-      <div className="col-span-1"></div>
 
-      <div className="col-span-4 w-full h-[300px] rounded-lg">
+      <div className="col-span-5 w-full h-[300px] rounded-lg">
         <PanelDashboardUserActivity />
       </div>
 
-      <div className=" col-span-7  w-full h-[340px] rounded-lg">
+      <div className="col-span-7  w-full h-[340px] rounded-lg">
         <PanelDashboardHotNews />
       </div>
-      <div className="col-span-1"></div>
 
-      <div className="col-span-4 w-full h-full rounded-lg">
+      <div className="col-span-5 w-full h-full rounded-lg">
         <PanelDashboardCalendar />
       </div>
     </div>

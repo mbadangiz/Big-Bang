@@ -9,7 +9,7 @@ import { PanelSidebarProfileMenuItems } from "./PanelSidebarMenuItems/PanelSideb
 
 const PanelSidebar = () => {
   return (
-    <div className=" w-full mx-auto h-screen flex items-start relative">
+    <div className="w-full mx-auto h-screen flex items-start relative">
       <div className="w-5/6 h-full ">
         <div className=" w-full h-full absolute right-[6px]">
           <div className="w-[60px] h-full py-[8px] -z-10">
