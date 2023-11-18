@@ -70,7 +70,7 @@ const TableCoursesList = () => {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-slate-100">
-        <table className="w-full text-base text-center text-gray-500 dark:text-gray-400">
+        <table className="w-full text-base text-center text-gray-500 dark:text-gray-400 h-[612px]">
           <thead className="text-base text-white uppercase bg-bluePrimary">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -83,16 +83,16 @@ const TableCoursesList = () => {
                 استاد دوره
               </th>
               <th scope="col" className="px-6 py-3">
-                ظرفیت دوره
+                ظرفیت
               </th>
               <th scope="col" className="px-6 py-3">
-                تاریخ شروع
+                گروه دوره
               </th>
               <th scope="col" className="px-6 py-3">
-                تاریخ پایان
+                سطح
               </th>
               <th scope="col" className="px-6 py-3">
-                وضعیت دوره
+                وضعیت
               </th>
               <th scope="col" className="px-6 py-3">
                 قیمت
@@ -113,18 +113,26 @@ const TableCoursesList = () => {
                           className="py-4 font-medium whitespace-nowrap"
                         >
                           <img
-                            src=""
+                            src={
+                              course.tumbImageAddress
+                                ? course.tumbImageAddress
+                                : ImageTest
+                            }
                             alt=""
                             className="border-2 border-red-100 border-solid w-20 relative right-8 rounded-md"
                           />
                         </th>
-                        <td className="px-6 py-4">{allCourse.title}</td>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4 text-red-500"></td>
+                        <td className="px-6 py-4">{course.title}</td>
+                        <td className="px-6 py-4">{course.teacherName}</td>
+                        <td className="px-6 py-4">
+                          {course.currentRegistrants}
+                        </td>
+                        <td className="px-6 py-4">{course.technologyList}</td>
+                        <td className="px-6 py-4">{course.levelName}</td>
+                        <td className="px-6 py-4">{course.statusName}</td>
+                        <td className="px-6 py-4 text-red-500">
+                          {course.cost}
+                        </td>
                         <td className="px-6 py-4">
                           <a
                             href="#"
