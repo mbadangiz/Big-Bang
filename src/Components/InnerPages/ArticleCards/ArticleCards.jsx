@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getNewsComments } from "../../../Core/Services/Api/Articles/getNewsComments";
+import { makeDatePersian } from "../../../Core/Utils/MakeDatePersian/MakeDatePersian";
 
 const ArticleCards = ({ data }) => {
   const {
@@ -46,7 +47,7 @@ const ArticleCards = ({ data }) => {
           </p>
         </div>
         <div className="flex-row-all-center justify-between h-14">
-          <h1 className="f-bold w-3/5 ">{title}</h1>
+          <h1 className="f-bold w-[70%] makeTextNoWrap">{title}</h1>
           <p className="flex-row-all-center gap-2">
             <div className="flex-row-all-center flex-row-reverse">
               <i className="fi fi-rr-comment"></i>
@@ -58,19 +59,21 @@ const ArticleCards = ({ data }) => {
             </div>
           </p>
         </div>
-        <div className="flex-row-all-center justify-between">
+        <div className="flex-row-all-center justify-between  gap-4">
           <div className="flex-row-all-center">
             <img
               src="./../Img/avatar1.jpg"
               className="w-10 rounded-full border-black border-solid border-2"
               alt=""
             />
-            <p className="text-[15px] mr-1">{addUserFullName}</p>
+            <p className="text-[15px] mr-1 ">{addUserFullName}</p>
           </div>
-          <p className="text-[13px] opacity-60">{date}</p>
+          <p className="text-[13px] opacity-60">
+            {makeDatePersian(insertDate)}
+          </p>
         </div>
         <div className="w-[90%] h-1 bg-divider/30 mx-auto"></div>
-        <p className="!mb-3 text-bluePrimary ">مشاهده ی کامل مقاله...</p>
+        <p className="!mb-3 text-bluePrimary f-bold">مشاهده ی کامل مقاله...</p>
       </div>
     </Link>
   );

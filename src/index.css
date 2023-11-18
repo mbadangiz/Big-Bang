@@ -45,6 +45,11 @@
   .vertical-text {
     writing-mode: vertical-lr;
   }
+  .makeTextNoWrap {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
 * {
   margin: 0;
