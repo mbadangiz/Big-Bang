@@ -10,6 +10,7 @@ import { BlueButton } from "../../../../../Common/Buttons/BlueButton";
 import { RegisterStep3Schema } from "../../../../../../Core/Validation/Schemas/auth/Register/RegisterStep3Schema";
 import { RegisterLastStep } from "../../../../../../Core/Services/Api/Auth/Register/RegisterLastStep";
 import { SuccessToastify } from "../../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 
 const RegisterFormStep3 = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -24,11 +25,13 @@ const RegisterFormStep3 = () => {
     try {
       const result = await RegisterLastStep(newValue);
 
-      if (result.success === false) {
-        SuccessToastify("ثبت نام شما با موفقیت انجام شد");
+      if (result.success === true) {
+        SuccessToastify(result.message);
         setTimeout(() => {
           Navigate("/User/Login");
         }, 2000);
+      } else if (result.success === false) {
+        ErrorToastify(result.message);
       }
     } catch (error) {
       return false;

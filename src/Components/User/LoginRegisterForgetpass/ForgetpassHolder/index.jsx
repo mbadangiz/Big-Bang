@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ForgetpassForm } from "./ForgetpassForm/ForgetpassForm";
 
-import UserForgetpassLogo from "../../../../Assets/Images/LoginRegisterForgetpass/UserForgetpassLogo.png";
+import ForgetpassLogo from "../../../../Assets/Images/LoginRegisterForgetpass/ForgetpassBackground.png";
 
 const ForgetpassHolder = () => {
   return (
@@ -15,11 +15,11 @@ const ForgetpassHolder = () => {
           <figure className="mx-auto w-[480px] mt-[40px] relative">
             <img
               className="w-full "
-              src={UserForgetpassLogo}
-              alt="UserLoginLogo"
+              src={ForgetpassLogo}
+              alt="ForgetpassLogo"
             />
-            <figcaption className="text-[35px] text-bluePrimary hover:text-blue-900 w-[100px] text-center absolute bottom-4   right-[70px]  ">
-              <Link to="/">کاربران</Link>
+            <figcaption className="text-[31px] text-bluePrimary w-[350px] text-center absolute bottom-6   right-[-180px]">
+              <h2>رمز عبورت رو فراموش کردی ؟</h2>
             </figcaption>
           </figure>
         </div>

@@ -11,7 +11,7 @@ import { UserForgetpassChangepassSchema } from "../../../../../../Core/Validatio
 import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const ForgetpassChangepassForm = () => {
+const ForgetpassResetpassForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const Navigate = useNavigate();
 
@@ -71,4 +71,4 @@ const ForgetpassChangepassForm = () => {
   );
 };
 
-export { ForgetpassChangepassForm };
+export { ForgetpassResetpassForm };

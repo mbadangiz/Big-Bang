@@ -29,12 +29,12 @@ const RegisterFormStep2 = () => {
     try {
       const result = await RegisterVerifyMessage(newValue);
 
-      if (result.success === false) {
-        SuccessToastify("کد تایید شما با موفقیت ثبت شد");
+      if (result.success === true) {
+        SuccessToastify(result.message);
         setTimeout(() => {
           Navigate("/User/Register/Step3");
         }, 2000);
-      } else if (result.success === true) {
+      } else if (result.success === false) {
         ErrorToastify(result.message);
       }
     } catch (error) {

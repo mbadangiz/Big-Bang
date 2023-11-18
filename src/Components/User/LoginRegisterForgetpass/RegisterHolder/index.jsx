@@ -1,4 +1,4 @@
-import UserRegisterLogo from "../../../../Assets/Images/LoginRegisterForgetpass/UserRegisterLogo.png";
+import RegisterLogo from "../../../../Assets/Images/LoginRegisterForgetpass/RegisterBackground.png";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { RegisterForms } from "./RegisterForms/RegisterForms";
 
@@ -23,7 +23,7 @@ const RegisterHolder = () => {
       <div className="col-span-2"></div>
       <div className="col-span-3">
         <figure className="mx-auto w-[480px] mt-[40px] relative">
-          <img className="w-full " src={UserRegisterLogo} alt="UserLoginLogo" />
+          <img className="w-full " src={RegisterLogo} alt="UserLoginLogo" />
           <figcaption className="text-[35px] text-bluePrimary w-[220px] text-center absolute bottom-4 right-[30px] ">
             {handleRegisterSteps(locationPath)}
           </figcaption>

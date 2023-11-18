@@ -11,7 +11,7 @@ import { Error404 } from "../Screens/Error404/Error404";
 import { UserLogin } from "../Screens/UserLogin/UserLogin";
 import { UserRegister } from "../Screens/UserRegister/UserRegister";
 import { UserForgetpass } from "../Screens/UserForgetpass/UserForgetpass";
-import { UserChangepass } from "../Screens/UserChangepass/UserChangepass";
+import { UserResetpass } from "../Screens/UserResetpass/UserResetpass";
 import { PanelHolder } from "../Components/User/Panel/PanelHolder";
 import { PanelDashboard } from "../Components/User/Panel/PanelDashboard/index";
 import { PanelEditProfile } from "../Components/User/Panel/PanelEditProfile";
@@ -56,8 +56,8 @@ function App() {
           element: <UserForgetpass />,
         },
         {
-          path: "/User/Forgetpass/Changepass",
-          element: <UserChangepass />,
+          path: "/User/Forgetpass/Resetpass",
+          element: <UserResetpass />,
         },
       ],
     },

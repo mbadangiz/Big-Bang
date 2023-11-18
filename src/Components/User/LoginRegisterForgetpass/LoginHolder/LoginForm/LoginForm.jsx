@@ -85,7 +85,7 @@ const LoginForm = () => {
       <p className="text-[17px] text-center mt-[16px]">
         برای ثبت نام
         <Link
-          to="/User/Register"
+          to="/User/Register/Step1"
           className="text-bluePrimary hover:text-blue-900 text-[17px] text-center mx-1 cursor-pointer"
         >
           اینجا
