@@ -5,13 +5,12 @@ const RatingSection = () => {
   const [rate, setRate] = useState(0);
 
   return (
-    <div className=" rounded-[12px] mb-4 text-center bg-white">
-      <p>چه امتیازی برای این دوره میدهید؟</p>
-
-      <div className="flex-row-all-center p-4">
+    <div className="w-full flex-row-all-center justify-between rounded-[12px] mb-4 text-center bg-white px-3 py-5">
+      <p className="f-bold">چه امتیازی برای این دوره میدهید؟</p>
+      <div>
         {rate ? <span> 5 / {rate} </span> : ""}
         <Rating
-          className="mx-2"
+          className="mr-2"
           initialRating={rate}
           start={0}
           stop={5}

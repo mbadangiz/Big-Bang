@@ -23,6 +23,11 @@
     @apply shadow-md hover:shadow-xl bg-white rounded-2xl p-2.5 transition-all 
     border-[1px] border-solid border-[#efefef] duration-300 cursor-pointer;
   }
+  .textNoWrap {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
 
 @layer utilities {

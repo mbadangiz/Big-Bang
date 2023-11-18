@@ -15,6 +15,8 @@ const TopSection = ({ data }) => {
     capacity,
     startTime,
     teacherName,
+    currentUser,
+    DissLikelikeCount,
   } = data;
 
   const start = makeDatePersian(startTime);
@@ -61,7 +63,7 @@ const TopSection = ({ data }) => {
             <div className=" text-2xl flex-row-all-center gap-2">
               <h2 className="f-bold text-bluePrimary">
                 {ThreeNumberSpiliter(cost)}
-              </h2>{" "}
+              </h2>
               <TomanLogo />
             </div>
           </div>

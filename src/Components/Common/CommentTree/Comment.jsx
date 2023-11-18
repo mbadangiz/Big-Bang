@@ -1,4 +1,16 @@
-const Comment = ({ commentType }) => {
+const Comment = ({ commentType, data }) => {
+  const {
+    id,
+    courseId,
+    title,
+    describe,
+    author,
+    insertDate,
+    accept,
+    acceptReplysCount,
+    disslikeCount,
+    likeCount,
+  } = data;
   return (
     <div
       className={`w-full h-max flex-row-all-center justify-start 
@@ -6,20 +18,30 @@ const Comment = ({ commentType }) => {
         commentType === "repley" ? "commentRepley" : ""
       }`}
     >
-      <div className="w-[14%] flex flex-col items-center content-center gap-3 border-l-4 border-solid border-black/50">
+      <div className="w-[20%] overflow-hidden flex flex-col items-center content-center gap-3 border-l-4 border-solid border-black/50">
         <img
           src="./../Img/avatar1.jpg"
           className="h-20 w-20 object-cover rounded-full"
           alt=""
         />
-        <p className="text-sm">محمد بادانگیز</p>
+        <p className="text-sm textNoWrap">{author}</p>
       </div>
-      <div className="w-[calc(86%-4px)] text-sm text-justify px-4">
-        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
-        از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
-        سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
-        متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
-        درصد گذشته حال و.
+      <div className="w-[calc(80%-4px)] text-sm text-justify px-4">
+        <div className="w-full flex-row-all-center justify-between">
+          <h1 className="f-semiBold mb-3  text-base">{title}</h1>
+          <div className="flex-row-all-center  gap-3">
+            <div className="flex-row-all-center cursor-pointer">
+              <span className="text-lg">{likeCount}</span>
+              <i className="text-lg mr-1 fi fi-br-hand relative top-1"></i>
+            </div>
+
+            <div className="flex-row-all-center cursor-pointer">
+              <span className="text-lg">{disslikeCount}</span>
+              <i className="text-lg mr-1 fi fi-rr-social-network relative top-1"></i>
+            </div>
+          </div>
+        </div>
+        <p>{describe}</p>
       </div>
     </div>
   );
