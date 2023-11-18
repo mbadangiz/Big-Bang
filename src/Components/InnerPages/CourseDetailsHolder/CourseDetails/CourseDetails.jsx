@@ -10,6 +10,7 @@ import { GetCourseDetails } from "../../../../Core/Services/Api/CourseDetails/Ge
 import { useState } from "react";
 import { useMyCourseDetail } from "../../../../Core/Providers/CourseDetailProvider";
 import { Element, Link as RSlisnk } from "react-scroll";
+
 const CourseDetails = () => {
   const [searchParams] = useSearchParams();
   const courseId = searchParams.get("courseId");
@@ -18,6 +19,7 @@ const CourseDetails = () => {
     const res = await GetCourseDetails(courseId);
     setCourseDetails(res);
   };
+
   useEffect(() => {
     document.body.style.background = "#F5F7FA";
     getCourseById();

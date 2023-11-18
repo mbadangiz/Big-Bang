@@ -1,8 +1,7 @@
 import { TomanLogo } from "../../../../Common/TomanLogo/TomanLogo";
 import { ThreeNumberSpiliter } from "../../../../../Core/Utils/ThreeNumberSpiliter/ThreeNumberSpiliter";
-import { useEffect } from "react";
 import { GetTeacherById } from "../../../../../Core/Services/Api/Common/GetTeacherById";
-import { useState } from "react";
+import { makeDatePersian } from "./../../../../../Core/Utils/MakeDatePersian/MakeDatePersian.js";
 
 const TopSection = ({ data }) => {
   const {
@@ -17,13 +16,8 @@ const TopSection = ({ data }) => {
     startTime,
     teacherName,
   } = data;
-  let start = new Date(startTime).toLocaleDateString("fa-IR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-  console.log(data);
-  // useEffect(() => {}, []);
+
+  const start = makeDatePersian(startTime);
 
   const information = [
     {
