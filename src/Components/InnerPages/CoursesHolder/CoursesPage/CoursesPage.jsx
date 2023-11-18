@@ -10,6 +10,7 @@ import { ClipLoader, GridLoader } from "react-spinners";
 import _ from "lodash";
 import { BlueButton } from "../../../Common/Buttons/BlueButton";
 import { ThereIsNoProductsHere } from "../ThereIsNoProductsHere/ThereIsNoProductsHere";
+import PleaseWait from "../../../Common/PleaseWait/PleaseWait";
 
 const CoursesPage = () => {
   const { courseList, setRowPageCount } = useMyCourses();
@@ -71,19 +72,7 @@ const CoursesPage = () => {
                   })
                 )
               ) : (
-                <div className="w-full h-300 flex-row-all-center flex-col flex-nowrap gap-3">
-                  <GridLoader
-                    color="#406DD5"
-                    cssOverride={{}}
-                    loading
-                    margin={5}
-                    size={15}
-                    speedMultiplier={1}
-                  />
-                  <p className="text-bluePrimary text-xl f-bold">
-                    لطفا منتظر بمانید
-                  </p>
-                </div>
+                <PleaseWait />
               )}
             </div>
             <div className="mt-10">

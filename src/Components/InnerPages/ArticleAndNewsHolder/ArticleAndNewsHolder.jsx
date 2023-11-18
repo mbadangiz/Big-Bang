@@ -23,7 +23,7 @@ const ArticleAndNewsHolder = () => {
   );
 };
 
-const ArticleMainContent = ({ data }) => {
+const ArticleMainContent = () => {
   return (
     <>
       {data.map((items) => {
