@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ImageTest from "./../../../../../../../Assets/Image/sampleImage.png";
 import { getCourseAll } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetAllCourse";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const TableCoursesList = () => {
-  const [allCourse, setAllCourse] = useState();
+const TableCoursesList = ({ setAllCourse, allCourse }) => {
   const getAllCoursesInPanel = async () => {
     const AllCourses = await getCourseAll();
     setAllCourse(AllCourses);
@@ -13,6 +12,8 @@ const TableCoursesList = () => {
   useEffect(() => {
     getAllCoursesInPanel();
   }, []);
+
+  const navigate = useNavigate();
 
   console.log(allCourse);
 
@@ -53,47 +54,44 @@ const TableCoursesList = () => {
           </thead>
           <tbody>
             {allCourse
-              ? allCourse.courseFilterDtos.map((course) => {
+              ? allCourse.courseFilterDtos.map((course, index) => {
                   return (
-                    <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
-                      <Link
-                        className="w-full"
-                        to={`/CoursesDetails?courseId=${course.courseId}`}
+                    <tr
+                      className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 "
+                      onClick={() => {
+                        navigate(`/CoursesDetails?courseId=${course.courseId}`);
+                      }}
+                      key={index}
+                    >
+                      <th
+                        scope="row"
+                        className="py-4 font-medium whitespace-nowrap"
                       >
-                        <th
-                          scope="row"
-                          className="py-4 font-medium whitespace-nowrap"
+                        <img
+                          src={
+                            course.tumbImageAddress
+                              ? course.tumbImageAddress
+                              : ImageTest
+                          }
+                          alt=""
+                          className="border-2 border-red-100 border-solid w-20 relative right-8 rounded-md"
+                        />
+                      </th>
+                      <td className="px-6 py-4">{course.title}</td>
+                      <td className="px-6 py-4">{course.teacherName}</td>
+                      <td className="px-6 py-4">{course.currentRegistrants}</td>
+                      <td className="px-6 py-4">{course.technologyList}</td>
+                      <td className="px-6 py-4">{course.levelName}</td>
+                      <td className="px-6 py-4">{course.statusName}</td>
+                      <td className="px-6 py-4 text-red-500">{course.cost}</td>
+                      <td className="px-6 py-4">
+                        <a
+                          href="#"
+                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                         >
-                          <img
-                            src={
-                              course.tumbImageAddress
-                                ? course.tumbImageAddress
-                                : ImageTest
-                            }
-                            alt=""
-                            className="border-2 border-red-100 border-solid w-20 relative right-8 rounded-md"
-                          />
-                        </th>
-                        <td className="px-6 py-4">{course.title}</td>
-                        <td className="px-6 py-4">{course.teacherName}</td>
-                        <td className="px-6 py-4">
-                          {course.currentRegistrants}
-                        </td>
-                        <td className="px-6 py-4">{course.technologyList}</td>
-                        <td className="px-6 py-4">{course.levelName}</td>
-                        <td className="px-6 py-4">{course.statusName}</td>
-                        <td className="px-6 py-4 text-red-500">
-                          {course.cost}
-                        </td>
-                        <td className="px-6 py-4">
-                          <a
-                            href="#"
-                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                          >
-                            <i className="fi fi-rr-add"></i>
-                          </a>
-                        </td>
-                      </Link>
+                          <i className="fi fi-rr-add"></i>
+                        </a>
+                      </td>
                     </tr>
                   );
                 })

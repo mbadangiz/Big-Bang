@@ -1,39 +1,23 @@
 import React from "react";
 import axios from "axios";
+import { useEffect } from "react";
+import { GetFavoriteCourses } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetFavoriteCourses";
+import { useState } from "react";
+import { RowOfFavorite } from "./RowOfFavorite";
 
 const FavoriteCourse = () => {
-  const list = [
-    {
-      id: 1,
-      courseTitle: "ری اکت",
-      courseMaster: "یه بابایی",
-      courseParticipants: 120,
-      courseStartTime: "1402/01/01",
-      courseEndTime: "1402/05/22",
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-    {
-      id: 2,
-      courseTitle: "جاوا اسکریپت",
-      courseMaster: "یه بابایی",
-      courseParticipants: 20,
-      courseStartTime: "1402/01/01",
-      courseEndTime: "1402/05/22",
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-    {
-      id: 3,
-      courseTitle: "Tailwindcss",
-      courseMaster: "یه بابایی",
-      courseParticipants: 160,
-      courseStartTime: "1402/01/01",
-      courseEndTime: "1402/05/22",
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-  ];
+  const [Fav, setFavoriteCourse] = useState();
+
+  const GetFavorite = async () => {
+    const FavoriteCourses = await GetFavoriteCourses();
+    setFavoriteCourse(FavoriteCourses);
+  };
+
+  console.log(Fav);
+
+  useEffect(() => {
+    GetFavorite();
+  }, []);
 
   return (
     <>
@@ -48,16 +32,16 @@ const FavoriteCourse = () => {
                 استاد دوره
               </th>
               <th scope="col" className="px-6 py-3">
-                ظرفیت دوره
+                ظرفیت
               </th>
               <th scope="col" className="px-6 py-3">
-                تاریخ شروع
+                تعداد لایک
               </th>
               <th scope="col" className="px-6 py-3">
-                تاریخ پایان
+                سطح
               </th>
               <th scope="col" className="px-6 py-3">
-                وضعیت دوره
+                وضعیت
               </th>
               <th scope="col" className="px-6 py-3">
                 قیمت
@@ -68,31 +52,15 @@ const FavoriteCourse = () => {
             </tr>
           </thead>
           <tbody>
-            {list.map((course) => {
-              return (
-                <>
-                  <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
-                    <td className="px-6 py-4">{course.courseTitle}</td>
-                    <td className="px-6 py-4">{course.courseMaster}</td>
-                    <td className="px-6 py-4">{course.courseParticipants}</td>
-                    <td className="px-6 py-4">{course.courseStartTime}</td>
-                    <td className="px-6 py-4">{course.courseEndTime}</td>
-                    <td className="px-6 py-4">{course.courseStatus}</td>
-                    <td className="px-6 py-4 text-red-500">
-                      {course.coursePrice}
-                    </td>
-                    <td className="px-6 py-4">
-                      <button
-                        type="submit"
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      >
-                        <i className="fi fi-rr-minus-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </>
-              );
-            })}
+            {Fav
+              ? Fav.favoriteCourseDto.map((favorite) => {
+                  return (
+                    <>
+                      <RowOfFavorite data={favorite.courseId} />
+                    </>
+                  );
+                })
+              : ""}
           </tbody>
         </table>
       </div>
