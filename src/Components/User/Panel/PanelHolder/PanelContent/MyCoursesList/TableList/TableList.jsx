@@ -68,16 +68,16 @@ const TableList = () => {
                 استاد دوره
               </th>
               <th scope="col" className="px-6 py-3">
-                ظرفیت دوره
+                ظرفیت
               </th>
               <th scope="col" className="px-6 py-3">
-                تاریخ شروع
+                گروه دوره
               </th>
               <th scope="col" className="px-6 py-3">
-                تاریخ پایان
+                سطح
               </th>
               <th scope="col" className="px-6 py-3">
-                وضعیت دوره
+                وضعیت
               </th>
               <th scope="col" className="px-6 py-3">
                 قیمت
