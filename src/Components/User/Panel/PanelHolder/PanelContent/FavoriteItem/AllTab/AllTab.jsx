@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { FavoriteCourse } from "../FavoriteCourse/FavoriteCourse";
+import { FavoriteNews } from "../FavoriteNews/FavoriteNews";
 
 const AllTab = () => {
   const [activeTab, setActiveTab] = useState(0);
   const tabs = [
     { id: 0, title: "دوره های مورد علاقه", content: <FavoriteCourse /> },
-    { id: 1, title: " مقالات مورد علاقه ", content: "لب" },
+    { id: 1, title: " مقالات مورد علاقه ", content: <FavoriteNews /> },
   ];
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
