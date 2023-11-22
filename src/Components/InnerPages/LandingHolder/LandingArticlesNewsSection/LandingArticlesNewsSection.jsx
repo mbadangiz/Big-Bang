@@ -45,8 +45,10 @@ const LandingArticlesNewsSection = () => {
       />
       <div className="w-full  flex-row-all-center  py-5  gap-4  items3 hide">
         {News
-          ? News.news.map((item) => {
-              return <ArticleCardSmall key={item.id} data={item} />;
+          ? News.news.map((item, index) => {
+              if (index < 3) {
+                return <ArticleCardSmall key={item.id} data={item} />;
+              }
             })
           : "bvx"}
       </div>
