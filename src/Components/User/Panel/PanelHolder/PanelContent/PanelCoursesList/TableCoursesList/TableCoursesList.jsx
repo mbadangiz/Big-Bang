@@ -52,7 +52,7 @@ const TableCoursesList = ({ setAllCourse, allCourse }) => {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="container">
             {allCourse
               ? allCourse.courseFilterDtos.map((course, index) => {
                   return (
