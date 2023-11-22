@@ -37,7 +37,7 @@ const CommentTree = ({ data }) => {
       >
         {commentReplies.length > 0 &&
           commentReplies.map((items) => {
-            return <Comment data={items} commentType="repley" />;
+            return <Comment data={items} key={items} commentType="repley" />;
           })}
       </div>
     </div>

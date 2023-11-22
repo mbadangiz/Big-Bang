@@ -4,7 +4,7 @@ import instance from "../../Interceptor/Interceptor";
 const getCourseListAll = async (data) => {
   const { CourseTypeValue, minMax, techList, rowpageCount } = data;
 
-  const count = rowpageCount * 1;
+  const count = rowpageCount * 9;
   const rowCount = `PageNumber=1&RowsOfPage=${count}`;
 
   const costQuery = `CostDown=${minMax[0]}&CostUp=${minMax[1]}`;

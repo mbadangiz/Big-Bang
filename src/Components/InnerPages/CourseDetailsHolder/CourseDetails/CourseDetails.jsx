@@ -12,6 +12,8 @@ import PleaseWait from "../../../Common/PleaseWait/PleaseWait";
 import { Comments } from "./Comments/Comments";
 import { LikeOrDislikeSectoin } from "./LikeOrDislikeSectoin/LikeOrDislikeSectoin";
 import CourseDetailCommetsArea from "./CourseDetailCommetsArea/CourseDetailCommetsArea";
+import { ToastContainer } from "react-toastify";
+import AddToFavList from "./AddToFavList/AddToFavList";
 
 const CourseDetails = () => {
   const [searchParams] = useSearchParams();
@@ -23,65 +25,75 @@ const CourseDetails = () => {
     const res = await GetCourseDetails(courseId);
     setCourseDetails(res);
   };
+
   useEffect(() => {
     document.body.style.background = "#F5F7FA";
     getCourseById();
   }, []);
   console.log(courseDetails);
   return (
-    <div className="width-handler mt-10">
-      {courseDetails ? (
-        <>
-          <TopSection data={courseDetails} />
-          <div className="w-full mt-11 flex mb-10">
-            <div className="w-[830px]  ">
-              <div
-                className="h-[74px]  rounded-[12px] text-[18px]
+    <>
+      <ToastContainer />
+      <div className="width-handler mt-10">
+        {courseDetails ? (
+          <>
+            <TopSection data={courseDetails} />
+            <div className="w-full mt-11 flex mb-10">
+              <div className="w-[830px]  ">
+                <div
+                  className="h-[74px]  rounded-[12px] text-[18px]
               text-[#707070] flex items-center gap-8 shadow-sm   bg-white  px-4"
-              >
-                <RSlisnk
-                  className="cursor-pointer"
-                  to="courseDesc"
-                  offset={-200}
                 >
-                  توضیحات
-                </RSlisnk>
-                <RSlisnk className="cursor-pointer" to="classes" offset={-170}>
-                  جلسات
-                </RSlisnk>
-                <RSlisnk to="commets" className="cursor-pointer" offset={-200}>
-                  دیدگاه ها
-                </RSlisnk>
+                  <RSlisnk
+                    className="cursor-pointer"
+                    to="courseDesc"
+                    offset={-200}
+                  >
+                    توضیحات
+                  </RSlisnk>
+                  <RSlisnk
+                    className="cursor-pointer"
+                    to="classes"
+                    offset={-170}
+                  >
+                    جلسات
+                  </RSlisnk>
+                  <RSlisnk
+                    to="commets"
+                    className="cursor-pointer"
+                    offset={-200}
+                  >
+                    دیدگاه ها
+                  </RSlisnk>
+                </div>
+
+                <Element name="courseDesc" offset={-170}>
+                  <CourseDesc decripe={courseDetails.describe} />
+                </Element>
+
+                <Element name="classes " className="pt-6 px-0">
+                  <h3 className="f-bold text-xl mb-10">جلسات دوره</h3>
+                  <Accardion />
+                </Element>
+
+                <CourseDetailCommetsArea data={courseDetails} />
+                {/* <Comments courseId={courseId} /> */}
               </div>
-
-              <Element name="courseDesc" offset={-170}>
-                <CourseDesc decripe={courseDetails.describe} />
-              </Element>
-
-              <Element name="classes " className="pt-6 px-0">
-                <h3 className="f-bold text-xl mb-10">جلسات دوره</h3>
-                <Accardion />
-              </Element>
-
-              <CourseDetailCommetsArea data={courseDetails} />
-              {/* <Comments courseId={courseId} /> */}
-            </div>
-            <div className="w-full mr-8">
-              <LikeOrDislikeSectoin
-                currentUserDissLike={courseDetails.currentUserDissLike}
-                likeCount={courseDetails.likeCount}
-              />
-              <RatingSection />
-              <div className="shadow-md rounded-[12px] mb-4 overflow-hidden">
-                <PopularTag />
+              <div className="w-full mr-8">
+                <LikeOrDislikeSectoin />
+                <AddToFavList />
+                <RatingSection />
+                <div className="shadow-md rounded-[12px] mb-4 overflow-hidden">
+                  <PopularTag />
+                </div>
               </div>
             </div>
-          </div>
-        </>
-      ) : (
-        <PleaseWait />
-      )}
-    </div>
+          </>
+        ) : (
+          <PleaseWait />
+        )}
+      </div>
+    </>
   );
 };
 

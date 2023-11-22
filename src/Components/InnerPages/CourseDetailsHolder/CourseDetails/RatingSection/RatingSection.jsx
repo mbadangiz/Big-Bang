@@ -1,9 +1,23 @@
 import React, { useState, Component } from "react";
 import Rating from "react-rating";
+import SetRateForCourse from "../../../../../Core/Services/Api/CourseDetails/SetRateForCourse";
+import { useMyCourseDetail } from "../../../../../Core/Providers/CourseDetailProvider";
+import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 
 const RatingSection = () => {
+  const { courseId } = useMyCourseDetail().courseDetails;
+  const setCourseDetails = useMyCourseDetail().setCourseDetails;
   const [rate, setRate] = useState(0);
 
+  const setRateHandler = async () => {
+    const res = await SetRateForCourse(courseId, rate);
+    if (res.success) {
+      SuccessToastify("عملیات با موفقیت انجام شده است.");
+    } else {
+      ErrorToastify(res.message);
+    }
+  };
   return (
     <div className="w-full flex-row-all-center justify-between rounded-[12px] mb-4 text-center bg-white px-3 py-5">
       <p className="f-bold">چه امتیازی برای این دوره میدهید؟</p>
@@ -23,6 +37,7 @@ const RatingSection = () => {
           }
           onChange={(value) => {
             setRate(value);
+            setRateHandler();
           }}
         />
       </div>

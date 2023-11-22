@@ -1,6 +1,5 @@
 import instance from "../../Interceptor/Interceptor";
 const GetCourseDetailComments = async (courseId) => {
-  console.log(courseId);
   try {
     const result = await instance.get(`/Course/GetCourseCommnets/${courseId}`);
     return result;
