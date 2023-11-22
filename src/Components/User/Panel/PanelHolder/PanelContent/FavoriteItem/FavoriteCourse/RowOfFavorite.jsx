@@ -2,12 +2,31 @@ import React from "react";
 import { useState } from "react";
 import { GetCourseDetails } from "../../../../../../../Core/Services/Api/CourseDetails/GetCourseDetail";
 import { useEffect } from "react";
+import DelFavCourse from "../../../../../../../Core/Services/Api/CourseDetails/DelFavCourse";
+import { SuccessToastify } from "../../../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 
-export const RowOfFavorite = ({ data }) => {
+export const RowOfFavorite = ({ data, favoriteId, state }) => {
   const [FavCourse, setFavCourse] = useState();
   const getFavoriteCourse = async () => {
     const FavCourses = await GetCourseDetails(data);
     setFavCourse(FavCourses);
+  };
+
+  const { Fav, setFavoriteCourse } = state;
+
+  const DelFavorite = async (courseId) => {
+    const favDel = await DelFavCourse(favoriteId);
+    if (favDel.success) {
+      SuccessToastify(favDel.message);
+      const copiedItems = [...Fav];
+      const filteredItems = copiedItems.filter(
+        (items) => items.courseId !== courseId
+      );
+      setFavoriteCourse(filteredItems);
+      // console.log(filteredItems);
+    } else ErrorToastify(favDel.message);
+    console.log(favDel);
   };
 
   useEffect(() => {
@@ -29,12 +48,12 @@ export const RowOfFavorite = ({ data }) => {
             <td className="px-6 py-4">{FavCourse.courseStatusName}</td>
             <td className="px-6 py-4 text-red-500">{FavCourse.cost}</td>
             <td className="px-6 py-4">
-              <button
-                type="submit"
+              <div
                 className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                onClick={() => DelFavorite(FavCourse.courseId)}
               >
                 <i className="fi fi-rr-minus-circle"></i>
-              </button>
+              </div>
             </td>
           </tr>
         </>

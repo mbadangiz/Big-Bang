@@ -1,9 +1,9 @@
 import instance from "../../../Interceptor/Interceptor";
 
-const getCourseAll = async () => {
+const getCourseAll = async (count) => {
   try {
     const result = await instance.get(
-      `/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=9`
+      `/Home/GetCoursesWithPagination?PageNumber=${count}&RowsOfPage=5`
     );
     return result;
   } catch (err) {
