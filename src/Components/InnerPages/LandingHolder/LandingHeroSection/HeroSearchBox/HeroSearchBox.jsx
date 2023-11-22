@@ -1,10 +1,12 @@
 import React from "react";
 import { useRef } from "react";
 import { SearchCard } from "./SearchCard";
-import { SearchInCourses } from "../../../../../Core/Services/Api/SearchInCourses";
+import { SearchInCourses } from "../../../../../Core/Services/Api/Course/SearchInCourses";
 import { useState } from "react";
 import { PuffLoader } from "react-spinners";
 import { SearchInNews } from "../../../../../Core/Services/Api/Landing/LandingSearchinNews";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const HeroSearchBox = () => {
   const [searchItem, setSearchItem] = useState();
@@ -12,6 +14,8 @@ const HeroSearchBox = () => {
   const [isSearchNews, setisSearchNews] = useState();
   const inputContainer = useRef(null);
   const searchInput = useRef(null);
+
+  const navigate = useNavigate();
 
   const SearchHero = (e) => {
     const value = e.target.value;
