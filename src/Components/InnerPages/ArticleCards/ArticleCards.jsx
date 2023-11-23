@@ -16,9 +16,14 @@ const ArticleCards = ({ data }) => {
     insertDate,
     updateDate,
     addUserFullName,
+    addUserProfileImage,
     newsCatregoryId,
     newsCatregoryName,
     currentUserIsLike,
+    likeId,
+    isCurrentUserFavorite,
+    currentUserFavoriteId,
+    totalCount,
   } = data;
 
   const [commentsCount, setCommetCount] = useState(0);
@@ -59,14 +64,16 @@ const ArticleCards = ({ data }) => {
             </div>
           </p>
         </div>
-        <div className="flex-row-all-center justify-between  gap-4">
-          <div className="flex-row-all-center">
+        <div className="flex-row-all-center justify-between ">
+          <div className="flex-row-all-center justify-start   w-3/5">
             <img
-              src="./../Img/avatar1.jpg"
-              className="w-10 rounded-full border-black border-solid border-2"
+              src={addUserProfileImage}
+              className="w-9 h-9 rounded-full border-bluePrimary border-solid border-2"
               alt=""
             />
-            <p className="text-[15px] mr-1 ">{addUserFullName}</p>
+            <p className="text-[14px] mr-1 w-[75%] textNoWrap ">
+              {addUserFullName}
+            </p>
           </div>
           <p className="text-[13px] opacity-60">
             {makeDatePersian(insertDate)}

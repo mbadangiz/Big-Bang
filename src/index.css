@@ -55,6 +55,10 @@
     white-space: nowrap;
     overflow: hidden;
   }
+  .bg-searchBar {
+    /* background-image: url("./../Img/bgSearchBar.png");
+    background-size: 1920px 160px; */
+  }
 }
 * {
   margin: 0;

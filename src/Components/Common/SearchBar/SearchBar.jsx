@@ -1,15 +1,14 @@
 import { useMyCourses } from "../../../Core/Providers/CourseListProvider";
 
 const SearchBar = ({ setData, searchApiFunc, placeholder, getAllDataList }) => {
-  const { courseList, setCourseList } = useMyCourses();
   const searchHandler = async (e) => {
     const inputVal = e.target.value;
     if (inputVal) {
       const results = await searchApiFunc(e.target.value);
-      setCourseList(results);
+      setData(results);
     } else {
       const results = await getAllDataList();
-      setCourseList(results);
+      setData(results);
     }
   };
   return (
