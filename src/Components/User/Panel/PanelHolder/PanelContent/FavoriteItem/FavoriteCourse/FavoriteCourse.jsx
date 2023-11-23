@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
-import { GetMyCoursesReserve } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetCourseReserve";
 import { useEffect } from "react";
-import { RowOfReserve } from "./RowOfReserve";
+import { GetFavoriteCourses } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetFavoriteCourses";
+import { useState } from "react";
+import { RowOfFavorite } from "./RowOfFavorite";
 
-const MyReserve = () => {
-  const [CourseReserve, setCourseReserve] = useState();
+const FavoriteCourse = () => {
+  const [Fav, setFavoriteCourse] = useState();
 
-  const GetReservation = async () => {
-    const ResCourses = await GetMyCoursesReserve();
-    setCourseReserve(ResCourses);
+  const GetFavorite = async () => {
+    const FavoriteCourses = await GetFavoriteCourses();
+    setFavoriteCourse(FavoriteCourses);
   };
 
-  console.log(CourseReserve);
+  console.log(Fav);
 
   useEffect(() => {
-    GetReservation();
+    GetFavorite();
   }, []);
 
   return (
@@ -51,11 +52,11 @@ const MyReserve = () => {
             </tr>
           </thead>
           <tbody>
-            {CourseReserve
-              ? CourseReserve.map((favorite) => {
+            {Fav
+              ? Fav.favoriteCourseDto.map((favorite) => {
                   return (
                     <>
-                      <RowOfReserve data={favorite.courseId} />
+                      <RowOfFavorite data={favorite.courseId} />
                     </>
                   );
                 })
@@ -67,4 +68,4 @@ const MyReserve = () => {
   );
 };
 
-export { MyReserve };
+export { FavoriteCourse };

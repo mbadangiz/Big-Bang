@@ -1,12 +1,13 @@
+import React from "react";
 import { useState } from "react";
-import { TableList } from "../TableList/TableList";
-import { MyReserve } from "../MyReserv/MyReserv";
+import { FavoriteCourse } from "../FavoriteCourse/FavoriteCourse";
+import { FavoriteNews } from "../FavoriteNews/FavoriteNews";
 
-const MyCoursesTab = () => {
+const AllTab = () => {
   const [activeTab, setActiveTab] = useState(0);
   const tabs = [
-    { id: 0, title: "دوره های من", content: <TableList /> },
-    { id: 1, title: "رزرو شده ها", content: <MyReserve /> },
+    { id: 0, title: "دوره های مورد علاقه", content: <FavoriteCourse /> },
+    { id: 1, title: " مقالات مورد علاقه ", content: <FavoriteNews /> },
   ];
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
@@ -39,4 +40,4 @@ const MyCoursesTab = () => {
   );
 };
 
-export { MyCoursesTab };
+export { AllTab };

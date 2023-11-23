@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { TableCoursesList } from "./TableCoursesList/TableCoursesList";
 import { CoursesFilter } from "./CoursesFilter/CoursesFilter";
+import CourseListProvider from "../../../../../../Core/Providers/CourseListProvider";
 
 const PanelCoursesList = () => {
   const [isShowModal, setisShowModal] = useState(false);
-
+  const [allCourse, setAllCourse] = useState();
   return (
-    <>
+    <CourseListProvider>
       <h1>لیست دوره ها</h1>
       <div className="flex gap-2 text-[13px] mt-3 mb-3">
         <div
@@ -25,9 +26,14 @@ const PanelCoursesList = () => {
           placeholder="جست و جو کنید..."
         />
       </div>
-      <CoursesFilter data={{ isShowModal, setisShowModal }} />
-      <TableCoursesList />
-    </>
+      <CoursesFilter
+        data={{ isShowModal, setisShowModal }}
+        allCourse={allCourse}
+        setAllCourse={setAllCourse}
+      />
+
+      <TableCoursesList allCourse={allCourse} setAllCourse={setAllCourse} />
+    </CourseListProvider>
   );
 };
 

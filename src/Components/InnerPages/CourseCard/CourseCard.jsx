@@ -23,7 +23,7 @@ const CourseCard = ({ data }) => {
   } = data;
   return (
     <Link to={`/CoursesDetails?courseId=${courseId}`}>
-      <div className="cardsDefaultSettings space-y-4  w-300">
+      <div className="cardsDefaultSettings space-y-4  w-300 hover:translate-y-[-5px]">
         <img
           src={tumbImageAddress}
           className="w-full h-40 rounded-xl object-cover "

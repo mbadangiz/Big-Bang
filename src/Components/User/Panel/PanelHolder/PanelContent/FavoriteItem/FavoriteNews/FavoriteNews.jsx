@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
-import { GetMyCoursesReserve } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetCourseReserve";
 import { useEffect } from "react";
-import { RowOfReserve } from "./RowOfReserve";
+import { useState } from "react";
+import { GetFavoriteNews } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetFavoriteNews";
+import { RowOfFavoriteNews } from "./RowOfFavoriteNews";
 
-const MyReserve = () => {
-  const [CourseReserve, setCourseReserve] = useState();
+const FavoriteNews = () => {
+  const [FavNews, setFavoriteNews] = useState();
 
-  const GetReservation = async () => {
-    const ResCourses = await GetMyCoursesReserve();
-    setCourseReserve(ResCourses);
+  const GetFavorite = async () => {
+    const FavoriteNewss = await GetFavoriteNews();
+    setFavoriteNews(FavoriteNewss);
   };
 
-  console.log(CourseReserve);
+  console.log(FavNews);
 
   useEffect(() => {
-    GetReservation();
+    GetFavorite();
   }, []);
 
   return (
@@ -28,34 +29,33 @@ const MyReserve = () => {
                 نام دوره
               </th>
               <th scope="col" className="px-6 py-3">
-                استاد دوره
+                نویسنده مقاله
               </th>
-              <th scope="col" className="px-6 py-3">
-                ظرفیت
-              </th>
+
               <th scope="col" className="px-6 py-3">
                 تعداد لایک
               </th>
               <th scope="col" className="px-6 py-3">
-                سطح
+                تعداد بازدید
               </th>
               <th scope="col" className="px-6 py-3">
-                وضعیت
+                گروه
               </th>
               <th scope="col" className="px-6 py-3">
-                قیمت
+                نمره مقاله
               </th>
+
               <th scope="col" className="px-6 py-3">
                 حذف
               </th>
             </tr>
           </thead>
           <tbody>
-            {CourseReserve
-              ? CourseReserve.map((favorite) => {
+            {FavNews
+              ? FavNews.myFavoriteNews.map((favorite) => {
                   return (
                     <>
-                      <RowOfReserve data={favorite.courseId} />
+                      <RowOfFavoriteNews data={favorite.newsId} />
                     </>
                   );
                 })
@@ -67,4 +67,4 @@ const MyReserve = () => {
   );
 };
 
-export { MyReserve };
+export { FavoriteNews };
