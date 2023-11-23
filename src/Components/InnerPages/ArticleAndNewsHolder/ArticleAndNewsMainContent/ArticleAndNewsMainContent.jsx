@@ -10,7 +10,7 @@ const ArticleAndNewsMainContent = () => {
   return (
     <div className="w-full min-h-[1000px]">
       <ArticleAndNewsSorting />
-      <div className="w-full flex-row-all-center py-3 px-0">
+      <div className="w-full flex-row-all-center py-3 px-0 gap-3">
         {articleData
           ? articleData.map((article) => {
               return <ArticleCards key={article.id} data={article} />;
