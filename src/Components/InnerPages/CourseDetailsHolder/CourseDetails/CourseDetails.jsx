@@ -77,7 +77,6 @@ const CourseDetails = () => {
                 </Element>
 
                 <CourseDetailCommetsArea data={courseDetails} />
-                {/* <Comments courseId={courseId} /> */}
               </div>
               <div className="w-full mr-8">
                 <LikeOrDislikeSectoin />

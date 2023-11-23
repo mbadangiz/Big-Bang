@@ -1,10 +1,13 @@
 import { onSetFormData } from "../../../Utils/onSetFormData/onSetFormData";
 import instance from "../../Interceptor/Interceptor";
 
-const AddCommentToCourse = async (obj) => {
+const AddRepToComments = async (myObj) => {
   try {
-    const data = onSetFormData(obj);
-    const res = await instance.post("/Course/AddCommentCourse", data);
+    const myFormData = onSetFormData(myObj);
+    const res = await instance.post(
+      "/Course/AddReplyCourseComment",
+      myFormData
+    );
     return res;
   } catch (err) {
     console.log(err.response);
@@ -12,4 +15,4 @@ const AddCommentToCourse = async (obj) => {
   }
 };
 
-export default AddCommentToCourse;
+export default AddRepToComments;
