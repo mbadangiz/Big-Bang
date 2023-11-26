@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { getMyCourses } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetMyCourses";
+import { getMyCourses } from "../../../../../../../Core/Services/Api/UserPanel/GetMyCourses";
 import { useNavigate } from "react-router-dom";
 
 const TableList = () => {

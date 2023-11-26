@@ -1,4 +1,4 @@
-import instance from "../../../Interceptor/Interceptor";
+import instance from "../../Interceptor/Interceptor";
 
 const GetMyCoursesReserve = async () => {
   try {

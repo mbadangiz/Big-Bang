@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { GetCourseDetails } from "../../../../../../../Core/Services/Api/CourseDetails/GetCourseDetail";
 import { useEffect } from "react";
-import { GetNewsDetails } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetNewsDetail";
+import { GetNewsDetails } from "../../../../../../../Core/Services/Api/UserPanel/GetNewsDetail";
 
 export const RowOfFavoriteNews = ({ data }) => {
   const [FavoriteNews, setFavNews] = useState();

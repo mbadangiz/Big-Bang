@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
-import { GetFavoriteCourses } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetFavoriteCourses";
+import { GetFavoriteCourses } from "../../../../../../../Core/Services/Api/UserPanel/GetFavoriteCourses";
 import { useState } from "react";
 import { RowOfFavorite } from "./RowOfFavorite";
 import { ToastContainer } from "react-toastify";
