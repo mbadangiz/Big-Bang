@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { GetMyCoursesReserve } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetCourseReserve";
 import { useEffect } from "react";
 import { RowOfReserve } from "./RowOfReserve";
+import { GetMyCoursesReserve } from "../../../../../../../Core/Services/Api/UserPanel/GetCourseReserve";
 
 const MyReserve = () => {
   const [CourseReserve, setCourseReserve] = useState();

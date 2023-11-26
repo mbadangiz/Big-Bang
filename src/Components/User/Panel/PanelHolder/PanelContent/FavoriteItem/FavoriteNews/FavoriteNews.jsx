@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { GetFavoriteNews } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetFavoriteNews";
 import { RowOfFavoriteNews } from "./RowOfFavoriteNews";
+import { GetFavoriteNews } from "../../../../../../../Core/Services/Api/UserPanel/GetFavoriteNews";
 
 const FavoriteNews = () => {
   const [FavNews, setFavoriteNews] = useState();

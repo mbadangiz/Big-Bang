@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ImageTest from "./../../../../../../../Assets/Image/sampleImage.png";
-import { getCourseAll } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetAllCourse";
+import { getCourseAll } from "../../../../../../../Core/Services/Api/UserPanel/GetAllCourse";
 import { Link, useNavigate } from "react-router-dom";
 
 const TableCoursesList = ({ setAllCourse, allCourse }) => {
