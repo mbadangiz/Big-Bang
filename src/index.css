@@ -110,6 +110,27 @@ input[type="number"] {
   top: 120px;
 }
 
+.leaflet-popup-content-wrapper {
+  border: 0px solid #406dd58a;
+  border-radius: 10px;
+  color: #406dd5;
+  font-weight: bolder;
+  position: relative;
+  z-index: 100px;
+}
+.leaflet-popup-close-button span {
+  width: 30px;
+  height: 30px;
+  font-size: 27px;
+}
+
+.leaflet-popup-close-button span:hover {
+  width: 30px;
+  height: 30px;
+  font-size: 27px;
+  color: #ff3333;
+}
+
 input:checked ~ .contentAcar {
   height: auto;
 }
@@ -265,4 +286,92 @@ input[type="range"]::-webkit-slider-thumb {
   background: #406dd5;
   color: white;
   border-radius: 12px;
+}
+
+/* React Multi Datepicker */
+
+.rmdp-wrapper {
+  border-radius: 12px !important;
+}
+
+.rmdp-shadow {
+  box-shadow: 3px 3px 20px 1px rgba(0, 0, 0, 0.162) !important;
+}
+
+.custom-input {
+  padding: 4px 12px;
+  background-color: white;
+
+  width: 325px;
+  height: 40px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+}
+
+.custom-input:focus {
+  outline: none;
+}
+
+.custom-calendar.rmdp-wrapper,
+.rmdp-container .custom-calendar.ep-arrow::after {
+  background-color: #f9f9f9;
+}
+
+.rmdp-container .custom-calendar.ep-arrow[direction="bottom"] {
+  border-top: 1px solid #f9f9f9;
+}
+
+.rmdp-container .custom-calendar.ep-arrow[direction="top"] {
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.rmdp-week-day {
+  color: #406dd5 !important;
+}
+
+.rmdp-day.rmdp-selected span:not(.highlight) {
+  background-color: #406dd5 !important;
+}
+
+.rmdp-left {
+  border: 1px solid rgb(183, 183, 183) !important;
+}
+
+.rmdp-left i {
+  margin: 6.5px 2px;
+
+  box-shadow: 1px 1px -7px 10px #406dd5;
+}
+
+.rmdp-right {
+  border: 1px solid rgb(183, 183, 183) !important;
+}
+
+.rmdp-right i {
+  margin: 6.5px 2px;
+  box-shadow: 1px 1px -2px 10px #406dd5;
+}
+
+.rmdp-left:hover {
+  background-color: #406dd5 !important;
+  border: none !important;
+
+  box-shadow: 1px 1px -2px 10px #406dd5;
+}
+
+.rmdp-right:hover {
+  background-color: #406dd5 !important;
+  border: none !important;
+
+  box-shadow: 1px 1px -2px 10px #406dd5;
+}
+
+.rmdp-left:hover i {
+  margin: 7px 2px;
+  box-shadow: 1px 1px -2px 10px #406dd5;
+}
+
+.rmdp-right:hover i {
+  margin: 7px 2px;
+  box-shadow: 1px 1px -2px 10px #406dd5;
 }

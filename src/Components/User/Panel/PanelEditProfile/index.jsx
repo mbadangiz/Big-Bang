@@ -6,7 +6,6 @@ import { PanelEditProfileUserProfilePicture } from "./PanelEditProfileUserProfil
 import { BlueInputField } from "../../../Common/InputFields/BlueInputField/index";
 import { BlueButton } from "../../../Common/Buttons/BlueButton";
 
-import { UserPanelEditProfileSchema } from "../../../../Core/Validation/Schemas/Panel/User/UserPanelEditProfileSchema";
 import { SuccessToastify } from "../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
 import { ErrorToastify } from "../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 import { RadioButtonField } from "../../../Common/InputFields/RadioButtonField";
@@ -14,19 +13,48 @@ import { TextAreaField } from "../../../Common/InputFields/TextAreaField/index";
 import { PanelEditProfileMap } from "./PanelEditProfileMap";
 import { UserPanelEditProfileFormSchema } from "../../../../Core/Validation/Schemas/Panel/User/UserPanelEditProfileFormSchema";
 import { ToastContainer } from "react-toastify";
-import { makeDatePersian } from "../../../../Core/Utils/MakeDatePersian/MakeDatePersian";
 import { onSetFormData } from "../../../../Core/Utils/onSetFormData/onSetFormData";
 import { GetCurrentUserProfile } from "../../../../Core/Services/Api/UserPanel/GetCurrentUserProfile";
 import { onSetUserInfo } from "../../../../redux/user";
 import { UpdateProfileInfo } from "../../../../Core/Services/Api/UserPanel/UpdateProfileInfo";
+import { MakeDateEnglish } from "../../../../Core/Utils/MakeDateEnglish/MakeDateEnglish";
+import { useNavigate } from "react-router-dom";
+import { BlueToggleInputField } from "../../../Common/InputFields/BlueToggleInputField";
+import { useState } from "react";
+import { BlueDatePickerInputField } from "../../../Common/InputFields/BlueDatePickerInputField/BlueDatePickerInputField";
+import { MakeDatePickerDatePersian } from "../../../../Core/Utils/MakeDatePickerDatePersian/MakeDatePickerDatePersian";
 
 const PanelEditProfile = () => {
-  const dispatch = useDispatch();
+  const getUserProfileInfo = async () => {
+    const user = await GetCurrentUserProfile();
+
+    dispatch(onSetUserInfo(user));
+  };
+
+  useEffect(() => {
+    getUserProfileInfo();
+  }, []);
+
   const userInfo = useSelector((reducer) => reducer.user.userInformations);
+
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
+
+  /* Inputs Field State */
+  const [isToggle, setIstoggle] = useState(userInfo.receiveMessageEvent);
+
+  const [markerLocationState, setMarkerLocationState] = useState([
+    parseFloat(userInfo.latitude),
+    parseFloat(userInfo.longitude),
+  ]);
+
+  const [datePickerDateTime, setDatePickerDateTime] = useState(
+    MakeDatePickerDatePersian(userInfo.birthDay)
+  );
 
   const onSubmit = async (value) => {
     try {
-      // console.log(value);
+      console.log(value);
       const data = onSetFormData(value);
 
       const result = await UpdateProfileInfo(data);
@@ -34,6 +62,9 @@ const PanelEditProfile = () => {
       if (result.success === true) {
         console.log(result);
         SuccessToastify("درخواست ویرایش حساب شما با موفقیت انجام شده است");
+        setTimeout(() => {
+          Navigate("/User/Panel/Dashboard");
+        }, 2000);
       } else if (result.success === false) {
         ErrorToastify(result.errors);
       }
@@ -43,12 +74,16 @@ const PanelEditProfile = () => {
   };
 
   const handleSubmit = (value) => {
+    console.log(datePickerDateTime);
+
     const newValue = {
       ...value,
+      LinkdinProfile: value.LinkdinProfile?.toString(),
       Gender: Boolean(value.Gender),
-      ReceiveMessageEvent: Boolean(value.ReceiveMessageEvent),
-      Latitude: String(value.Latitude),
-      Longitude: String(value.Longitude),
+      ReceiveMessageEvent: isToggle,
+      BirthDay: MakeDateEnglish(datePickerDateTime),
+      Latitude: String(markerLocationState[0]),
+      Longitude: String(markerLocationState[1]),
     };
 
     onSubmit(newValue);
@@ -60,15 +95,12 @@ const PanelEditProfile = () => {
         LName: userInfo.lName,
         FName: userInfo.fName,
         UserAbout: userInfo.userAbout,
-        linkdinProfile: userInfo.linkdinProfile,
+        LinkdinProfile: userInfo.linkdinProfile,
         TelegramLink: userInfo.telegramLink,
-        ReceiveMessageEvent: String(userInfo.receiveMessageEvent),
+        ReceiveMessageEvent: userInfo.receiveMessageEvent,
         HomeAdderess: userInfo.homeAdderess,
         NationalCode: userInfo.nationalCode,
         Gender: String(userInfo.gender),
-        BirthDay: makeDatePersian(userInfo.birthDay),
-        Latitude: userInfo.latitude,
-        Longitude: userInfo.longitud,
       }}
       validationSchema={UserPanelEditProfileFormSchema}
       onSubmit={(value) => handleSubmit(value)}
@@ -82,7 +114,7 @@ const PanelEditProfile = () => {
           {/*   SECOND SECTION  */}
           <div className="col-span-2"></div>
 
-          <div className="col-span-4">
+          <div className="col-span-4 ">
             {/* LName */}
             <BlueInputField
               type="text"
@@ -135,11 +167,10 @@ const PanelEditProfile = () => {
             />
 
             {/* BirthDay */}
-            <BlueInputField
-              type="text"
-              name="BirthDay"
-              placeholder="تاریخ تولد"
-              iconClass="fi fi-rr-cake-birthday"
+
+            <BlueDatePickerInputField
+              datePickerDateTime={datePickerDateTime}
+              setDatePickerDateTime={setDatePickerDateTime}
             />
 
             {/* ReceiveMessageEvent */}
@@ -149,17 +180,10 @@ const PanelEditProfile = () => {
                 <h2 className="text-[18px] text-bluePrimary leading-10 mx-2 ">
                   فعالسازی رویداد پیام :
                 </h2>
-                <RadioButtonField
-                  radioInputName="ReceiveMessageEvent"
-                  labelName="بلی"
-                  labelId="yes"
-                  radioValue="true"
-                />
-                <RadioButtonField
-                  radioInputName="ReceiveMessageEvent"
-                  labelName="خیر"
-                  labelId="No"
-                  radioValue="false"
+                <BlueToggleInputField
+                  isToggle={isToggle}
+                  setIsToggle={setIstoggle}
+                  toggleClass="my-2"
                 />
               </div>
               <ErrorMessage
@@ -211,31 +235,25 @@ const PanelEditProfile = () => {
 
           <div className="col-span-2"></div>
           <div className="col-span-4">
-            <h2 className="text-[20px] text-bluePrimary my-1">آدرس خانه : </h2>
-            <TextAreaField
-              name="HomeAdderess"
-              placeholder="آدرس خانه"
-              TextAreaClasses="w-full h-[150px] bg-white border-[3px] border-solid border-bluePrimary text-textBlack"
-            />
-            {/* Latitude */}
-            <BlueInputField
-              type="text"
-              name="Latitude"
-              placeholder="عرض جغرافیایی"
-              iconClass="fi fi-rr-y"
-            />{" "}
-            {/* Longitude */}
-            <BlueInputField
-              type="text"
-              name="Longitude"
-              placeholder="طول جغرافیایی"
-              iconClass="fi fi-rr-x"
-            />
+            {/* HomeAdderess */}
+            <div className=" relative bottom-3 h-[200px]">
+              <h2 className="text-[20px] text-bluePrimary my-1">
+                آدرس خانه :{" "}
+              </h2>
+              <TextAreaField
+                name="HomeAdderess"
+                placeholder="آدرس خانه"
+                TextAreaClasses=" w-full h-[120px] bg-white border-[3px] border-solid border-bluePrimary text-textBlack"
+              />
+            </div>
+            <h3 className="text-bluePrimary text-[15px]">
+              اختیاری : شما می توانید موقیت خود را در نقشه نشان دهید
+            </h3>
           </div>
           <div className="col-span-4">
             <PanelEditProfileMap
-              xPosition={userInfo.Latitude}
-              yPosition={userInfo.Longitude}
+              markerLocationState={markerLocationState}
+              setMarkerLocationState={setMarkerLocationState}
             />
           </div>
 

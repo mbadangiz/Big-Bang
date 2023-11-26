@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { PanelEditProfileMapLocationMarker } from "./PanelEditProfileMapLocationMarker";
+import { useSelector } from "react-redux";
+import { ErrorMessage } from "formik";
 
-const PanelEditProfileMap = ({ xPosition, yPosition }) => {
-  const center = [36.565997417682105, 53.05821549859579];
-  const position = [36.565997417682105, 53.05821549859579];
+const PanelEditProfileMap = ({
+  markerLocationState,
+  setMarkerLocationState,
+}) => {
+  const userInfo = useSelector((reducer) => reducer.user.userInformations);
+
+  const center = [
+    parseFloat(userInfo.latitude),
+    parseFloat(userInfo.longitude),
+  ];
 
   return (
-    <div className="border-3 border-solid border-bluePrimary ">
-      <MapContainer center={center} zoom={10}>
+    <div className="border-[3px] border-solid border-bluePrimary p-2 rounded-[20px]">
+      <MapContainer
+        center={center}
+        zoom={10}
+        style={{
+          height: "200px",
+          borderRadius: "15px",
+          boxShadow: "2px 4px 6px -4px rgb(0 0 0 / 0.3)",
+        }}
+      >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            <h2 className="text-xl">آدرس خانه</h2>
-          </Popup>
-        </Marker>
+
+        <PanelEditProfileMapLocationMarker
+          setMarkerLocationState={setMarkerLocationState}
+          markerLocationState={markerLocationState}
+        />
       </MapContainer>
     </div>
   );

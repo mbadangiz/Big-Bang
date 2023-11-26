@@ -10,7 +10,7 @@ const TextAreaField = ({
     <div className={` mx-auto ${extraClasses}`}>
       <Field
         as="textarea"
-        className={`${TextAreaClasses}  p-2  backdrop-blur-md rounded-3xl text-lg my-1 shadow-md`}
+        className={`${TextAreaClasses}  p-2  backdrop-blur-md rounded-3xl text-lg shadow-md`}
         name={name}
         placeholder={placeholder}
       />

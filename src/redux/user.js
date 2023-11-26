@@ -20,7 +20,7 @@ const userSlice = createSlice({
       receiveMessageEvent: "",
       telegramLink: "",
       userAbout: "",
-      userImage: "",
+      userImage: [],
     },
   },
   reducers: {

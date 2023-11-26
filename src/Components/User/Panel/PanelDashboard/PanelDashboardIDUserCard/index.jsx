@@ -5,7 +5,7 @@ import { PanelDashboardItemTitle } from "../PanelDashboardItemTitle";
 import { SilverButton } from "../../../../Common/Buttons/SilverButton";
 
 // ID user card profile picture import
-import IDUserProfilePicture from "../../../../../Assets/Images/Panel/User/IDUserProfilePicture/IDUserProfilePicture.jpg";
+import UserProfilePicture from "../../../../../Assets/Images/Panel/User/UserProfilePicture/UserProfilePicture.png";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import { GetCurrentUserProfile } from "../../../../../Core/Services/Api/UserPanel/GetCurrentUserProfile";
@@ -45,7 +45,9 @@ const PanelDashboardIDUserCard = () => {
             <figure className="w-full h-full rounded-[7px] shadow-lg shadow-gray-400">
               <img
                 className="object-fill w-full h-full rounded-[7px]"
-                src={IDUserProfilePicture}
+                src={
+                  userInfo ? userInfo.currentPictureAddress : UserProfilePicture
+                }
                 alt="ID User Profile Picture"
               />
             </figure>
@@ -66,7 +68,7 @@ const PanelDashboardIDUserCard = () => {
                 <h3 className="text-[18px] text-bluePrimary font-medium">
                   نام کاربری :
                   <span className="text-[16px] text-black font-medium">
-                    {`${userInfo.lName} ${userInfo.fName} `}
+                    {`${userInfo.fName} ${userInfo.lName}`}
                   </span>
                 </h3>
               </div>

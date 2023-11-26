@@ -33,23 +33,6 @@ const UserPanelEditProfileFormSchema = yup.object().shape({
     .matches(/^[0-9]{10}$/, "لطفا کد ملی خود را درست وارد کنید")
     .required(" لطفا کد ملی را وارد کنید"),
   Gender: yup.boolean().required("لطفا نوع جنسیت را انتخاب کنید"),
-  BirthDay: yup
-    .string()
-    .min(8, "تاریخ تولد اشتباه است")
-    .max(10, "تاریخ تولد اشتباه است")
-    .matches(
-      /1[3-4]\d\d\/(1[0-2]|[1-9]|0[1-9])\/(0[1-9]|[1-2][0-9]|3[0-1]|[1-9])($)/,
-      "لطفا تاریخ تولد خود را درست وارد کنید"
-    )
-    .required("لطفا تاریخ تولد خود را وارد کنید"),
-
-  Latitude: yup
-    .number()
-    .required("لطفا مختضات عرض جغرافیایی محل خانه خود را وارد کنید"),
-
-  Longitude: yup
-    .number()
-    .required("لطفا مختضات طول جغرافیایی محل خانه خود را وارد کنید"),
 });
 
 export { UserPanelEditProfileFormSchema };
