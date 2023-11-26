@@ -53,7 +53,7 @@ const LandingTeachersSection = () => {
       />
       <div
         className="w-full
-        flex-row-all-center gap-5 items4 hide"
+        flex-row-all-center gap-5"
       >
         {teacherlist
           ? teacherlist.map((teacher, index) => {
