@@ -5,6 +5,7 @@ import { ArticleCards } from "../../../ArticleCards/ArticleCards";
 import { getAllNews } from "../../../../../Core/Services/Api/Articles/getAllNews";
 import PleaseWait from "../../../../Common/PleaseWait/PleaseWait";
 import { BlueButton } from "../../../../Common/Buttons/BlueButton";
+import { useMyArticleDetails } from "../../../../../Core/Providers/ArticleDetailsProvider";
 
 const ArticleAndNewsMainContent = () => {
   const {
@@ -22,14 +23,11 @@ const ArticleAndNewsMainContent = () => {
 
   const getAll = async () => {
     const res = await getAllNews(rowCounts, quey, SortingData);
-    console.log(res);
     setArticleData(res);
   };
   useEffect(() => {
     getAll();
-    console.log("first");
   }, [rowCounts, SortingData]);
-
   return (
     <div className="width-handler min-h-[1000px] py-4 px-0">
       {emptyList ? (
@@ -50,7 +48,9 @@ const ArticleAndNewsMainContent = () => {
             <div className="mt-10">
               <BlueButton
                 buttonText={"مشاهده ی بیشتر"}
-                ClickHandler={() => setRowCount((prev) => prev + 1)}
+                ClickHandler={() => {
+                  setRowCount((prev) => prev + 1);
+                }}
                 type={"button"}
               />
             </div>

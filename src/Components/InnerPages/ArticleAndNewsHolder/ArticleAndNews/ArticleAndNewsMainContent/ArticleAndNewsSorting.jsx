@@ -42,13 +42,13 @@ const ArticleAndNewsSorting = () => {
       sortingCol: "currentLikeCount",
     },
     {
-      id: 5,
+      id: 7,
       text: " تاریخ مقاله نزولی",
       sortType: "DESC",
       sortingCol: "insertDate",
     },
     {
-      id: 6,
+      id: 8,
       text: " تاریخ مقاله صعودی",
       sortType: "ASC",
       sortingCol: "insertDate",

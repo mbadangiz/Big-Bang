@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { ArticleAndNewsMainContent } from "./ArticleAndNews/ArticleAndNewsMainContent/ArticleAndNewsMainContent";
 import ArticleListProvider from "../../../Core/Providers/ArticleListProvider";
 import ArticlesSearchBar from "./ArticleAndNews/ArticlesSearchBar/ArticlesSearchBar";
+import ArticleDetailsProvider from "../../../Core/Providers/ArticleDetailsProvider";
 
 const ArticleAndNewsHolder = () => {
   useEffect(() => {
@@ -10,9 +11,10 @@ const ArticleAndNewsHolder = () => {
 
   return (
     <ArticleListProvider>
-      {/* <ArticleNewsCourseLayout mainContents={} /> */}
-      <ArticlesSearchBar />
-      <ArticleAndNewsMainContent />
+      <ArticleDetailsProvider>
+        <ArticlesSearchBar />
+        <ArticleAndNewsMainContent />
+      </ArticleDetailsProvider>
     </ArticleListProvider>
   );
 };
