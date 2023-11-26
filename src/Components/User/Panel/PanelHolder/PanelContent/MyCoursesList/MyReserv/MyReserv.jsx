@@ -48,7 +48,7 @@ const MyReserve = () => {
                 قیمت
               </th>
               <th scope="col" className="px-6 py-3">
-                حذف
+                عملیات
               </th>
             </tr>
           </thead>
