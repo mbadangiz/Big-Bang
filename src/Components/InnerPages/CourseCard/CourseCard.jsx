@@ -23,7 +23,7 @@ const CourseCard = ({ data }) => {
   } = data;
   return (
     <Link to={`/CoursesDetails?courseId=${courseId}`}>
-      <div className="cardsDefaultSettings space-y-4  w-300">
+      <div className="cardsDefaultSettings space-y-4  w-300 hover:translate-y-[-5px]">
         <img
           src={tumbImageAddress}
           className="w-full h-40 rounded-xl object-cover "
@@ -48,9 +48,15 @@ const CourseCard = ({ data }) => {
             </p>
             <TomanLogo />
           </div>
-          <div>
-            <i className="fi fi-sr-star relative top-[2.5px] mr-2"></i>{" "}
-            <span>{courseRate}</span>
+          <div className="flex-row-all-center gap-2">
+            <div>
+              <i className="fi fi-sr-star relative top-[2.5px] mr-1"></i>
+              <span>{courseRate}</span>
+            </div>
+            <div>
+              <i className="fi fi-sr-heart relative top-[2.5px] mr-1"></i>
+              <span>{likeCount}</span>
+            </div>
           </div>
         </div>
       </div>

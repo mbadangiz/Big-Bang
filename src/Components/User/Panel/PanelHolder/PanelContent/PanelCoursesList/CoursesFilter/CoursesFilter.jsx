@@ -4,13 +4,19 @@ import GetCourseType from "../../../../../../../Core/Services/Api/Course/GetCour
 import { GetCategoryList } from "../../../../../../../Core/Services/Api/Course/GetCategoryList";
 import { CheckBox } from "../../../../../../Common/CheckBox/CheckBox";
 import { RadioButton } from "../../../../../../Common/RadioButton/RadioButton";
+import { getCourseListAll } from "../../../../../../../Core/Services/Api/Course/GetCourseListAll";
 
-const CoursesFilter = ({ data }) => {
+const CoursesFilter = ({ data, allCourse, setAllCourse }) => {
   const [CourseTypes, setCourseTypes] = useState();
   const [categoryName, setCateGoryName] = useState();
   const [CourseTypeValue, setCourseTypeValue] = useState("");
   const [techList, setTechList] = useState([]);
   const { isShowModal, setisShowModal } = data;
+
+  const getter = async () => {
+    const res = await getCourseListAll({ CourseTypeValue, techList });
+    setAllCourse(res);
+  };
 
   const categoryNameGetter = async () => {
     const res = await GetCategoryList();
@@ -36,7 +42,7 @@ const CoursesFilter = ({ data }) => {
     courseTypesGetter();
     categoryNameGetter();
   }, []);
-
+  console.log(techList);
   return (
     <div
       className={`w-screen h-screen p-2 bg-black/70  fixed 
@@ -105,6 +111,10 @@ const CoursesFilter = ({ data }) => {
         <button
           className="bg-bluePrimary p-2 rounded-2xl text-white 
         block absolute bottom-3 right-56"
+          onClick={() => {
+            getter();
+            setisShowModal(false);
+          }}
         >
           اعمال فیلتر
         </button>
