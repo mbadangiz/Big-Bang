@@ -1,9 +1,9 @@
 import instance from "../../Interceptor/Interceptor";
 
-const getCourseAll = async (count) => {
+const getMyCourses = async () => {
   try {
     const result = await instance.get(
-      `/Home/GetCoursesWithPagination?PageNumber=${count}&RowsOfPage=5`
+      `/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=10&SortingCol=DESC&SortType=LastUpdate&Query=`
     );
     return result;
   } catch (err) {
@@ -11,4 +11,4 @@ const getCourseAll = async (count) => {
     return [];
   }
 };
-export { getCourseAll };
+export { getMyCourses };

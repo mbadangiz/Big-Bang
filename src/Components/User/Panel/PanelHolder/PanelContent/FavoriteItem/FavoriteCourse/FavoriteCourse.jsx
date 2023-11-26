@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
-import { GetFavoriteCourses } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetFavoriteCourses";
+import { GetFavoriteCourses } from "../../../../../../../Core/Services/Api/UserPanel/GetFavoriteCourses";
 import { useState } from "react";
 import { RowOfFavorite } from "./RowOfFavorite";
+import { ToastContainer } from "react-toastify";
 
 const FavoriteCourse = () => {
   const [Fav, setFavoriteCourse] = useState();
@@ -21,6 +22,7 @@ const FavoriteCourse = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-slate-100">
         <table className="w-full text-base text-center text-gray-500 dark:text-gray-400">
           <thead className="text-base text-white uppercase bg-bluePrimary">
@@ -56,7 +58,11 @@ const FavoriteCourse = () => {
               ? Fav.favoriteCourseDto.map((favorite) => {
                   return (
                     <>
-                      <RowOfFavorite data={favorite.courseId} />
+                      <RowOfFavorite
+                        data={favorite.courseId}
+                        favoriteId={favorite.favoriteId}
+                        state={{ Fav, setFavoriteCourse }}
+                      />
                     </>
                   );
                 })

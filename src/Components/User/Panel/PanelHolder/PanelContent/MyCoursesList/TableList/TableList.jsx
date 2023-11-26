@@ -1,59 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { getMyCourses } from "../../../../../../../Core/Services/Api/UserPanel/GetMyCourses";
+import { useNavigate } from "react-router-dom";
 
 const TableList = () => {
-  const list = [
-    {
-      id: 1,
-      courseTitle: "ری اکت",
-      courseMaster: "یه بابایی",
-      courseParticipants: 120,
-      courseStartTime: "1402/01/01",
-      courseEndTime: "1402/05/22",
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-    {
-      id: 2,
-      courseTitle: "جاوا اسکریپت",
-      courseMaster: "یه بابایی",
-      courseParticipants: 20,
-      courseStartTime: "1402/01/01",
-      courseEndTime: "1402/05/22",
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-    {
-      id: 3,
-      courseTitle: "Tailwindcss",
-      courseMaster: "یه بابایی",
-      courseParticipants: 160,
-      courseStartTime: "1402/01/01",
-      courseEndTime: "1402/05/22",
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-    {
-      id: 4,
-      courseTitle: "نکست",
-      courseMaster: "یه بابایی",
-      courseParticipants: 140,
-      courseStartTime: "1402/01/01",
-      courseEndTime: "1402/05/22",
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-    {
-      id: 5,
-      courseTitle: "Html,Css",
-      courseMaster: "یه بابایی",
-      courseParticipants: 351,
-      courseStartTime: "1402/01/01",
-      courseEndTime: "1402/05/22",
-      courseStatus: "اتمام ضبط",
-      coursePrice: 2500000,
-    },
-  ];
+  const [myCourse, setMyCourse] = useState();
+
+  const getMyCourseInPanel = async () => {
+    const myCourses = await getMyCourses();
+    setMyCourse(myCourses);
+  };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getMyCourseInPanel();
+  }, []);
+
+  console.log(myCourse);
 
   return (
     <>
@@ -65,22 +29,22 @@ const TableList = () => {
                 نام دوره
               </th>
               <th scope="col" className="px-6 py-3">
-                استاد دوره
-              </th>
-              <th scope="col" className="px-6 py-3">
-                ظرفیت
-              </th>
-              <th scope="col" className="px-6 py-3">
-                گروه دوره
-              </th>
-              <th scope="col" className="px-6 py-3">
-                سطح
+                ترم
               </th>
               <th scope="col" className="px-6 py-3">
                 وضعیت
               </th>
               <th scope="col" className="px-6 py-3">
-                قیمت
+                سطح
+              </th>
+              <th scope="col" className="px-6 py-3">
+                نوع دوره
+              </th>
+              <th scope="col" className="px-6 py-3">
+                شماره کلاس
+              </th>
+              <th scope="col" className="px-6 py-3">
+                وضعیت واریزی
               </th>
               <th scope="col" className="px-6 py-3">
                 حذف
@@ -88,31 +52,40 @@ const TableList = () => {
             </tr>
           </thead>
           <tbody>
-            {list.map((course) => {
-              return (
-                <>
-                  <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
-                    <td className="px-6 py-4">{course.courseTitle}</td>
-                    <td className="px-6 py-4">{course.courseMaster}</td>
-                    <td className="px-6 py-4">{course.courseParticipants}</td>
-                    <td className="px-6 py-4">{course.courseStartTime}</td>
-                    <td className="px-6 py-4">{course.courseEndTime}</td>
-                    <td className="px-6 py-4">{course.courseStatus}</td>
-                    <td className="px-6 py-4 text-red-500">
-                      {course.coursePrice}
-                    </td>
-                    <td className="px-6 py-4">
-                      <button
-                        type="submit"
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            {myCourse
+              ? myCourse.listOfMyCourses.map((course) => {
+                  return (
+                    <>
+                      <tr
+                        className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 "
+                        onClick={() => {
+                          navigate(
+                            `/CoursesDetails?courseId=${course.courseId}`
+                          );
+                        }}
                       >
-                        <i className="fi fi-rr-minus-circle"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </>
-              );
-            })}
+                        <td className="px-6 py-4">{course.courseTitle}</td>
+                        <td className="px-6 py-4">{course.termName}</td>
+                        <td className="px-6 py-4">{course.statusName}</td>
+                        <td className="px-6 py-4">{course.levelName}</td>
+                        <td className="px-6 py-4">{course.typeName}</td>
+                        <td className="px-6 py-4">{course.classRoomName}</td>
+                        <td className="px-6 py-4 text-green-600">
+                          {course.paymentStatus}
+                        </td>
+                        <td className="px-6 py-4">
+                          <button
+                            type="submit"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            <i className="fi fi-rr-minus-circle"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })
+              : ""}
           </tbody>
         </table>
       </div>

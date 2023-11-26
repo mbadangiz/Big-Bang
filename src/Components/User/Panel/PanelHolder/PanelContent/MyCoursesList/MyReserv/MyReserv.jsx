@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { RowOfReserve } from "./RowOfReserve";
-import { GetMyCoursesReserve } from "../../../../../../../Core/Services/Api/UserPanel/GetCourseReserve";
+import { ToastContainer } from "react-toastify";
+import { GetMyCoursesReserve } from "../../../../../../../Core/Services/Api/UserPanel/GetMyCoursesReserve";
 
 const MyReserve = () => {
   const [CourseReserve, setCourseReserve] = useState();
@@ -20,6 +21,7 @@ const MyReserve = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-slate-100">
         <table className="w-full text-base text-center text-gray-500 dark:text-gray-400">
           <thead className="text-base text-white uppercase bg-bluePrimary">
@@ -55,7 +57,11 @@ const MyReserve = () => {
               ? CourseReserve.map((favorite) => {
                   return (
                     <>
-                      <RowOfReserve data={favorite.courseId} />
+                      <RowOfReserve
+                        data={favorite.courseId}
+                        state={{ CourseReserve, setCourseReserve }}
+                        reserveId={favorite.reserveId}
+                      />
                     </>
                   );
                 })

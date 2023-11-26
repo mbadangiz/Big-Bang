@@ -10,3 +10,5 @@ const onSetFormData = (value) => {
   });
   return formData;
 };
+
+export { onSetFormData };

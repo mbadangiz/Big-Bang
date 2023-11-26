@@ -4,14 +4,15 @@ import { getCourseAll } from "../../../../../../../Core/Services/Api/UserPanel/G
 import { Link, useNavigate } from "react-router-dom";
 
 const TableCoursesList = ({ setAllCourse, allCourse }) => {
+  const [count, setCount] = useState(1);
   const getAllCoursesInPanel = async () => {
-    const AllCourses = await getCourseAll();
+    const AllCourses = await getCourseAll(count);
     setAllCourse(AllCourses);
   };
 
   useEffect(() => {
     getAllCoursesInPanel();
-  }, []);
+  }, [count]);
 
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ const TableCoursesList = ({ setAllCourse, allCourse }) => {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-slate-100">
-        <table className="w-full text-base text-center text-gray-500 dark:text-gray-400 h-[612px]">
+        <table className="w-full text-base text-center text-gray-500 dark:text-gray-400">
           <thead className="text-base text-white uppercase bg-bluePrimary">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -52,7 +53,7 @@ const TableCoursesList = ({ setAllCourse, allCourse }) => {
               </th>
             </tr>
           </thead>
-          <tbody className="container">
+          <tbody className="">
             {allCourse
               ? allCourse.courseFilterDtos.map((course, index) => {
                   return (
@@ -65,7 +66,7 @@ const TableCoursesList = ({ setAllCourse, allCourse }) => {
                     >
                       <th
                         scope="row"
-                        className="py-4 font-medium whitespace-nowrap"
+                        className="py-4 font-medium whitespace-nowrap "
                       >
                         <img
                           src={
@@ -98,6 +99,25 @@ const TableCoursesList = ({ setAllCourse, allCourse }) => {
               : " "}
           </tbody>
         </table>
+        <div className="flex justify-center items-center text-blue-400">
+          <div
+            className="p-2 cursor-pointer"
+            onClick={() => {
+              setCount((prev) => prev + 1);
+            }}
+          >
+            <i className="fi fi-rr-angle-small-right text-2xl flex "></i>
+          </div>
+          <div className="">page num {count}</div>
+          <div
+            className="p-2 cursor-pointer"
+            onClick={() => {
+              setCount((prev) => prev - 1);
+            }}
+          >
+            <i className="fi fi-rr-angle-small-left text-2xl flex"></i>
+          </div>
+        </div>
       </div>
     </>
   );
