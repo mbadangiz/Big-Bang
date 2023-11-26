@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getMyCourses } from "../../../../../../../Core/Services/Api/Course/UserPanel/GetMyCourses";
+import { useNavigate } from "react-router-dom";
 
 const TableList = () => {
   const [myCourse, setMyCourse] = useState();
@@ -9,6 +10,8 @@ const TableList = () => {
     const myCourses = await getMyCourses();
     setMyCourse(myCourses);
   };
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getMyCourseInPanel();
@@ -53,8 +56,15 @@ const TableList = () => {
               ? myCourse.listOfMyCourses.map((course) => {
                   return (
                     <>
-                      <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
-                        <td className="px-6 py-4">{course.fullName}</td>
+                      <tr
+                        className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 "
+                        onClick={() => {
+                          navigate(
+                            `/CoursesDetails?courseId=${course.courseId}`
+                          );
+                        }}
+                      >
+                        <td className="px-6 py-4">{course.courseTitle}</td>
                         <td className="px-6 py-4">{course.termName}</td>
                         <td className="px-6 py-4">{course.statusName}</td>
                         <td className="px-6 py-4">{course.levelName}</td>

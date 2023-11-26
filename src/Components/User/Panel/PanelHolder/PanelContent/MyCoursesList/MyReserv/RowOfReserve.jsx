@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { DeleteFavCourse } from "../../../../../../../Core/Services/Api/CourseDetails/DeleteFavCourse";
 import { SuccessToastify } from "../../../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
 import { ErrorToastify } from "../../../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
+import { useNavigate } from "react-router-dom";
 
 export const RowOfReserve = ({ data, state, reserveId }) => {
   const [resCourse, setresCourse] = useState();
@@ -28,6 +29,8 @@ export const RowOfReserve = ({ data, state, reserveId }) => {
     console.log(resDel);
   };
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     getReserveCourse();
   }, []);
@@ -38,7 +41,12 @@ export const RowOfReserve = ({ data, state, reserveId }) => {
     <>
       {resCourse ? (
         <>
-          <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
+          <tr
+            className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 "
+            onClick={() => {
+              navigate(`/CoursesDetails?courseId=${resCourse.courseId}`);
+            }}
+          >
             <td className="px-6 py-4">{resCourse.title}</td>
             <td className="px-6 py-4">{resCourse.teacherName}</td>
             <td className="px-6 py-4">{resCourse.capacity}</td>

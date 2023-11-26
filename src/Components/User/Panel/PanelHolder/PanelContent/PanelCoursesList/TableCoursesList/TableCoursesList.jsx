@@ -99,24 +99,24 @@ const TableCoursesList = ({ setAllCourse, allCourse }) => {
               : " "}
           </tbody>
         </table>
-        <div>
-          <button
-            className="p-8"
+        <div className="flex justify-center items-center text-blue-400">
+          <div
+            className="p-2 cursor-pointer"
             onClick={() => {
               setCount((prev) => prev + 1);
             }}
           >
-            +
-          </button>
+            <i className="fi fi-rr-angle-small-right text-2xl flex "></i>
+          </div>
           <div className="">page num {count}</div>
-          <button
-            className="p-8"
+          <div
+            className="p-2 cursor-pointer"
             onClick={() => {
               setCount((prev) => prev - 1);
             }}
           >
-            -
-          </button>
+            <i className="fi fi-rr-angle-small-left text-2xl flex"></i>
+          </div>
         </div>
       </div>
     </>

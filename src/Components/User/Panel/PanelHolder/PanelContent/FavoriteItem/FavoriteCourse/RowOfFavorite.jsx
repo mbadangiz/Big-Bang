@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import DelFavCourse from "../../../../../../../Core/Services/Api/CourseDetails/DelFavCourse";
 import { SuccessToastify } from "../../../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
 import { ErrorToastify } from "../../../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
+import { useNavigate } from "react-router-dom";
 
 export const RowOfFavorite = ({ data, favoriteId, state }) => {
   const [FavCourse, setFavCourse] = useState();
@@ -29,6 +30,8 @@ export const RowOfFavorite = ({ data, favoriteId, state }) => {
     console.log(favDel);
   };
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     getFavoriteCourse();
   }, []);
@@ -39,7 +42,13 @@ export const RowOfFavorite = ({ data, favoriteId, state }) => {
     <>
       {FavCourse ? (
         <>
-          <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
+          <tr
+            className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 
+          "
+            onClick={() => {
+              navigate(`/CoursesDetails?courseId=${FavCourse.courseId}`);
+            }}
+          >
             <td className="px-6 py-4">{FavCourse.title}</td>
             <td className="px-6 py-4">{FavCourse.teacherName}</td>
             <td className="px-6 py-4">{FavCourse.capacity}</td>
