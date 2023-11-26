@@ -5,11 +5,31 @@ import { PanelDashboardItemTitle } from "../PanelDashboardItemTitle";
 import { SilverButton } from "../../../../Common/Buttons/SilverButton";
 
 // ID user card profile picture import
-import IDUserProfilePicture from "../../../../../Assets/Images/Panel/User/IDUserProfilePicture/IDUserProfilePicture.jpg";
+import UserProfilePicture from "../../../../../Assets/Images/Panel/User/UserProfilePicture/UserProfilePicture.png";
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
+import { GetCurrentUserProfile } from "../../../../../Core/Services/Api/UserPanel/GetCurrentUserProfile";
+import { useDispatch, useSelector } from "react-redux";
+import user, { onSetUserInfo } from "../../../../../redux/user";
+import { makeDatePersian } from "../../../../../Core/Utils/MakeDatePersian/MakeDatePersian";
 
 const PanelDashboardIDUserCard = () => {
+  const userInfo = useSelector((reducer) => reducer.user.userInformations);
+  const dispatch = useDispatch();
   const Navigate = useNavigate();
+
+  const getUserProfileInfo = async () => {
+    const user = await GetCurrentUserProfile();
+
+    // console.log(user);
+
+    dispatch(onSetUserInfo(user));
+  };
+
+  useEffect(() => {
+    getUserProfileInfo();
+  }, []);
+  console.log("RENDERING", userInfo);
 
   return (
     <>
@@ -25,7 +45,9 @@ const PanelDashboardIDUserCard = () => {
             <figure className="w-full h-full rounded-[7px] shadow-lg shadow-gray-400">
               <img
                 className="object-fill w-full h-full rounded-[7px]"
-                src={IDUserProfilePicture}
+                src={
+                  userInfo ? userInfo.currentPictureAddress : UserProfilePicture
+                }
                 alt="ID User Profile Picture"
               />
             </figure>
@@ -46,7 +68,7 @@ const PanelDashboardIDUserCard = () => {
                 <h3 className="text-[18px] text-bluePrimary font-medium">
                   نام کاربری :
                   <span className="text-[16px] text-black font-medium">
-                    بهراد موسوی
+                    {`${userInfo.fName} ${userInfo.lName}`}
                   </span>
                 </h3>
               </div>
@@ -55,7 +77,7 @@ const PanelDashboardIDUserCard = () => {
                 <h3 className="text-[18px] text-bluePrimary font-medium">
                   ایمیل :
                   <span className="text-[16px] text-black font-medium">
-                    example@gmail.com
+                    {`${userInfo.email}`}
                   </span>
                 </h3>
               </div>
@@ -66,7 +88,7 @@ const PanelDashboardIDUserCard = () => {
                 <h3 className="text-[18px] text-bluePrimary font-medium">
                   شماره شناسنامه :
                   <span className="text-[16px] text-black font-medium">
-                    1234567890
+                    {`${userInfo.nationalCode}`}
                   </span>
                 </h3>
               </div>
@@ -75,7 +97,7 @@ const PanelDashboardIDUserCard = () => {
                 <h3 className="text-[18px] text-bluePrimary font-medium">
                   تاریخ تولد :
                   <span className="text-[16px] text-black font-medium">
-                    xxxx/xx/xx
+                    {`${makeDatePersian(userInfo.birthDay)}`}
                   </span>
                 </h3>
               </div>
@@ -84,7 +106,7 @@ const PanelDashboardIDUserCard = () => {
                 <h3 className="text-[18px] text-bluePrimary font-medium">
                   شماره موبایل :
                   <span className="text-[16px] text-black font-medium">
-                    09112345678
+                    {`${userInfo.phoneNumber}`}
                   </span>
                 </h3>
               </div>

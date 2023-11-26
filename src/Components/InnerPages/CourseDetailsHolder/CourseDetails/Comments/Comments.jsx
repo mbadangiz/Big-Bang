@@ -7,13 +7,6 @@ import { useMyCourseDetail } from "../../../../../Core/Providers/CourseDetailPro
 const Comments = ({ courseId }) => {
   const { commets, setCommets } = useMyCourseDetail();
 
-  const getComments = async () => {
-    const res = await GetCourseDetailComments(courseId);
-    setCommets(res);
-  };
-  useEffect(() => {
-    getComments();
-  }, []);
   return (
     <Element name="commets" className="pt-5 ">
       <div className="artcileDeailtCardsSettings shadow-sm">

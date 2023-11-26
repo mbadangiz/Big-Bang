@@ -44,7 +44,12 @@ const CommentSectionForm = () => {
           <Form>
             <div className="my-[155px]">
               <SilverInputField name="email" type="email" placeholder="ایمیل" />
-              <TextAreaField name="text" placeholder="متن مورد نظر" />
+              <TextAreaField
+                name="text"
+                placeholder="متن مورد نظر"
+                extraClasses="w-[500px] h-[280px]"
+                TextAreaClasses="w-full h-[216px] border-4 border-solid border-white text-white bg-gray-300  focus:bg-white focus:border-bluePrimary focus:text-black "
+              />
 
               <SilverButton type="submit" buttonText="ثبت" />
             </div>

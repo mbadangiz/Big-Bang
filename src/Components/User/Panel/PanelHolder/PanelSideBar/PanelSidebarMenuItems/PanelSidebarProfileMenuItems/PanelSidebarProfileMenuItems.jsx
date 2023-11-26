@@ -2,10 +2,13 @@
 import Style from "./PanelSidebarProfileMenuItems.module.css";
 
 // Sidebar Profile Picture import
-import UserProfilePicture from "../../../../../../../Assets/Images/Panel/User/UserProfilePicture/UserProfilePicture.jpg";
+import UserProfilePicture from "../../../../../../../Assets/Images/Panel/User/UserProfilePicture/UserProfilePicture.png";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const PanelSidebarProfileMenuItems = () => {
+  const userInfo = useSelector((reducer) => reducer.user.userInformations);
+
   return (
     <div className="border-2 border-solid border-transparent h-full relative">
       <div>
@@ -28,18 +31,22 @@ const PanelSidebarProfileMenuItems = () => {
           <li
             className={`cursor-pointer my-1 w-full h-[50px] px-[2px]  py-[0px] flex justify-between absolute bottom-[6px] right-[1.5px]`}
           >
-            <div className="border-[3px] border-solid border-bluePrimary w-[50px] h-[50px] rounded-full py-[2px] px-[2px]">
+            <div className="border-[3px] border-solid border-bluePrimary w-[50px] h-[50px] rounded-full py-[2.5px] px-[2.5px]">
               <figure className="shadow-md shadow-gray-500 w-[40px] h-[40px] rounded-full">
                 <img
                   className="rounded-full object-cover"
-                  src={UserProfilePicture}
+                  src={
+                    userInfo.currentPictureAddress
+                      ? userInfo.currentPictureAddress
+                      : UserProfilePicture
+                  }
                   alt="User Profile Picture"
                 />
               </figure>
             </div>
             <div className="w-full mr-4 h-[45px]">
               <h2 className="text-[20px] text-bluePrimary font-semibold leading-[38px]">
-                بهراد موسوی
+                {`${userInfo.fName} ${userInfo.lName}`}
               </h2>
             </div>
           </li>

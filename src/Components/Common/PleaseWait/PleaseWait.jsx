@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { GridLoader } from "react-spinners";
+
 const PleaseWait = () => {
   const [counter, setCounter] = useState(1);
   const [err, setErr] = useState(false);

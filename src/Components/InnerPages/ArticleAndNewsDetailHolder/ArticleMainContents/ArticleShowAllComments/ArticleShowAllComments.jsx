@@ -1,10 +1,12 @@
 import { Element } from "react-scroll";
 import { CommentTree } from "../../../../Common/CommentTree/CommentTree";
 
-const ArticleShowAllComments = () => {
+const ArticleShowAllComments = ({ data }) => {
   return (
     <Element name="allComments" className="artcileDeailtCardsSettings">
-      <CommentTree />
+      {data.map((items) => {
+        return <CommentTree data={items} section="news" />;
+      })}
     </Element>
   );
 };

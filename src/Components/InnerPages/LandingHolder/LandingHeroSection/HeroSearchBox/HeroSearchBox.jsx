@@ -28,14 +28,13 @@ const HeroSearchBox = () => {
         setSearchItem(res);
       }
     }, 2000);
-    console.log();
   };
 
   const handleChange = (event) => {
     setisSearchNews(event.target.value);
   };
-
   console.log(isSearchNews);
+
   return (
     <div
       className="mt-20 w-full h-16  rounded-full
@@ -47,7 +46,7 @@ const HeroSearchBox = () => {
         value={isSearchNews}
         onChange={handleChange}
         className="w-1/5 h-full rounded-r-full bg-transparent
-text-center border-l-2 border-solid border-white f-bold text-lg text-white"
+          text-center border-l-2 border-solid border-white f-bold text-lg text-white"
       >
         <option className="text-textBlack" value="Courses">
           دوره
@@ -79,16 +78,30 @@ text-center border-l-2 border-solid border-white f-bold text-lg text-white"
         rounded-lg transition-all duration-300 overflow-y-scroll`}
         id="SearchModal"
       >
-        {searchItem
-          ? searchItem.courseFilterDtos.map((items) => {
-              return <SearchCard data={items} />;
-            })
-          : isSearchModalShow && (
-              <>
-                <PuffLoader color="#36d7b7" />
-                <p className="text-[#36d7b7]">لطفا صبر کنید</p>
-              </>
-            )}
+        {searchItem ? (
+          isSearchNews !== "News" ? (
+            <>
+              {searchItem.courseFilterDtos.map((items) => {
+                return (
+                  <SearchCard type={"course"} key={items.id} data={items} />
+                );
+              })}
+            </>
+          ) : (
+            <>
+              {searchItem.news.map((items) => {
+                return <SearchCard type={"news"} key={items.id} data={items} />;
+              })}
+            </>
+          )
+        ) : (
+          isSearchModalShow && (
+            <>
+              <PuffLoader color="#36d7b7" />
+              <p className="text-[#36d7b7]">لطفا صبر کنید</p>
+            </>
+          )
+        )}
       </div>
     </div>
   );

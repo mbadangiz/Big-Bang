@@ -1,10 +1,33 @@
 import { Field, Form, Formik } from "formik";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Element } from "react-scroll";
 import { BlueButton } from "../../../../Common/Buttons/BlueButton";
+import { useMyCourseDetail } from "../../../../../Core/Providers/CourseDetailProvider";
+import AddCommentToCourse from "../../../../../Core/Services/Api/CourseDetails/AddCommentToCourse";
+import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
+import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 
-const CommentRegisterNewComment = () => {
+const CommentRegisterNewComment = ({ myClick }) => {
   const [comment, setComment] = useState("");
+  const { courseId } = useMyCourseDetail().courseDetails;
+  const { commets, setCommets } = useMyCourseDetail();
+
+  const submitHanlerAddComment = async (val) => {
+    const data = {
+      CourseId: courseId,
+      Title: val.title,
+      Describe: comment,
+    };
+
+    const res = await AddCommentToCourse(data);
+    console.log(res);
+    if (res.success) {
+      SuccessToastify("عملیات با  موفقیت انجام شد.");
+    } else {
+      ErrorToastify(res.errors[0]);
+    }
+  };
+
   return (
     <Element
       name="newComment"
@@ -12,9 +35,7 @@ const CommentRegisterNewComment = () => {
     >
       <Formik
         initialValues={{ title: "", inptComment: comment }}
-        onSubmit={(val) => {
-          console.log(val);
-        }}
+        onSubmit={submitHanlerAddComment}
       >
         <Form>
           <h1 className="f-bold text-lg mb-3">ثبت دیدگاه جدید</h1>
