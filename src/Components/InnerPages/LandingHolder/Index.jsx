@@ -7,6 +7,7 @@ import { CategorySection } from "./LandingCategorySection/CategorySection";
 import { LandingArticlesNewsSection } from "./LandingArticlesNewsSection/LandingArticlesNewsSection";
 import { LandingHeroSection } from "./LandingHeroSection/LandingHeroSection";
 import { useEffect } from "react";
+import Aos from "aos";
 
 const LandingHolder = () => {
   useEffect(() => {

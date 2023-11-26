@@ -6,7 +6,6 @@ import { ViewMoreBtn } from "../../../Common/ViewMoreBtn/ViewMore";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getPopularCourse } from "../../../../Core/Services/Api/Landing/GetPopularCourse";
-import { MyComponent } from "../../../Common/Landing Animation/Js";
 const LandingPopularCoursesSection = () => {
   const [PopularCourse, setPopularCourse] = useState();
 
@@ -17,7 +16,6 @@ const LandingPopularCoursesSection = () => {
 
   useEffect(() => {
     getTopCourse();
-    MyComponent();
   }, []);
   // const list = [
   //   {

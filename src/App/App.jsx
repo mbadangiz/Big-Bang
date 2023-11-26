@@ -24,8 +24,9 @@ import { RegisterFormStep1 } from "../Components/User/LoginRegisterForgetpass/Re
 import { RegisterFormStep2 } from "../Components/User/LoginRegisterForgetpass/RegisterHolder/RegisterForms/RegisterFormStep2";
 import { RegisterFormStep3 } from "../Components/User/LoginRegisterForgetpass/RegisterHolder/RegisterForms/RegisterFormStep3";
 import { FavoriteItem } from "../Components/User/Panel/PanelHolder/PanelContent/FavoriteItem/FavoriteItem";
-
 import Aos from "aos";
+import "aos/dist/aos.css";
+
 Aos.init();
 function App() {
   const router = createBrowserRouter([

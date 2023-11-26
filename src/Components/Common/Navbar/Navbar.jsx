@@ -5,6 +5,7 @@ import { NavLink, useLocation } from "react-router-dom";
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
   const [isHeroBgOn, setIsHeroBgOn] = useState(true);
+  const [isBgOn, setIsBgOn] = useState(false);
 
   const matches = useLocation();
   const thisisLink = matches.pathname.includes("/User/");
@@ -17,15 +18,15 @@ const Navbar = () => {
   }, [matches]);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      if (Math.floor(winScroll) > 0) {
+    document.onscroll = () => {
+      if (pageYOffset > 200) {
+        setIsBgOn(true);
         setIsFixed(true);
       } else {
         setIsFixed(false);
+        setIsBgOn(false);
       }
-    });
+    };
   }, []);
 
   const navItemsList = [
@@ -39,7 +40,9 @@ const Navbar = () => {
   return (
     <div
       className={`w-full h-20 
-      ${isHeroBgOn ? "" : "bg-white/40 backdrop-blur-md "} z-50  sticky top-0`}
+      ${isHeroBgOn ? "" : "bg-white/40 backdrop-blur-md "}   z-50  ${
+        isFixed && "fixed"
+      }  sticky top-0 ${isBgOn && "bg-white/40 backdrop-blur-md"}  `}
     >
       <div className="width-handler h-full border-2 flex-row-all-center ">
         <img src={IconBahr} alt="Logo" className="h-12" />
