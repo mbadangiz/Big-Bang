@@ -24,25 +24,41 @@ const PanelEditProfileUserProfilePicture = () => {
 
   const navigate = useNavigate();
 
-  // const [getDeleteUserImages, setGetDeleteUserImages] = useState([]);
+  const [getDeleteUserImages, setGetDeleteUserImages] = useState([]);
 
-  // const [deleteUserImageChecked, setDeleteUserImageChecked] = useState([]);
+  const [listDeleteImages, setListDeleteImages] = useState([]);
 
-  // const onDeleteUserProfileImage = async (value) => {
-  //   try {
-  //     const deleteImageData = onDeleteEditProfileImageFormData(value);
+  const handleDeleteCheckbox = (event) => {
+    const checked = event.target.checked;
+    const value = String(event.target.value);
+    if (checked) {
+      setListDeleteImages([...listDeleteImages, value]);
+    } else {
+      setListDeleteImages(listDeleteImages.filter((items) => items !== value));
+    }
+  };
 
-  //     const result = await DeleteImageProfile(deleteImageData);
+  const onDeleteUserProfileImage = async (value) => {
+    console.log(value);
 
-  //     if (result.success === true) {
-  //       return SuccessToastify(result.message);
-  //     } else if (result.success === false) {
-  //       return ErrorToastify(result.message);
-  //     }
-  //   } catch (error) {
-  //     return false;
-  //   }
-  // };
+    try {
+      const deleteImageData = onDeleteEditProfileImageFormData(value);
+
+      const result = await DeleteImageProfile(deleteImageData);
+
+      if (result.success === true) {
+        return SuccessToastify(result.message);
+      } else if (result.success === false) {
+        return ErrorToastify(result.message);
+      }
+    } catch (error) {
+      return false;
+    }
+  };
+
+  const onDeleteUserProfileImages = async (value) => {
+    listDeleteImages.map((value) => console.log(value));
+  };
 
   const onSelectUserProfileImage = async (value) => {
     try {
@@ -137,6 +153,7 @@ const PanelEditProfileUserProfilePicture = () => {
                   >
                     <button
                       type="button"
+                      onClick={() => onDeleteUserProfileImage(item.id)}
                       className="w-[22px] h-[22px] bg-red-500 rounded-full shadow-lg shadow-red-500/60 mt-[2px] transform hover:scale-125 ease-out duration-300 hover:shadow-inner hover:shadow-red-800"
                     >
                       <i className="fi fi-rr-trash text-white text-[15px] "></i>
@@ -149,16 +166,13 @@ const PanelEditProfileUserProfilePicture = () => {
                       <i className="fi fi-rr-cursor-finger text-white text-[15px] "></i>
                     </button>{" "}
                   </div>
-                  {/* <input
+                  <input
                     type="checkbox"
                     className="absolute z-50 top-1 right-1 w-[18px] h-[18px]"
-                    checked={
-                      deleteUserImageChecked === true
-                        ? setGetDeleteUserImages(item.id)
-                        : false
-                    }
-                    onClick={(e) => setDeleteUserImageChecked(e.target.checked)}
-                  /> */}
+                    checked={listDeleteImages.includes(item.id)}
+                    value={String(item.id)}
+                    onChange={handleDeleteCheckbox}
+                  />
                   <img
                     src={item.puctureAddress}
                     alt={`${item.pictureName}`}
