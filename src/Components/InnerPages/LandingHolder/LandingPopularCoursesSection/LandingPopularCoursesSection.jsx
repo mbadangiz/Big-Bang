@@ -62,7 +62,7 @@ const LandingPopularCoursesSection = () => {
       />
       <div
         data-aos="fade-down"
-        className="w-full flex-row-all-center gap-10 mt-5 items hide"
+        className="w-full flex-row-all-center gap-10 mt-5"
       >
         {PopularCourse
           ? PopularCourse.map((course) => {

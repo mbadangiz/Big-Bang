@@ -9,7 +9,7 @@ const ServicesSection = () => {
       />
       <div
         className="w-full h-[280px] border-2 border-solid border-transparent
-       flex items-center justify-center gap-7 mt-6 mb-6 items1 hide"
+       flex items-center justify-center gap-7 mt-6 mb-6"
       >
         <div
           className="ServCard w-[200px] h-[270px] border-2 border-solid border-transparent
