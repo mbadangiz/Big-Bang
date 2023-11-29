@@ -27,6 +27,7 @@ import { MakeDatePickerDatePersian } from "../../../../Core/Utils/MakeDatePicker
 const PanelEditProfile = () => {
   const getUserProfileInfo = async () => {
     const user = await GetCurrentUserProfile();
+    console.log(user);
 
     dispatch(onSetUserInfo(user));
   };
@@ -115,14 +116,13 @@ const PanelEditProfile = () => {
           <div className="col-span-2"></div>
 
           <div className="col-span-4 ">
-            {/* LName */}
+            {/* FName */}
             <BlueInputField
               type="text"
-              name="LName"
-              placeholder="نام "
+              name="FName"
+              placeholder="نام"
               iconClass="fi fi-rr-user"
             />
-
             {/* NationalCode */}
             <BlueInputField
               type="text"
@@ -158,11 +158,11 @@ const PanelEditProfile = () => {
             </div>
           </div>
           <div className="col-span-4">
-            {/* FName */}
+            {/* LName */}
             <BlueInputField
               type="text"
-              name="FName"
-              placeholder="نام خانوادگی"
+              name="LName"
+              placeholder="خانوادگی "
               iconClass="fi fi-rr-users-alt"
             />
 

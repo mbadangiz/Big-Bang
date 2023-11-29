@@ -34,8 +34,8 @@ const LoginForm = () => {
         }, 2000);
         setIsDisabled(false);
       } else if (user.success === false) {
+        ErrorToastify(user.message);
         setIsDisabled(false);
-        return ErrorToastify(user.message);
       }
     } catch (error) {
       return false;

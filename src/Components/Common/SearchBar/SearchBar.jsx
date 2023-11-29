@@ -12,10 +12,10 @@ const SearchBar = ({ setData, searchApiFunc, placeholder, getAllDataList }) => {
     }
   };
   return (
-    <div className="w-full h-40 flex-row-all-center">
+    <div className="w-full h-40 flex-row-all-center relative bottom-20 ">
       <div className="w-450 h-12  rounded-full relative">
         <input
-          className="w-full h-full rounded-full bg-white border-2 border-solid border-grayDetail/20 pr-4 pl-12 text-sm 
+          className="w-full h-full shadow-lg shadow-black/10 rounded-full bg-white border-2 border-solid border-grayDetail/20 pr-4 pl-12 text-sm 
           focus:border-bluePrimary transition-all duration-150"
           type="text"
           onChange={searchHandler}

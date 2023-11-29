@@ -5,6 +5,7 @@ import transition from "react-element-popper/animations/transition";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { MakeDatePickerDatePersian } from "../../../../Core/Utils/MakeDatePickerDatePersian/MakeDatePickerDatePersian";
+import { Field } from "formik";
 
 const BlueDatePickerInputField = ({
   datePickerDateTime,
@@ -26,6 +27,7 @@ const BlueDatePickerInputField = ({
         <i
           className={`fi fi-rr-cake-birthday text-[25px] mt-[5px] bg-transparent text-center  text-bluePrimary  col-span-1 rounded-s-full`}
         ></i>
+
         <DatePicker
           mapDays={({ date }) => {
             let props = {};
