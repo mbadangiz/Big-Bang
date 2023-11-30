@@ -4,12 +4,12 @@ import React from "react";
 import { PanelSidebarRight } from "./PanelSidebarRight";
 import { PanelSidebarLeft } from "./PanelSidebarLeft";
 import { PanelSidebarNameLogo } from "./PanelSidebarMenuItems/PanelSidebarNameLogo";
-import { PanelSidebarMenuItems } from "./PanelSidebarMenuItems/PanelSidebarMenuItems/PanelSideBarMenuItems";
+import { PanelSidebarMenuItems } from "./PanelSidebarMenuItems/PanelSidebarMenuItems/PanelSidebarMenuItems";
 import { PanelSidebarProfileMenuItems } from "./PanelSidebarMenuItems/PanelSidebarProfileMenuItems/PanelSidebarProfileMenuItems";
 
 const PanelSidebar = () => {
   return (
-    <div className="w-full mx-auto h-screen flex items-start relative">
+    <div className="w-full mx-auto h-screen flex items-start relative ">
       <div className="w-5/6 h-full ">
         <div className=" w-full h-full absolute right-[6px] z-0">
           <div className="w-[60px] h-full py-[8px] z-20">

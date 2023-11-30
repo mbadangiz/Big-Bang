@@ -56,8 +56,26 @@ const PanelEditProfileUserProfilePicture = () => {
     }
   };
 
-  const onDeleteUserProfileImages = async (value) => {
-    listDeleteImages.map((value) => console.log(value));
+  const onDeleteUserProfileImages = (value) => {
+    value.map(async (item, index) => {
+      try {
+        const imageData = onDeleteEditProfileImageFormData(item);
+        console.log(imageData);
+
+        const result = await DeleteImageProfile(imageData);
+
+        if (result.success === true) {
+          SuccessToastify(result.message);
+          setTimeout(() => {
+            navigate("/User/Panel/Dashboard");
+          }, 2000);
+        } else if (result.success === false) {
+          return ErrorToastify(result.message);
+        }
+      } catch (error) {
+        return false;
+      }
+    });
   };
 
   const onSelectUserProfileImage = async (value) => {
@@ -190,7 +208,20 @@ const PanelEditProfileUserProfilePicture = () => {
             })}
           </div>
 
-          <div className="w-full h-[100px]"></div>
+          <div className="w-full h-[100px]">
+            {listDeleteImages.length > 0 ? (
+              <button
+                type="button"
+                className="w-[190px] h-[35px] bg-red-500 rounded-full shadow-lg shadow-red-500/60 mt-[2px] transform hover:scale-125 ease-out duration-300 hover:shadow-inner hover:shadow-red-800 flex justify-start mx-auto"
+                onClick={() => onDeleteUserProfileImages(listDeleteImages)}
+              >
+                <i className="fi fi-rr-trash text-white text-[18px] mt-[6px] mr-2"></i>
+                <p className="text-white text-[12.5px] mr-1 mt-2">
+                  حذف عکس های انتخاب شده
+                </p>
+              </button>
+            ) : null}
+          </div>
         </div>
       </div>
       <div className="col-span-4 "></div>
