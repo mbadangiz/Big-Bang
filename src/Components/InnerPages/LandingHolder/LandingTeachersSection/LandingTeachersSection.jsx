@@ -72,7 +72,7 @@ const TeachersCard = ({ data }) => {
   const { id, fullName, courseCounts, pictureAddress } = data;
   return (
     <div
-      className={`${Style.TeachersCard} border-2 border-solid border-gray-200 w-[250px] rounded-[15px] shadow-sm shadow-black/25 
+      className={`${Style.TeachersCard} border-2 border-solid border-gray-200 w-[350px] hover:w-[250px] hover:cursor-pointer rounded-[15px] shadow-sm shadow-black/25 
     text-center hover:translate-y-[-5px] transition-all duration-200 p-2`}
     >
       <figure
