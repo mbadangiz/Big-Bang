@@ -1,11 +1,34 @@
 import { useEffect, useState } from "react";
 import IconBahr from "./../../../Assets/Images/Group 4.png";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+
+import { GetCurrentUserProfile } from "../../../Core/Services/Api/UserPanel/GetCurrentUserProfile";
+
+import { getItem } from "../../../Core/Services/common/storage.services";
+import { useDispatch, useSelector } from "react-redux";
+import { onSetUserInfo } from "../../../redux/user";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
   const [isHeroBgOn, setIsHeroBgOn] = useState(true);
   const [isBgOn, setIsBgOn] = useState(false);
+  const dispatch = useDispatch();
+  const userInfo = useSelector((reducer) => reducer.user.userInformations);
+  const navigate = useNavigate();
+
+  const token = getItem("token");
+
+  console.log(token);
+
+  const GetUserInfo = async () => {
+    if (token !== null && token) {
+      const user = await GetCurrentUserProfile();
+
+      dispatch(onSetUserInfo(user));
+
+      console.log(user);
+    }
+  };
 
   const matches = useLocation();
   const thisisLink = matches.pathname.includes("/User/");
@@ -27,6 +50,10 @@ const Navbar = () => {
         setIsBgOn(false);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    GetUserInfo();
   }, []);
 
   const navItemsList = [
@@ -52,18 +79,35 @@ const Navbar = () => {
           })}
         </div>
         <div className="font-semibold text-base flex justify-end">
-          <NavLink
-            to="User/Register/Step1"
-            className="bg-bluePrimary text-white rounded-full text-base flex-row-all-center h-10 px-6 ml-2"
-          >
-            ثبت نام
-          </NavLink>
-          <NavLink
-            to="User/Login"
-            className=" text-bluePrimary rounded-full text-base flex-row-all-center h-10 px-6  border-2 border-solid border-bluePrimary"
-          >
-            ورود
-          </NavLink>
+          {token ? (
+            <div className="w-[120px] h-[70px]">
+              <figure
+                onClick={() => navigate("/User/Panel/Dashboard")}
+                className="border-[3px] border-solid border-bluePrimary w-[65px] h-[65px] rounded-full mx-auto hover:cursor-pointer"
+              >
+                <img
+                  className="w-[52px] h-[52px] rounded-full mx-auto my-[3.5px] shadow-lg shadow-black/40"
+                  src={userInfo.currentPictureAddress}
+                  alt=""
+                />
+              </figure>
+            </div>
+          ) : (
+            <div className=" flex justify-end">
+              <NavLink
+                to="User/Register/Step1"
+                className="bg-bluePrimary text-white rounded-full text-base flex-row-all-center h-10 px-6 ml-2"
+              >
+                ثبت نام
+              </NavLink>
+              <NavLink
+                to="User/Login"
+                className=" text-bluePrimary rounded-full text-base flex-row-all-center h-10 px-6  border-2 border-solid border-bluePrimary"
+              >
+                ورود
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </div>

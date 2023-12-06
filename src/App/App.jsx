@@ -26,6 +26,10 @@ import { RegisterFormStep3 } from "../Components/User/LoginRegisterForgetpass/Re
 import { FavoriteItem } from "../Components/User/Panel/PanelHolder/PanelContent/FavoriteItem/FavoriteItem";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { PanelSecuritySetting } from "../Components/User/Panel/PanelSecuritySetting";
+import { LoginForm } from "../Components/User/LoginRegisterForgetpass/LoginHolder/LoginForm/LoginForm";
+import { LoginVerifyCodeForm } from "../Components/User/LoginRegisterForgetpass/LoginHolder/LoginVerifyCodeForm";
+import { PanelLogOutModal } from "../Components/User/Panel/PanelLogOutModal";
 
 Aos.init();
 function App() {
@@ -45,7 +49,17 @@ function App() {
       path: "/User",
       element: <LoginRegisterForgetpassLayout />,
       children: [
-        { path: "/User/Login", element: <UserLogin /> },
+        {
+          path: "/User/Login",
+          element: <UserLogin />,
+          children: [
+            { path: "/User/Login", element: <LoginForm /> },
+            {
+              path: "/User/Login/VerifyCode",
+              element: <LoginVerifyCodeForm />,
+            },
+          ],
+        },
         {
           path: "/User/Register",
           element: <UserRegister />,
@@ -78,6 +92,14 @@ function App() {
         { path: "/User/Panel/MyCoursesList", element: <MyCoursesList /> },
         { path: "/User/Panel/CoursesList", element: <PanelCoursesList /> },
         { path: "/User/Panel/FavoriteSection", element: <FavoriteItem /> },
+        {
+          path: "/User/Panel/SecuritySetting",
+          element: <PanelSecuritySetting />,
+        },
+        {
+          path: "/User/Panel/LogOut",
+          element: <PanelLogOutModal />,
+        },
       ],
     },
 

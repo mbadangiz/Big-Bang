@@ -1,7 +1,7 @@
-import { Field } from "formik";
 import React from "react";
 
 import Style from "./BlueToggleInputField.module.css";
+import { Field } from "formik";
 
 const BlueToggleInputField = ({ isToggle, setIsToggle, toggleClass }) => {
   return (

@@ -18,6 +18,7 @@ import { onSelectEditProfileImageFormData } from "../../../../../Core/Utils/onSe
 import { SelectImageProfile } from "../../../../../Core/Services/Api/UserPanel/SelectImageProfile";
 import { onDeleteEditProfileImageFormData } from "../../../../../Core/Utils/onDeleteEditProfileImageFormData/onDeleteEditProfileImageFormData";
 import { useNavigate } from "react-router-dom";
+import { GetCurrentUserProfile } from "../../../../../Core/Services/Api/UserPanel/GetCurrentUserProfile";
 
 const PanelEditProfileUserProfilePicture = () => {
   const userInfo = useSelector((reducer) => reducer.user.userInformations);
@@ -56,26 +57,43 @@ const PanelEditProfileUserProfilePicture = () => {
     }
   };
 
-  const onDeleteUserProfileImages = (value) => {
-    value.map(async (item, index) => {
+  const onDeleteUserProfileImages = async (value) => {
+    for (let i = 0; i < value.length; i++) {
       try {
-        const imageData = onDeleteEditProfileImageFormData(item);
+        const imageData = onDeleteEditProfileImageFormData(value[i]);
         console.log(imageData);
 
         const result = await DeleteImageProfile(imageData);
 
         if (result.success === true) {
           SuccessToastify(result.message);
-          setTimeout(() => {
-            navigate("/User/Panel/Dashboard");
-          }, 2000);
         } else if (result.success === false) {
-          return ErrorToastify(result.message);
+          ErrorToastify(result.message);
         }
       } catch (error) {
         return false;
       }
-    });
+    }
+
+    // value.map(async (item, index) => {
+    //   try {
+    //     const imageData = onDeleteEditProfileImageFormData(item);
+    //     console.log(imageData);
+
+    //     const result = await DeleteImageProfile(imageData);
+
+    //     if (result.success === true) {
+    //       SuccessToastify(result.message);
+    //       setTimeout(() => {
+    //         navigate("/User/Panel/Dashboard");
+    //       }, 2000);
+    //     } else if (result.success === false) {
+    //       return ErrorToastify(result.message);
+    //     }
+    //   } catch (error) {
+    //     return false;
+    //   }
+    // });
   };
 
   const onSelectUserProfileImage = async (value) => {
@@ -106,7 +124,13 @@ const PanelEditProfileUserProfilePicture = () => {
           const result = await AddImageProfile(imageData);
 
           if (result.success === true) {
-            return SuccessToastify(result.message);
+            SuccessToastify(result.message);
+            {
+              async () => {
+                const user = await GetCurrentUserProfile();
+                console.log(user);
+              };
+            }
           } else if (result.success === false) {
             return ErrorToastify();
           }

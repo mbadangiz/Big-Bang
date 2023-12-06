@@ -1,5 +1,5 @@
 import { LoginForm } from "./LoginForm/LoginForm";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { LoginSocialMedia } from "./LoginSocialMedia";
 
 import LoginLogo from "../../../../Assets/Images/LoginRegisterForgetpass/LoginLogo.png";
@@ -9,7 +9,8 @@ const LoginHolder = () => {
     <>
       <div className="w-5/6 h-4/5 m-auto grid grid-cols-8 px-[100px] backdrop-blur-sm bg-black/5 my-5 rounded-[22px] ">
         <div className="col-span-3 pt-[150px]">
-          <LoginForm />
+          {/* <LoginForm /> */}
+          <Outlet />
         </div>
         <div className="col-span-2"></div>
         <div className="col-span-3">

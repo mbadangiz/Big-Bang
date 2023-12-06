@@ -13,8 +13,8 @@ const PanelEditProfileMapLocationMarker = ({
 
   const map = useMapEvents({
     click(e) {
-      let lat = e.latlng.lat;
-      let lng = e.latlng.lng;
+      let lat = parseFloat(e.latlng.lat);
+      let lng = parseFloat(e.latlng.lng);
 
       setMarkerLocationState([lat, lng]);
     },

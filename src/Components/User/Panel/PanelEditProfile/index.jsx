@@ -23,6 +23,7 @@ import { BlueToggleInputField } from "../../../Common/InputFields/BlueToggleInpu
 import { useState } from "react";
 import { BlueDatePickerInputField } from "../../../Common/InputFields/BlueDatePickerInputField/BlueDatePickerInputField";
 import { MakeDatePickerDatePersian } from "../../../../Core/Utils/MakeDatePickerDatePersian/MakeDatePickerDatePersian";
+import { makeDatePersian } from "../../../../Core/Utils/MakeDatePersian/MakeDatePersian";
 
 const PanelEditProfile = () => {
   const getUserProfileInfo = async () => {
@@ -45,12 +46,12 @@ const PanelEditProfile = () => {
   const [isToggle, setIstoggle] = useState(userInfo.receiveMessageEvent);
 
   const [markerLocationState, setMarkerLocationState] = useState([
-    parseFloat(userInfo.latitude),
-    parseFloat(userInfo.longitude),
+    userInfo.latitude === null ? false : parseFloat(userInfo.latitude),
+    userInfo.longitude === null ? false : parseFloat(userInfo.longitude),
   ]);
 
   const [datePickerDateTime, setDatePickerDateTime] = useState(
-    MakeDatePickerDatePersian(userInfo.birthDay)
+    makeDatePersian(userInfo.birthDay)
   );
 
   const onSubmit = async (value) => {

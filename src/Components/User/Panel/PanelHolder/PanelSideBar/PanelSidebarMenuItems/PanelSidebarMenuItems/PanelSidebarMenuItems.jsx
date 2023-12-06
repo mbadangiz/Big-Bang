@@ -101,7 +101,7 @@ const PanelSidebarMenuItems = () => {
       </NavLink>
 
       <NavLink
-        to={"EditProfile"}
+        to={"SecuritySetting"}
         className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
       >
         <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">

@@ -27,3 +27,16 @@
   color: #406dd5;
   font-weight: 600;
 }
+
+.SidebarProfileMenuItemAcountManagementHolder {
+  display: none;
+}
+
+.SidebarProfileMenuItemAcountDetail:hover
+  .SidebarProfileMenuItemAcountManagementHolder {
+  display: block;
+}
+
+.SidebarProfileMenuItemAcountManagementHolder:hover {
+  display: block;
+}

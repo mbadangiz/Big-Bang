@@ -1,0 +1,17 @@
+.TeachersCard {
+  height: 230px;
+}
+
+.TeachersCard:hover {
+  height: 300px;
+}
+
+.TeachersLinks {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.TeachersCard:hover .TeachersLinks {
+  opacity: 1;
+  visibility: visible;
+}
