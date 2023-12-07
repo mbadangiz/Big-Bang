@@ -83,10 +83,10 @@ const Navbar = () => {
             <div className="w-[120px] h-[70px]">
               <figure
                 onClick={() => navigate("/User/Panel/Dashboard")}
-                className="border-[3px] border-solid border-bluePrimary w-[65px] h-[65px] rounded-full mx-auto hover:cursor-pointer"
+                className="border-[3px] border-solid border-bluePrimary hover:border-dotted w-[65px] h-[65px] rounded-full mx-auto hover:cursor-pointer"
               >
                 <img
-                  className="w-[52px] h-[52px] rounded-full mx-auto my-[3.5px] shadow-lg shadow-black/40"
+                  className="w-[52px] h-[52px] rounded-full mx-auto my-[4px] shadow-lg shadow-black/40"
                   src={userInfo.currentPictureAddress}
                   alt=""
                 />

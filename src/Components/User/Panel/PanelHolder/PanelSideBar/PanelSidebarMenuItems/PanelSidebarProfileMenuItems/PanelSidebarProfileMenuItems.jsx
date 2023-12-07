@@ -47,7 +47,9 @@ const PanelSidebarProfileMenuItems = () => {
             className={`${Style.SidebarProfileMenuItemAcountDetail} cursor-pointer my-1 w-full h-[50px] px-[2px]  py-[0px] absolute bottom-[6px] right-[1.5px]`}
           >
             <div className=" flex justify-between ">
-              <div className="border-[3px] border-solid border-bluePrimary w-[50px] h-[50px] rounded-full py-[2.5px] px-[2.5px] relative">
+              <div
+                className={`${Style.SidebarProfilePicture} border-[3px] border-solid border-bluePrimary w-[50px] h-[50px] rounded-full py-[2.5px] px-[2.5px] relative`}
+              >
                 <figure className="shadow-md shadow-gray-500 w-[40px] h-[40px] rounded-full">
                   <img
                     className="rounded-full object-cover"
@@ -69,14 +71,14 @@ const PanelSidebarProfileMenuItems = () => {
 
             {/* ykljdf lkjslgjsdgd0 */}
             <div
-              className={`${Style.SidebarProfileMenuItemAcountManagementHolder} border-2 border-solid border-blue-600 min-h-[200px] w-full absolute bottom-12 z-50 rounded-lg bg-white `}
+              className={`${Style.SidebarProfileMenuItemAcountManagementHolder} shadow-lg shadow-black/10 min-h-[200px] w-full absolute bottom-12 z-50 rounded-lg bg-white `}
             >
-              <div className="border-2 border-solid border-red-800 h-[250px] overflow-y-scroll"></div>
+              <div className="h-[250px] overflow-y-scroll"></div>
               <div>
                 <RedButton
                   buttonText="خروج از حساب"
                   iconClass="fi fi-rr-power"
-                  buttonClasses="w-[130px] h-[35px]"
+                  buttonClasses="w-[130px] h-[35px] my-2"
                   textClasses="text-[15px] leading-20 mt-1"
                   clickHandler={LogOutModalHandler}
                 />

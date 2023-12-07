@@ -37,6 +37,10 @@
   display: block;
 }
 
+.SidebarProfileMenuItemAcountDetail:hover .SidebarProfilePicture {
+  border: 3px dotted #406dd5;
+}
+
 .SidebarProfileMenuItemAcountManagementHolder:hover {
   display: block;
 }
