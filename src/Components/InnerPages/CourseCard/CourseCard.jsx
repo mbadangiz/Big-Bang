@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ThreeNumberSpiliter } from "../../../Core/Utils/ThreeNumberSpiliter/ThreeNumberSpiliter";
 import { TomanLogo } from "../../Common/TomanLogo/TomanLogo";
+import sampleImages from "./../../../Assets/Image/sampleImage.png";
 const CourseCard = ({ data }) => {
   const {
     teacherName,
@@ -25,7 +26,7 @@ const CourseCard = ({ data }) => {
     <Link to={`/CoursesDetails?courseId=${courseId}`}>
       <div className="cardsDefaultSettings space-y-4  w-300 hover:translate-y-[-5px]">
         <img
-          src={tumbImageAddress}
+          src={tumbImageAddress ? tumbImageAddress : sampleImages}
           className="w-full h-40 rounded-xl object-cover "
           alt={title}
         />
