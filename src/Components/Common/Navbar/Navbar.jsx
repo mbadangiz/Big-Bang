@@ -16,21 +16,18 @@ const Navbar = () => {
   const userInfo = useSelector((reducer) => reducer.user.userInformations);
   const navigate = useNavigate();
 
-  const token = getItem("token");
-
-  console.log(token);
+  const token = getItem("userList");
 
   const GetUserInfo = async () => {
     if (token !== null && token) {
       const user = await GetCurrentUserProfile();
-
       dispatch(onSetUserInfo(user));
-
       console.log(user);
     }
   };
 
   const matches = useLocation();
+
   const thisisLink = matches.pathname.includes("/User/");
   useEffect(() => {
     if (matches.pathname !== "/") {

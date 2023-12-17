@@ -4,7 +4,7 @@ const CourseDataContext = createContext();
 
 const CourseListProvider = ({ children }) => {
   const [courseList, setCourseList] = useState();
-  const [minMax, setMinMax] = useState([0, 200000]);
+  const [minMax, setMinMax] = useState([0, 10000000]);
   const [CourseTypeValue, setCourseTypeValue] = useState("");
   const [techList, setTechList] = useState([]);
   const [rowpageCount, setRowPageCount] = useState(1);

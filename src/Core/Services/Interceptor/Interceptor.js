@@ -13,7 +13,7 @@ const onSuccess = (response) => {
 };
 
 const onError = (err) => {
-  ErrorToastify(err.message);
+  ErrorToastify("برای دسترسی به منابع و امکانات سایت ابتدا وارد شوید.");
 
   if (err.response.status >= 400 && err.response.status < 500) {
     alert("Client error: " + err.response.status);
@@ -24,9 +24,17 @@ const onError = (err) => {
 instance.interceptors.response.use(onSuccess, onError);
 
 instance.interceptors.request.use((opt) => {
-  const token = getItem("token");
-  if (token) opt.headers.Authorization = `Bearer ${token}`;
-
+  // const token = getItem("token");
+  const shabiToken = getItem("userList");
+  if (shabiToken) {
+    const myLastTokenArray = JSON.parse(shabiToken);
+    const filtered = myLastTokenArray.filter(
+      (item) => item.isActiveUser === true
+    );
+    const myToken = filtered[0].token;
+    opt.headers.Authorization = `Bearer ${myToken}`;
+  }
+  // if (token) opt.headers.Authorization = `Bearer ${token}`;
   return opt;
 });
 

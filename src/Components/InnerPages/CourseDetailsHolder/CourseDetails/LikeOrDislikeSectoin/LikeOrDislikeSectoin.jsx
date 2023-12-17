@@ -2,6 +2,7 @@ import { useMyCourseDetail } from "../../../../../Core/Providers/CourseDetailPro
 import { AddLikeForCourse } from "../../../../../Core/Services/Api/CourseDetails/AddLikeForCourse";
 import { AddDissLikeForCourse } from "../../../../../Core/Services/Api/CourseDetails/AddDissLikeCourse";
 import { GetCourseDetails } from "../../../../../Core/Services/Api/CourseDetails/GetCourseDetail";
+import { useState } from "react";
 
 const LikeOrDislikeSectoin = () => {
   const { courseDetails, setCourseDetails } = useMyCourseDetail();
@@ -12,16 +13,22 @@ const LikeOrDislikeSectoin = () => {
     currentUserLike,
     currentUserDissLike,
   } = courseDetails;
+  const [melike, setMeLike] = useState(likeCount);
+  const [medissLikeCount, setmedissLikeCount] = useState(dissLikeCount);
+
+  const [mecurrentUserLike, setmecurrentUserLike] = useState(currentUserLike);
+  const [mecurrentUserDissLike, setmecurrentUserDissLike] =
+    useState(currentUserDissLike);
 
   const likeCourse = async () => {
     const res = await AddLikeForCourse(courseId);
-    // const getDetailData = await GetCourseDetails(courseId);
-    // setCourseDetails(getDetailData);
+    const getDetailData = await GetCourseDetails(courseId);
+    setCourseDetails(getDetailData);
   };
   const dissLikeCourse = async () => {
     const res = await AddDissLikeForCourse(courseId);
-    // const getDetailData = await GetCourseDetails(courseId);
-    // setCourseDetails(getDetailData);
+    const getDetailData = await GetCourseDetails(courseId);
+    setCourseDetails(getDetailData);
   };
 
   return (
