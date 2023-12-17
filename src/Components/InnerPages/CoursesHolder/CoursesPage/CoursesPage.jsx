@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import SearchBar from "../../../Common/SearchBar/SearchBar";
 import { CourseCard } from "../../CourseCard/CourseCard";
 import { CoursesAccardion } from "./CoursesAccardion/CoursesAccardion";
 import { useState } from "react";
@@ -13,9 +12,14 @@ import { ThereIsNoProductsHere } from "../ThereIsNoProductsHere/ThereIsNoProduct
 import PleaseWait from "../../../Common/PleaseWait/PleaseWait";
 
 const CoursesPage = () => {
-  const { courseList, setRowPageCount } = useMyCourses();
-  const [sort, setSort] = useState(["courseRate", "desc"]);
+  const [sort, setSort] = useState([]);
   const [isLoad, setIsLoad] = useState(false);
+  const { courseList, setCourseList } = useMyCourses();
+
+  const getList = async (e) => {
+    const res = await SearchInCourses(e.target.value);
+    setCourseList(res);
+  };
 
   const listOfSort = [
     { id: 3, text: "محبوب ترین", sortingCol: "courseRate", sortType: "desc" },
@@ -25,14 +29,21 @@ const CoursesPage = () => {
   return (
     <div className="w-screen ">
       <div className="h-[100px] bg-gradient-to-l from-bluePrimary to-bluePrimary/10">
-        {" "}
         <h2 className="text-center text-[40px] text-white">دوره ها</h2>
       </div>
-      <SearchBar
-        placeholder={"عنوان دوره ی مورد نظر خورد را جست و جو نمایید..."}
-        searchApiFunc={SearchInCourses}
-        getAllDataList={getCourseListAll}
-      />
+      <div className="w-full h-40 flex-row-all-center relative bottom-20 ">
+        <div className="w-450 h-12  rounded-full relative">
+          <input
+            className="w-full h-full shadow-lg shadow-black/10 rounded-full bg-white border-2 border-solid border-grayDetail/20 pr-4 pl-12 text-sm 
+          focus:border-bluePrimary transition-all duration-150"
+            type="text"
+            onChange={getList}
+            placeholder={"جست و جوی دوره و یا نام استاد..."}
+          />
+          <i className="fi fi-br-search absolute top-[53%] left-4 -translate-y-1/2 text-xl text-grayDetail/30"></i>
+        </div>
+      </div>
+
       <div className=" flex justify-center gap-4 width-handler">
         <CoursesAccardion />
         <div>
@@ -61,6 +72,15 @@ const CoursesPage = () => {
                   </div>
                 );
               })}
+              {sort.length > 0 && (
+                <div
+                  onClick={() => {
+                    setSort([]);
+                  }}
+                >
+                  x پاکسازی مرتبسازی
+                </div>
+              )}
             </div>
             <div className="w-full flex-row-all-center gap-5 mt-6">
               {courseList ? (

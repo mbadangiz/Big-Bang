@@ -7,7 +7,7 @@ const PanelLogOutModal = () => {
   const navigate = useNavigate();
 
   const LogOutTokenRemoveHandler = () => {
-    removeItem("token");
+    removeItem("userList");
 
     setTimeout(() => {
       navigate("/");
