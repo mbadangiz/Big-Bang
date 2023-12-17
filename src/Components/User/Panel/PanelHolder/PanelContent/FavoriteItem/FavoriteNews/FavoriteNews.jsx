@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { RowOfFavoriteNews } from "./RowOfFavoriteNews";
+import { GetFavoriteNews } from "../../../../../../../Core/Services/Api/UserPanel/GetFavoriteNews";
 
 const FavoriteNews = () => {
   const [FavNews, setFavoriteNews] = useState();

@@ -15,7 +15,7 @@ const PanelLogOutModal = () => {
   };
 
   return (
-    <div className=" w-screen h-screen absolute top-0 right-0 m-auto bg-black/40">
+    <div className="w-screen h-screen absolute top-0 right-0 m-auto bg-black/40">
       <div className="border-2 border-solid border-bluePrimary bg-white w-[500px] h-[230px] mx-auto mt-[200px] rounded-xl">
         <div className="mt-10 w-full h-14 ">
           <h2 className="text-[22px] text-bluePrimary text-center leading-[55px]">
