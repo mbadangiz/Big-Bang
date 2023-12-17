@@ -37,7 +37,7 @@ const HeroSearchBox = () => {
 
   return (
     <div
-      className="mt-20 w-full h-16  rounded-full
+      className="mt-20 w-full h-16  rounded-full shadow-xl shadow-black/10
   border-4 border-solid border-white bg-gray-500/20 backdrop-blur-sm py-2  relative"
       ref={inputContainer}
     >

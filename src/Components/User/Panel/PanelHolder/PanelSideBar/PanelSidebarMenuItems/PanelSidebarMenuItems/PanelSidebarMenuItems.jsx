@@ -50,7 +50,7 @@ const PanelSidebarMenuItems = () => {
         className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
       >
         <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
-          <i className="fi fi-rr-e-learning text-[30px] text-center text-bluePrimary"></i>
+          <i className="fi fi-rr-bookmark text-[30px] text-center text-bluePrimary"></i>
         </div>
         <div className="w-full mr-5 h-[45px]">
           <h2 className="text-[20px] text-[#969696] leading-[36px]">
@@ -96,6 +96,20 @@ const PanelSidebarMenuItems = () => {
         <div className="w-full mr-5 h-[45px]">
           <h2 className="text-[20px] text-[#969696] leading-[36px]">
             ویرایش پروفایل
+          </h2>
+        </div>
+      </NavLink>
+
+      <NavLink
+        to={"SecuritySetting"}
+        className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
+      >
+        <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
+          <i className="fi fi-rr-shield-check text-[30px]  text-center text-bluePrimary"></i>
+        </div>
+        <div className="w-full mr-5 h-[45px]">
+          <h2 className="text-[20px] text-[#969696] leading-[36px]">
+            تنظیمات امنیتی
           </h2>
         </div>
       </NavLink>

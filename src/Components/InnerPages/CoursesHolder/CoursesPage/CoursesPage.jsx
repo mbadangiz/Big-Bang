@@ -23,7 +23,11 @@ const CoursesPage = () => {
     { id: 2, text: "ارزان ترین", sortingCol: "cost", sortType: "asc" },
   ];
   return (
-    <div className="w-full width-handler">
+    <div className="w-screen ">
+      <div className="h-[100px] bg-gradient-to-l from-bluePrimary to-bluePrimary/10">
+        {" "}
+        <h2 className="text-center text-[40px] text-white">دوره ها</h2>
+      </div>
       <SearchBar
         placeholder={"عنوان دوره ی مورد نظر خورد را جست و جو نمایید..."}
         searchApiFunc={SearchInCourses}

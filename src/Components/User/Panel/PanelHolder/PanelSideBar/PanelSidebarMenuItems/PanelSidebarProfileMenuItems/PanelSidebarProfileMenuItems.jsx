@@ -3,11 +3,25 @@ import Style from "./PanelSidebarProfileMenuItems.module.css";
 
 // Sidebar Profile Picture import
 import UserProfilePicture from "../../../../../../../Assets/Images/Panel/User/UserProfilePicture/UserProfilePicture.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { RedButton } from "../../../../../../Common/Buttons/RedButton";
+import {
+  getItem,
+  removeItem,
+} from "../../../../../../../Core/Services/common/storage.services";
 
 const PanelSidebarProfileMenuItems = () => {
   const userInfo = useSelector((reducer) => reducer.user.userInformations);
+  const navigate = useNavigate();
+
+  const LogOutModalHandler = () => {
+    setTimeout(() => {
+      navigate("/User/Panel/LogOut");
+    });
+
+    console.log(token);
+  };
 
   return (
     <div className="border-2 border-solid border-transparent h-full relative">
@@ -28,26 +42,47 @@ const PanelSidebarProfileMenuItems = () => {
           </NavLink>
 
           {/* Sidebar Profile Picture */}
+
           <li
-            className={`cursor-pointer my-1 w-full h-[50px] px-[2px]  py-[0px] flex justify-between absolute bottom-[6px] right-[1.5px]`}
+            className={`${Style.SidebarProfileMenuItemAcountDetail} cursor-pointer my-1 w-full h-[50px] px-[2px]  py-[0px] absolute bottom-[6px] right-[1.5px]`}
           >
-            <div className="border-[3px] border-solid border-bluePrimary w-[50px] h-[50px] rounded-full py-[2.5px] px-[2.5px]">
-              <figure className="shadow-md shadow-gray-500 w-[40px] h-[40px] rounded-full">
-                <img
-                  className="rounded-full object-cover"
-                  src={
-                    userInfo.currentPictureAddress
-                      ? userInfo.currentPictureAddress
-                      : UserProfilePicture
-                  }
-                  alt="User Profile Picture"
-                />
-              </figure>
+            <div className=" flex justify-between ">
+              <div
+                className={`${Style.SidebarProfilePicture} border-[3px] border-solid border-bluePrimary w-[50px] h-[50px] rounded-full py-[2.5px] px-[2.5px] relative`}
+              >
+                <figure className="shadow-md shadow-gray-500 w-[40px] h-[40px] rounded-full">
+                  <img
+                    className="rounded-full object-cover"
+                    src={
+                      userInfo.currentPictureAddress
+                        ? userInfo.currentPictureAddress
+                        : UserProfilePicture
+                    }
+                    alt="User Profile Picture"
+                  />
+                </figure>
+              </div>
+              <div className="w-full mr-4 h-[45px]">
+                <h2 className="text-[20px] text-bluePrimary font-semibold leading-[45px]">
+                  {`${userInfo.fName} ${userInfo.lName}`}
+                </h2>
+              </div>
             </div>
-            <div className="w-full mr-4 h-[45px]">
-              <h2 className="text-[20px] text-bluePrimary font-semibold leading-[38px]">
-                {`${userInfo.fName} ${userInfo.lName}`}
-              </h2>
+
+            {/* ykljdf lkjslgjsdgd0 */}
+            <div
+              className={`${Style.SidebarProfileMenuItemAcountManagementHolder} shadow-lg shadow-black/10 min-h-[200px] w-full absolute bottom-12 z-50 rounded-lg bg-white `}
+            >
+              <div className="h-[250px] overflow-y-scroll"></div>
+              <div>
+                <RedButton
+                  buttonText="خروج از حساب"
+                  iconClass="fi fi-rr-power"
+                  buttonClasses="w-[130px] h-[35px] my-2"
+                  textClasses="text-[15px] leading-20 mt-1"
+                  clickHandler={LogOutModalHandler}
+                />
+              </div>
             </div>
           </li>
         </ul>

@@ -11,8 +11,12 @@ const PanelEditProfileMap = ({
   const userInfo = useSelector((reducer) => reducer.user.userInformations);
 
   const center = [
-    parseFloat(userInfo.latitude),
-    parseFloat(userInfo.longitude),
+    userInfo.latitude === null
+      ? 36.56624251947416
+      : parseFloat(userInfo.latitude),
+    userInfo.longitude === null
+      ? 53.058799328447755
+      : parseFloat(userInfo.longitude),
   ];
 
   return (

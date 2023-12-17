@@ -41,12 +41,7 @@ export const RowOfReserve = ({ data, state, reserveId }) => {
     <>
       {resCourse ? (
         <>
-          <tr
-            className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 "
-            onClick={() => {
-              navigate(`/CoursesDetails?courseId=${resCourse.courseId}`);
-            }}
-          >
+          <tr className="bg-[#E8ECF1] text-[#5E5E64] hover:bg-[#bac1c9]/30 ">
             <td className="px-6 py-4">{resCourse.title}</td>
             <td className="px-6 py-4">{resCourse.teacherName}</td>
             <td className="px-6 py-4">{resCourse.capacity}</td>
@@ -54,12 +49,19 @@ export const RowOfReserve = ({ data, state, reserveId }) => {
             <td className="px-6 py-4">{resCourse.courseLevelName}</td>
             <td className="px-6 py-4">{resCourse.courseStatusName}</td>
             <td className="px-6 py-4 text-red-500">{resCourse.cost}</td>
-            <td className="px-6 py-4">
+            <td className="px-6 py-4 flex-row-all-center gap-3">
               <div
                 className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 onClick={() => DelReserve(resCourse.courseId)}
               >
                 <i className="fi fi-rr-minus-circle"></i>
+              </div>
+              <div
+                onClick={() => {
+                  navigate(`/CoursesDetails?courseId=${resCourse.courseId}`);
+                }}
+              >
+                <i className="fi fi-sr-eye"></i>
               </div>
             </td>
           </tr>

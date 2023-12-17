@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         bluePrimary: "#406DD5", // Darker Project Blue
-        blueSecondary: "#2667ff", // Lighter Project Blue
+        blueSecondary: "#0d47a1", // Lighter Project Blue
         blueGray: "#C3CFE2", // Color Between Project Blue and Project Gray and it works in some places like teacher's section wrapper gradient
         graySilver: "#F5F7FA", // InnerPages Background Color
         grayDetail: "#8D8D8D", // Details gray color

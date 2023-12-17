@@ -11,11 +11,14 @@ import { LoginAPI } from "../../../../../Core/Services/Api/Auth/Login/LoginAPI";
 import { setItem } from "../../../../../Core/Services/common/storage.services";
 import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
 import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
+import { useDispatch } from "react-redux";
+import { onSetLoginInfo } from "../../../../../redux/auth/login";
 
 const LoginForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const Naviagate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = async (value) => {
     setIsDisabled(true);
@@ -25,17 +28,27 @@ const LoginForm = () => {
       // console.log(user);
 
       if (user.success === true) {
-        setItem("token", user.token);
+        if (user.token === null) {
+          dispatch(onSetLoginInfo(value));
 
-        SuccessToastify(user.message);
+          SuccessToastify(user.message);
 
-        setTimeout(() => {
-          Naviagate("/User/Panel/Dashboard");
-        }, 2000);
-        setIsDisabled(false);
+          setTimeout(() => {
+            Naviagate("/User/Login/VerifyCode");
+          }, 2000);
+          setIsDisabled(false);
+        } else if (user.token !== null) {
+          setItem("token", user.token);
+          SuccessToastify(user.message);
+
+          setTimeout(() => {
+            Naviagate("/User/Panel/Dashboard");
+          }, 2000);
+          setIsDisabled(false);
+        }
       } else if (user.success === false) {
+        ErrorToastify(user.message);
         setIsDisabled(false);
-        return ErrorToastify(user.message);
       }
     } catch (error) {
       return false;
