@@ -30,6 +30,7 @@ import { PanelSecuritySetting } from "../Components/User/Panel/PanelSecuritySett
 import { LoginForm } from "../Components/User/LoginRegisterForgetpass/LoginHolder/LoginForm/LoginForm";
 import { LoginVerifyCodeForm } from "../Components/User/LoginRegisterForgetpass/LoginHolder/LoginVerifyCodeForm";
 import { PanelLogOutModal } from "../Components/User/Panel/PanelLogOutModal";
+import { Payment } from "../Components/User/Panel/PanelHolder/PanelContent/Payment/Payment";
 
 Aos.init();
 function App() {
@@ -90,6 +91,7 @@ function App() {
           element: <PanelChangePassword />,
         },
         { path: "/User/Panel/MyCoursesList", element: <MyCoursesList /> },
+        { path: "/User/Panel/Payment", element: <Payment /> },
         { path: "/User/Panel/CoursesList", element: <PanelCoursesList /> },
         { path: "/User/Panel/FavoriteSection", element: <FavoriteItem /> },
         {
