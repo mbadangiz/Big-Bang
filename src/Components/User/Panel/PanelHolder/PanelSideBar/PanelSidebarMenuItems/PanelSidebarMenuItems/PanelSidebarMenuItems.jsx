@@ -59,7 +59,8 @@ const PanelSidebarMenuItems = () => {
         </div>
       </NavLink>
 
-      <li
+      <NavLink
+        to={"Payment"}
         className={`${Style.SidebarMenuItems} my-1 w-full h-[50px] px-[9px] py-[4px] flex justify-between`}
       >
         <div className="w-[40px] h-[40px] rounded-md   py-[2.5px] px-[5.5px]">
@@ -67,10 +68,10 @@ const PanelSidebarMenuItems = () => {
         </div>
         <div className="w-full mr-5 h-[45px]">
           <h2 className="text-[20px] text-[#969696] leading-[36px]">
-            سبد خرید
+            لیست پرداختی ها{" "}
           </h2>
         </div>
-      </li>
+      </NavLink>
 
       <NavLink
         to={"ChangePassword"}
