@@ -9,6 +9,7 @@ const Payment = () => {
   const [steps, setSteps] = useState(1);
   const [information, setInformation] = useState({});
   const [courseDetail, setCourseDetail] = useState({});
+  const [paymentId, setPaymentId] = useState();
   return (
     <>
       <ToastContainer />
@@ -18,6 +19,7 @@ const Payment = () => {
             step={{ steps, setSteps }}
             data={{ information, setInformation }}
             detail={{ courseDetail, setCourseDetail }}
+            payId={{ paymentId, setPaymentId }}
           />
         ) : steps === 2 ? (
           <PaymentFactore
@@ -26,7 +28,10 @@ const Payment = () => {
             detail={{ courseDetail, setCourseDetail }}
           />
         ) : (
-          <Step2Form step={{ steps, setSteps }} />
+          <Step2Form
+            step={{ steps, setSteps }}
+            payId={{ paymentId, setPaymentId }}
+          />
         )}
       </h1>
     </>
