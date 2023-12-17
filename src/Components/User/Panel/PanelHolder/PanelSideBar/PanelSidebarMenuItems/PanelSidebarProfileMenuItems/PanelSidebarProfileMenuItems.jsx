@@ -10,19 +10,27 @@ import {
   getItem,
   removeItem,
 } from "../../../../../../../Core/Services/common/storage.services";
+import { MdOutlineManageAccounts } from "react-icons/md";
+import { useEffect, useState } from "react";
 
 const PanelSidebarProfileMenuItems = () => {
   const userInfo = useSelector((reducer) => reducer.user.userInformations);
   const navigate = useNavigate();
+  const [users, setUsers] = useState();
 
   const LogOutModalHandler = () => {
     setTimeout(() => {
       navigate("/User/Panel/LogOut");
     });
-
-    console.log(token);
   };
 
+  useEffect(() => {
+    const myUserList = getItem("userList");
+    if (myUserList) {
+      setUsers(JSON.parse(myUserList));
+    }
+  }, []);
+  console.log(users);
   return (
     <div className="border-2 border-solid border-transparent h-full relative">
       <div>
@@ -69,11 +77,35 @@ const PanelSidebarProfileMenuItems = () => {
               </div>
             </div>
 
-            {/* ykljdf lkjslgjsdgd0 */}
             <div
-              className={`${Style.SidebarProfileMenuItemAcountManagementHolder} shadow-lg shadow-black/10 min-h-[200px] w-full absolute bottom-12 z-50 rounded-lg bg-white `}
+              className={`${Style.SidebarProfileMenuItemAcountManagementHolder} shadow-lg shadow-black/10 min-h-[200px] w-full absolute bottom-12 z-50 rounded-lg bg-bluePrimary/50 backdrop-blur `}
             >
-              <div className="h-[250px] overflow-y-scroll"></div>
+              <div className="h-[250px] overflow-y-scroll p-4 flex flex-col justify-between items-center content-center">
+                <div className="text-white">
+                  {users &&
+                    users.map((items) => {
+                      return (
+                        <div
+                          key={items.phoneNumber}
+                          className={`bg-slate-900 py-3 px-5 rounded-lg ${
+                            items.isActiveUser && "bg-red-900 "
+                          }`}
+                        >
+                          {items.phoneNumber}
+                        </div>
+                      );
+                    })}
+                </div>
+                <button
+                  className="bg-bluePrimary text-white px-3 py-2 flex flex-row gap-2 rounded-lg"
+                  onClick={() => {
+                    navigate("/User/Login");
+                  }}
+                >
+                  <MdOutlineManageAccounts size={20} />
+                  افزودن حساب جدید
+                </button>
+              </div>
               <div>
                 <RedButton
                   buttonText="خروج از حساب"

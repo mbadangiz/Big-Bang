@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 // Components Import
 import { PanelSidebar } from "./PanelSideBar";
 import { PanelContent } from "./PanelContent";
+import { getItem } from "../../../../Core/Services/common/storage.services";
 
 const PanelHolder = () => {
   return (

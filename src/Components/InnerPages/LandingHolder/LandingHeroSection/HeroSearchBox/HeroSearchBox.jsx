@@ -19,8 +19,9 @@ const HeroSearchBox = () => {
 
   const SearchHero = (e) => {
     const value = e.target.value;
+
     setTimeout(async () => {
-      if (isSearchNews != "News") {
+      if (isSearchNews !== "News") {
         const res = await SearchInCourses(value);
         setSearchItem(res);
       } else {
@@ -31,9 +32,9 @@ const HeroSearchBox = () => {
   };
 
   const handleChange = (event) => {
+    setSearchItem(null);
     setisSearchNews(event.target.value);
   };
-  console.log(isSearchNews);
 
   return (
     <div

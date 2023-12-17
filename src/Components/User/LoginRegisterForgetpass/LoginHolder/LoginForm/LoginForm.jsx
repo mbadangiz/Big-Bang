@@ -1,6 +1,6 @@
 import { Formik, Form } from "formik";
 import { ToastContainer } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { BlueInputField } from "../../../../Common/InputFields/BlueInputField";
@@ -8,7 +8,10 @@ import { BlueCheckBox } from "../../../../Common/InputFields/BlueCheckBox/index"
 import { BlueButton } from "../../../../Common/Buttons/BlueButton";
 import { LoginSchema } from "../../../../../Core/Validation/Schemas/auth/Login/LoginSchema";
 import { LoginAPI } from "../../../../../Core/Services/Api/Auth/Login/LoginAPI";
-import { setItem } from "../../../../../Core/Services/common/storage.services";
+import {
+  getItem,
+  setItem,
+} from "../../../../../Core/Services/common/storage.services";
 import { SuccessToastify } from "../../../../../Core/Utils/Toastifies/SuccessToastify.Utils";
 import { ErrorToastify } from "../../../../../Core/Utils/Toastifies/ErrorToastify.Utils";
 import { useDispatch } from "react-redux";
@@ -25,22 +28,29 @@ const LoginForm = () => {
 
     try {
       const user = await LoginAPI(value);
-      // console.log(user);
 
       if (user.success === true) {
         if (user.token === null) {
           dispatch(onSetLoginInfo(value));
 
           SuccessToastify(user.message);
-
           setTimeout(() => {
             Naviagate("/User/Login/VerifyCode");
           }, 2000);
           setIsDisabled(false);
         } else if (user.token !== null) {
-          setItem("token", user.token);
           SuccessToastify(user.message);
 
+          setItem(
+            "userList",
+            JSON.stringify([
+              {
+                token: user.token,
+                phoneNumber: user.phoneNumber,
+                isActiveUser: true,
+              },
+            ])
+          );
           setTimeout(() => {
             Naviagate("/User/Panel/Dashboard");
           }, 2000);

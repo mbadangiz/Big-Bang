@@ -105,7 +105,7 @@ const CoursesAccardion = () => {
           <RangeSlider
             className="my-5 w-[95%] mx-auto"
             min={0}
-            max={200000}
+            max={100000000}
             step={5000}
             value={minMax}
             onInput={(e) => {
