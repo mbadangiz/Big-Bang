@@ -76,6 +76,11 @@ export const Step1Form = ({ step, data, detail, payId }) => {
                     <label class="leading-loose">انتخاب دوره</label>
 
                     <select
+                      style={{
+                        borderRadius: "7px",
+                        height: "40px",
+                        width: "450px",
+                      }}
                       data-te-select-init
                       onChange={(e) => {
                         courseById(e.target.value);
@@ -108,8 +113,9 @@ export const Step1Form = ({ step, data, detail, payId }) => {
                         <DatePicker
                           style={{
                             display: "block",
-                            width: "100%",
-                            marginRight: "20px",
+                            width: "450px",
+                            height: "40px",
+                            border: "1px solid transparent",
                           }}
                           // value={new Date()}
                           calendar={persian}
