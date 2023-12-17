@@ -1,27 +1,9 @@
-import { useState } from "react";
-
+import Axe from "./../../../Assets/Images/Logo/BahrLogo.png";
+import "./logoAnimation.css";
 const Test = () => {
-  const [aliAkbar, setAliakbar] = useState(1);
   return (
-    <div className="w-full h-[500px] bg-slate-500 mt-40 rounded-t-[30px] px-[20px] pt-[10px] relative">
-      <div
-        className={
-          aliAkbar === 1
-            ? "bg-slate-600"
-            : aliAkbar === 2
-            ? "bg-red-500"
-            : "bg-amber-300"
-        }
-      >
-        {aliAkbar === 1 ? "ssss" : aliAkbar === 2 ? "ddd" : "ame akbar"}
-      </div>
-      <button
-        onClick={() => {
-          setAliakbar((prev) => prev + 1);
-        }}
-      >
-        Counts
-      </button>
+    <div className="w-full h-[500px]  mt-40 rounded-t-[30px] px-[20px] pt-[10px] relative Anim">
+      <img className="w-[200px] " src={Axe} alt="" />
     </div>
   );
 };
