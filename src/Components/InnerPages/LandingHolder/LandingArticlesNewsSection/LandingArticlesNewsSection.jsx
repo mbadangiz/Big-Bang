@@ -6,6 +6,7 @@ import { ArticleCardSmall } from "../../ArticleCardSmall/ArticleCardSmall";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getLandingNews } from "../../../../Core/Services/Api/Landing/GetLandingNews";
+import { Link } from "react-router-dom";
 const LandingArticlesNewsSection = () => {
   const [News, setNews] = useState();
 
@@ -47,7 +48,11 @@ const LandingArticlesNewsSection = () => {
         {News
           ? News.news.map((item, index) => {
               if (index < 3) {
-                return <ArticleCardSmall key={item.id} data={item} />;
+                return (
+                  <Link to={`/ArticleAndNewsDetail?articleId=${item.id}`}>
+                    <ArticleCardSmall key={item.id} data={item} />
+                  </Link>
+                );
               }
             })
           : "bvx"}

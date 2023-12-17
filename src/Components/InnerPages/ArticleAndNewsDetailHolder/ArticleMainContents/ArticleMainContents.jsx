@@ -42,8 +42,6 @@ const ArticleMainContents = () => {
           <LikeAndAddToFavArticles newsId={articleId} data={articleDetails} />
           <ArticleRating newsId={articleId} />
           <ArticleCommets newsId={articleId} data={articleDetails} />
-
-          <SimilarArticles />
         </>
       ) : (
         <PleaseWait />
