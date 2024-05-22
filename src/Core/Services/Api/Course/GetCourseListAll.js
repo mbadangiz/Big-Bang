@@ -12,6 +12,7 @@ const getCourseListAll = async (data) => {
 
   const techCount = techList.length < 2 ? techList.length : techList.length - 1;
   const techString = techList.toString();
+
   const techlistQuery =
     techCount > 0 ? `TechCount=${techCount}&ListTech=${techString}` : "";
 
