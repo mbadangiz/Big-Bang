@@ -42,7 +42,7 @@
     background-size: 100% 100%;
   }
   .bg-heroSectoin {
-    background-image: url("./Img/bg-heroSection.png");
+    background-image: url("./../public/Img/bg-heroSection.png");
     background-size: 100% 130vh;
     background-repeat: no-repeat;
     background-position: 0 0;
