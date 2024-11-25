@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CommentRepForm from "./CommentRepForm";
+import sampleAvatar from "./../../../Assets/Image/smapleAvatar.png";
 
 const Comment = ({ section, commentType, data }) => {
   const [commentRep, setCommentRep] = useState(false);
@@ -16,13 +17,11 @@ const Comment = ({ section, commentType, data }) => {
         content-center gap-3 border-l-4 border-solid border-black/50 transition-all duration-200"
       >
         <img
-          src="./../Img/avatar1.jpg"
+          src={sampleAvatar}
           className="h-20 w-20 object-cover rounded-full"
           alt=""
         />
-        <p className="text-sm textNoWrap">
-          {section === "news" ? "aaa" : "bbb"}
-        </p>
+        <p className="text-sm textNoWrap">{data.autor}</p>
       </div>
       <div className="w-[calc(80%-4px)] text-sm text-justify px-4 space-y-4 ">
         <div className="w-full flex-row-all-center justify-between">
