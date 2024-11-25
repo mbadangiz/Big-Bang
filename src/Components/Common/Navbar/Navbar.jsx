@@ -92,7 +92,7 @@ const Navbar = () => {
           ) : (
             <div className=" flex justify-end">
               <NavLink
-                to="User/Register/Step1"
+                to="/User/Register/Step1"
                 className="bg-bluePrimary text-white rounded-full text-base flex-row-all-center h-10 px-6 ml-2"
               >
                 ثبت نام
