@@ -8,23 +8,12 @@ const ArticleCards = ({ data }) => {
   const {
     id,
     title,
-    miniDescribe,
-    keyword,
     currentRate,
-    currentView,
-    currentLikeCount,
     currentImageAddressTumb,
     insertDate,
-    updateDate,
     addUserFullName,
     addUserProfileImage,
-    newsCatregoryId,
     newsCatregoryName,
-    currentUserIsLike,
-    likeId,
-    isCurrentUserFavorite,
-    currentUserFavoriteId,
-    totalCount,
   } = data;
 
   const [commentsCount, setCommetCount] = useState(0);
@@ -38,8 +27,7 @@ const ArticleCards = ({ data }) => {
     getCommetsCount();
   }, []);
   const navigate = useNavigate();
-  console.log(articleExtraData);
-  Theme;
+
   return (
     <div
       className="cardsDefaultSettings w-300 space-y-3"
