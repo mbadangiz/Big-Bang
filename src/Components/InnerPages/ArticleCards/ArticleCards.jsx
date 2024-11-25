@@ -39,6 +39,7 @@ const ArticleCards = ({ data }) => {
   }, []);
   const navigate = useNavigate();
   console.log(articleExtraData);
+  Theme;
   return (
     <div
       className="cardsDefaultSettings w-300 space-y-3"

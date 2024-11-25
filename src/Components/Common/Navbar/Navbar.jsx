@@ -56,10 +56,10 @@ const Navbar = () => {
   const navItemsList = [
     { id: 1, title: "خانه", to: "/" },
     { id: 2, title: "دوره ها", to: "/Courses" },
-    { id: 3, title: "اساتید", to: "/ss" },
+    // { id: 3, title: "اساتید", to: "/ss" },
     { id: 4, title: "اخبار مقالات", to: "/ArticleAndNews" },
-    { id: 5, title: "درباره ی ما", to: "/ss" },
-    { id: 6, title: "تماس با ما", to: "/ss" },
+    // { id: 5, title: "درباره ی ما", to: "/ss" },
+    // { id: 6, title: "تماس با ما", to: "/ss" },
   ];
   return (
     <div
@@ -98,7 +98,7 @@ const Navbar = () => {
                 ثبت نام
               </NavLink>
               <NavLink
-                to="User/Login"
+                to="/User/Login"
                 className=" text-bluePrimary rounded-full text-base flex-row-all-center h-10 px-6  border-2 border-solid border-bluePrimary"
               >
                 ورود

@@ -17,8 +17,10 @@ export const Step1Form = ({ step, data, detail, payId }) => {
   const { information, setInformation } = data;
   const { courseDetail, setCourseDetail } = detail;
   const { paymentId, setPaymentId } = payId;
+
   // all course
   const [myCourse, setMyCourse] = useState();
+  console.log(information);
 
   const getMyCourseInPanel = async () => {
     const myCourses = await getMyCourses();
@@ -52,6 +54,7 @@ export const Step1Form = ({ step, data, detail, payId }) => {
   useEffect(() => {
     getMyCourseInPanel();
   }, []);
+
   console.log(paymentId, "payIdd");
   // console.log(myCourse);
   const { steps, setSteps } = step;
@@ -169,9 +172,9 @@ export const Step1Form = ({ step, data, detail, payId }) => {
                 <div class="pt-4 flex items-center space-x-4">
                   <button
                     type="submit"
-                    // onClick={() => {
-                    //   step1();
-                    // }}
+                    onClick={() => {
+                      step1();
+                    }}
                     class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"
                   >
                     مرحله بعدی

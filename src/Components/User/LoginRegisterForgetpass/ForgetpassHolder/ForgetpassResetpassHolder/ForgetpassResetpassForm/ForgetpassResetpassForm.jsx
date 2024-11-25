@@ -58,21 +58,22 @@ const ForgetpassResetpassForm = () => {
 
     const newValue = { newPassword, ...forgetpass };
 
-    try {
-      const result = await ForgetpassResetpassAPI(newValue);
+    console.log(newValue);
+    // try {
+    //   const result = await ForgetpassResetpassAPI(newValue);
 
-      if (result.success === true) {
-        SuccessToastify(result.message);
+    //   if (result.success === true) {
+    //     SuccessToastify(result.message);
 
-        setTimeout(() => Navigate("/User/Login"), 2000);
-      } else if (result.success === false) {
-        return ErrorToastify(result.message);
-      }
-    } catch (error) {}
+    //     setTimeout(() => Navigate("/User/Login"), 2000);
+    //   } else if (result.success === false) {
+    //     return ErrorToastify(result.message);
+    //   }
+    // } catch (error) {}
 
-    // console.log(newValue);
+    // // console.log(newValue);
 
-    setIsDisabled(false);
+    // setIsDisabled(false);
   };
 
   return (

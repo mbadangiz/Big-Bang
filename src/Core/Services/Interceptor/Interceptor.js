@@ -24,7 +24,6 @@ const onError = (err) => {
 instance.interceptors.response.use(onSuccess, onError);
 
 instance.interceptors.request.use((opt) => {
-  // const token = getItem("token");
   const shabiToken = getItem("userList");
   if (shabiToken) {
     const myLastTokenArray = JSON.parse(shabiToken);
@@ -34,7 +33,7 @@ instance.interceptors.request.use((opt) => {
     const myToken = filtered[0].token;
     opt.headers.Authorization = `Bearer ${myToken}`;
   }
-  // if (token) opt.headers.Authorization = `Bearer ${token}`;
+
   return opt;
 });
 

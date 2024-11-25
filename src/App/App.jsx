@@ -31,6 +31,8 @@ import { LoginForm } from "../Components/User/LoginRegisterForgetpass/LoginHolde
 import { LoginVerifyCodeForm } from "../Components/User/LoginRegisterForgetpass/LoginHolder/LoginVerifyCodeForm";
 import { PanelLogOutModal } from "../Components/User/Panel/PanelLogOutModal";
 import { Payment } from "../Components/User/Panel/PanelHolder/PanelContent/Payment/Payment";
+import PasswordProvider from "../Core/Providers/PasswordProvider";
+import Test2 from "../Components/InnerPages/Test2";
 
 Aos.init();
 function App() {
@@ -105,7 +107,22 @@ function App() {
       ],
     },
 
-    { path: "/test", element: <Test /> },
+    {
+      path: "/test",
+      element: (
+        <PasswordProvider>
+          <Test />
+        </PasswordProvider>
+      ),
+    },
+    {
+      path: "/test2",
+      element: (
+        <PasswordProvider>
+          <Test2 />
+        </PasswordProvider>
+      ),
+    },
     { path: "*", element: <Error404 /> },
   ]);
 
