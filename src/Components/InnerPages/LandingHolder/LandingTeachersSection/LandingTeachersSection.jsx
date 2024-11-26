@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getTeachersList } from "../../../../Core/Services/Api/Landing/GetTeacherList";
 import SampleImg from "../../../../Assets/Image/sampleImage.png";
-import LinkImg from "../../../../Assets/Image/linkedin.png";
 
 import Style from "./LandingTeachersSection.module.css";
 
@@ -19,43 +18,15 @@ const LandingTeachersSection = () => {
     getTeachers();
   }, []);
 
-  console.log(teacherlist);
-
-  // const teacherList = [
-  //   {
-  //     id: 1,
-  //     fullName: teacherlist ? teacherlist.fullName : "",
-  //     occupation: "یه چیزایی بلده داداشمون",
-  //     img: "img-sampleMasters.png",
-  //   },
-  //   {
-  //     id: 2,
-  //     fullName: teacherlist ? teacherlist.fullName : "",
-  //     occupation: "یه چیزایی بلده داداشمون",
-  //     img: "img-sampleMasters.png",
-  //   },
-  //   {
-  //     id: 3,
-  //     fullName: teacherlist ? teacherlist.fullName : "",
-  //     occupation: "یه چیزایی بلده داداشمون",
-  //     img: "img-sampleMasters.png",
-  //   },
-  //   {
-  //     id: 4,
-  //     fullName: teacherlist ? teacherlist.fullName : "",
-  //     occupation: "یه چیزایی بلده داداشمون",
-  //     img: "img-sampleMasters.png",
-  //   },
-  // ];
   return (
-    <div className="width-handler my-10 space-y-9">
+    <div className="width-handler my-10">
       <LandingSectionsTitle
         mainText="پربازدید ترین اساتید"
         subText="اساتید برجسته آکادمی با چندین سال تجربه در کنار شما خواهند بود"
       />
       <div
-        className="w-full h-[400px]
-        flex-row-all-center gap-5 items4 hide"
+        className="w-full mt-14 
+        flex-row-all-center gap-y-16 gap-x-10 items4 hide"
       >
         {teacherlist
           ? teacherlist.map((teacher, index) => {
