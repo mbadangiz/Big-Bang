@@ -4,7 +4,7 @@ import Style from "./CategorySection.module.css";
 const CategorySection = () => {
   return (
     <div
-      className={`${Style.CategorySectionBackground}  width-handler h-screen px-0 py-10 flex-row-all-center`}
+      className={`${Style.CategorySectionBackground}  width-handler px-0 py-10 flex-row-all-center`}
     >
       <LandingSectionsTitle
         mainText="دسته بندی ها"
@@ -19,7 +19,7 @@ const CategorySection = () => {
           text={"UI/UX"}
           delay={"400"}
         />
-        <div className="w-[30%] flex-row-all-center gap-6">
+        <div className="md:w-[30%] flex-row-all-center gap-6">
           <CategoryCards
             dataAos={"fade-down"}
             delay={"300"}

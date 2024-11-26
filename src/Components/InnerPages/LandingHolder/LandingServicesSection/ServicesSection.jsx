@@ -2,14 +2,14 @@ import { LandingSectionsTitle } from "../../../Common/LandingSectionsTitle/Landi
 
 const ServicesSection = () => {
   return (
-    <div className="w-full width-handler">
+    <div className="w-full width-handler h-auto">
       <LandingSectionsTitle
         mainText="خدمات ما"
         subText="شما عزیزان می توانید از خدمات ما استفاده کنید"
       />
       <div
-        className="w-full h-[280px] border-2 border-solid border-transparent
-       flex items-center justify-center gap-7 mt-6 mb-6"
+        className="w-full border-2 border-solid border-transparent
+        flex-row-all-center gap-7 mt-6 mb-6"
       >
         <div
           data-aos="fade-down"
