@@ -28,7 +28,6 @@ const Navbar = () => {
 
   const matches = useLocation();
 
-  const thisisLink = matches.pathname.includes("/User/");
   useEffect(() => {
     if (matches.pathname !== "/") {
       setIsHeroBgOn(false);
@@ -56,10 +55,7 @@ const Navbar = () => {
   const navItemsList = [
     { id: 1, title: "خانه", to: "/" },
     { id: 2, title: "دوره ها", to: "/Courses" },
-    // { id: 3, title: "اساتید", to: "/ss" },
     { id: 4, title: "اخبار مقالات", to: "/ArticleAndNews" },
-    // { id: 5, title: "درباره ی ما", to: "/ss" },
-    // { id: 6, title: "تماس با ما", to: "/ss" },
   ];
   return (
     <div
