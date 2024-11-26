@@ -42,12 +42,17 @@ const CommentSectionForm = () => {
           validationSchema={LandingCommentSectionSchema}
         >
           <Form>
-            <div className="my-[155px]">
-              <SilverInputField name="email" type="email" placeholder="ایمیل" />
+            <div className="my-[155px] flex flex-col justify-center items-center">
+              <SilverInputField
+                name="email"
+                type="email"
+                placeholder="ایمیل"
+                extraClasses="w-[300px]"
+              />
               <TextAreaField
                 name="text"
                 placeholder="متن مورد نظر"
-                extraClasses="w-[500px] h-[280px]"
+                extraClasses="w-[300px] md:w-[500px] h-[280px]"
                 TextAreaClasses="w-full h-[216px] border-4 border-solid border-white text-white bg-gray-300  focus:bg-white focus:border-bluePrimary focus:text-black "
               />
 
