@@ -8,18 +8,18 @@ const HeroSectionLeftSide = () => {
     { id: 4, type: "facebook", to: "" },
   ];
   return (
-    <div className="w-1/2 text-center flex-row-all-center  justify-end gap-10">
+    <div className="md:w-1/2 w-[70px] text-center flex-row-all-center  justify-end gap-10">
       <img
         src={Img}
-        className="h-450 rounded-3xl outline-4 outline-bluePrimary outline p-2"
+        className="h-450 rounded-3xl outline-4 outline-bluePrimary outline p-2 hidden md:block"
       />
-      <div className="w-10 h-450">
+      <div className="w-10 h-450 relative md:bottom-0 bottom-[110px]">
         <div className="w-[2px] h-28 bg-black rounded-xl mx-auto"></div>
         <div className="vertical-text my-4 relative -left-2.5 rotate-180 ">
           ما را دنبال کنید
         </div>
         <div className="w-[2px] h-10 bg-black rounded-xl mx-auto"></div>
-        <div className="flex-col-all-center py-2">
+        <div className="flex-col-all-center py-2 ">
           {socialMediaList.map((items) => (
             <SocialMedia key={items.id} data={items} />
           ))}

@@ -47,7 +47,7 @@ const HeroSearchBox = () => {
         value={isSearchNews}
         onChange={handleChange}
         className="w-1/5 h-full rounded-r-full bg-transparent
-          text-center border-l-2 border-solid border-white f-bold text-lg text-white"
+          text-center border-l-2 border-solid border-white f-bold md:text-lg text-sm text-white"
       >
         <option className="text-textBlack" value="Courses">
           دوره
@@ -59,7 +59,7 @@ const HeroSearchBox = () => {
       <input
         type="text"
         className="w-4/5 h-full bg-transparent rounded-l-full px-3
-        text-bluePrimary text-lg f-bold placeholder:text-bluePrimary/75"
+        text-bluePrimary md:text-lg text-sm f-bold placeholder:text-bluePrimary/75"
         placeholder="عبارت مورد نظر خود را جست  و جو کنید"
         onFocus={() => {
           inputContainer.current.style.borderColor = "#406dd58f";

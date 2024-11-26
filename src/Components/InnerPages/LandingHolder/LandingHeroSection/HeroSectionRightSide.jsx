@@ -5,8 +5,8 @@ import { HeroSearchBox } from "./HeroSearchBox/HeroSearchBox";
 
 const HeroSectionRightSide = () => {
   return (
-    <div className="w-1/2 h-max">
-      <h1 className="f-bold text-6xl leading-normal">
+    <div className="w-3/4 md:w-1/2 h-max relative md:bottom-0 bottom-[110px]">
+      <h1 className="f-bold md:text-6xl text-3xl leading-normal">
         به آکادمی برنامه نویسی
         <span className="f-bold mx-3 text-bluePrimary">بحر</span>
         خوش آمدید
