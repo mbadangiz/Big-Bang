@@ -43,14 +43,14 @@ const LikeAndAddToFavArticles = ({ newsId, data }) => {
       </div>
       <div className="flex-row-all-center justify-between">
         <p className="f-semiBold"> ایا این مقاله مورد پسند شما بود؟</p>
-        <div className="flex-row-all-center gap-5">
+        <div className="flex-row-all-center gap-5 mr-2">
           {/* <button className="w-20 h-10 flex-row-all-center bg-graySilver  rounded">
           خیر
         </button>
         <button className="w-20 h-10 flex-row-all-center bg-rose-500 text-white rounded ">
           بله
         </button> */}
-          <div className="flex-row-all-center  gap-3 mt-3">
+          <div className="flex-row-all-center  gap-3">
             <div
               className="flex-row-all-center gap-1 cursor-pointer"
               onClick={articleLikeHandler}

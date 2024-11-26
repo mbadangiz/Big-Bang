@@ -31,7 +31,7 @@ const ArticleMainContents = () => {
   }, []);
 
   return (
-    <div className="w-[70%] space-y-5">
+    <div className="w-full md:w-[70%] space-y-5">
       {articleDetails ? (
         <>
           <Element name="article" className="artcileDeailtCardsSettings">
