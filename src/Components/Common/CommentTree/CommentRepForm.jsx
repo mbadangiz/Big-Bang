@@ -27,7 +27,7 @@ const CommentRepForm = ({ commentRep, id, cId }) => {
         onSubmit={commentReplyHandler}
       >
         <Form>
-          <div className="my-5 relative ">
+          <div className="my-5 relative flex flex-col">
             <Field
               type="text"
               name="repTitle"

@@ -8,7 +8,7 @@ const Comment = ({ section, commentType, data }) => {
   return (
     <div
       className={`w-full h-max flex-row-all-center justify-start 
-      border-2 border-solid border-grayDetail/20 py-2 rounded-lg relative px-4 ${
+      border-2 border-solid border-grayDetail/20 py-2 rounded-lg relative px-4 textNoWrap ${
         commentType === "repley" ? "commentRepley" : ""
       }`}
     >
@@ -18,14 +18,14 @@ const Comment = ({ section, commentType, data }) => {
       >
         <img
           src={sampleAvatar}
-          className="h-20 w-20 object-cover rounded-full"
+          className="md:h-20 md:w-20 w-12 h-12 object-cover rounded-full"
           alt=""
         />
-        <p className="text-sm textNoWrap">{data.autor}</p>
+        <p className="md:text-sm text-xs textNoWrap">{data.autor}</p>
       </div>
       <div className="w-[calc(80%-4px)] text-sm text-justify px-4 space-y-4 ">
         <div className="w-full flex-row-all-center justify-between">
-          <h1 className="f-semiBold mb-3  text-base">{data.title}</h1>
+          <h1 className="f-semiBold mb-3 text-xs md:text-base">{data.title}</h1>
           <div className="flex-row-all-center  gap-3">
             <div className="flex-row-all-center cursor-pointer">
               <span className="text-lg">
