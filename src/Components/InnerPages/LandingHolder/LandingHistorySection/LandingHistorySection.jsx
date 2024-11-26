@@ -49,7 +49,7 @@ const LandingHistorySection = () => {
         subText="سابقه آکادمی تا به اینجا "
       />
       <div className="h-[500px] w-full relative bg-landing-historySection ">
-        <div className="width-handler h-full flex-row-all-center gap-24">
+        <div className="width-handler h-full flex flex-nowrap justify-center items-center gap-3 md:gap-24">
           {historyList
             ? historyList.map((item) => (
                 <HistoryItems key={item.id} data={item} />
@@ -65,11 +65,11 @@ const HistoryItems = ({ data }) => {
   const { id, count, title, imgPath } = data;
   return (
     <div className="text-center text-white">
-      <img src={`./Img/${imgPath}`} className="w-16 mx-auto" alt="" />
-      <p className="text-6xl f-bold mt-2">
+      <img src={`./Img/${imgPath}`} className="w-6 md:w-16 mx-auto" alt="" />
+      <p className="text-base md:text-6xl f-bold m-0 md:mt-2">
         <CountUp end={count} duration={5} />
       </p>
-      <p className="mt-2">{title}</p>
+      <p className="m-0 md:mt-2">{title}</p>
     </div>
   );
 };
