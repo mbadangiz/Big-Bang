@@ -10,6 +10,7 @@
     @apply flex flex-row flex-wrap justify-center items-center content-center;
   }
   .flex-col-all-center {
+    /* dd */
     @apply flex flex-col justify-center items-center content-center;
   }
   .artcileDeailtCardsSettings {
