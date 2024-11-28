@@ -11,7 +11,7 @@ const BlueCheckBox = ({ type, name, labelName }) => {
       />
       <label
         htmlFor={name}
-        className="relative right-[5px] bottom-1 cursor-pointer text-[14px]"
+        className="relative right-[5px] bottom-1 cursor-pointer text-[12px] md:text-[14px]"
       >
         {labelName}
       </label>

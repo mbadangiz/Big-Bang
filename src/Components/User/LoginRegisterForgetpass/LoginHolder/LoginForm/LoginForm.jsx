@@ -70,7 +70,9 @@ const LoginForm = () => {
   return (
     <div>
       <ToastContainer rtl />
-      <h1 className="text-[30px] text-center text-bluePrimary">ورود کاربران</h1>
+      <h1 className="text-[20px] md:text-[30px] text-center text-bluePrimary">
+        ورود کاربران
+      </h1>
 
       <Formik
         initialValues={{ phoneOrGmail: "", password: "", rememberMe: false }}
@@ -94,7 +96,7 @@ const LoginForm = () => {
             iconClass="fi fi-rr-lock"
           />
 
-          <div className="w-[370px] h-[30px] m-auto  flex justify-between">
+          <div className="w-[260px] md:w-[370px] h-[30px] m-auto  flex justify-between">
             {/* rememberMe */}
             <BlueCheckBox
               type="checkbox"
@@ -103,20 +105,26 @@ const LoginForm = () => {
             />
             <Link
               to="/User/Forgetpass"
-              className="text-bluePrimary hover:text-blue-900 text-[16px] "
+              className="text-bluePrimary hover:text-blue-900 text-[12px] md:text-[16px] "
             >
               فراموشی رمز
             </Link>
           </div>
-          <BlueButton type="submit" buttonText="ورود" isDisabled={isDisabled} />
+          <div className="mr-20 sm:mr-10 md:m-0">
+            <BlueButton
+              type="submit"
+              buttonText="ورود"
+              isDisabled={isDisabled}
+            />
+          </div>
         </Form>
       </Formik>
 
-      <p className="text-[17px] text-center mt-[16px]">
+      <p className="text-[13px] md:text-[17px] text-center mt-[16px]">
         برای ثبت نام
         <Link
           to="/User/Register/Step1"
-          className="text-bluePrimary hover:text-blue-900 text-[17px] text-center mx-1 cursor-pointer"
+          className="text-bluePrimary hover:text-blue-900  text-center mx-1 cursor-pointer"
         >
           اینجا
         </Link>
