@@ -16,13 +16,13 @@ const RegisterHolder = () => {
   };
 
   return (
-    <div className="w-5/6 h-4/5 m-auto grid grid-cols-8 px-[100px] backdrop-blur-sm bg-black/5 my-5 rounded-[22px] ">
-      <div className="col-span-3 pt-[150px]">
+    <div className="w-5/6 pb-16 m-auto grid grid-cols-8  sm:px-[50px] md:px-[100px] backdrop-blur-sm bg-black/5 my-5 rounded-[22px] ">
+      <div className="col-span-3 pt-5 sm:pt-[150px]">
         <RegisterForms />
       </div>
-      <div className="col-span-2"></div>
-      <div className="col-span-3">
-        <figure className="mx-auto w-[480px] mt-[40px] relative">
+      <div className="col-span-2 hidden md:block"></div>
+      <div className="col-span-3 hidden md:block">
+        <figure className="mx-auto w-[360px] lg:w-[480px] mt-[40px] relative">
           <img className="w-full " src={RegisterLogo} alt="UserLoginLogo" />
           <figcaption className="text-[35px] text-bluePrimary w-[220px] text-center absolute bottom-4 right-[30px] ">
             {handleRegisterSteps(locationPath)}

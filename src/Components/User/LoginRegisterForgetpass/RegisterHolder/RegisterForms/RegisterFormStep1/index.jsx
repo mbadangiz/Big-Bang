@@ -49,7 +49,9 @@ const RegisterFormStep1 = () => {
   return (
     <div className="">
       <ToastContainer rtl />
-      <h1 className="text-[30px] text-center text-bluePrimary">ثبت نام</h1>
+      <h1 className="text-[18px] sm:text-[30px] text-center text-bluePrimary">
+        ثبت نام
+      </h1>
 
       <Formik
         initialValues={{
