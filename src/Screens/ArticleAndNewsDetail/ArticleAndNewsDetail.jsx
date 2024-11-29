@@ -9,7 +9,7 @@ const ArticleAndNewsDetail = () => {
   }, []);
   return (
     <>
-      <img src={GKJSNC} alt="" />
+      {/* <img src={GKJSNC} alt="" /> */}
       <ArticleAndNewsDetailHolder />
     </>
   );
