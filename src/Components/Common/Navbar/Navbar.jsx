@@ -7,6 +7,7 @@ import { GetCurrentUserProfile } from "../../../Core/Services/Api/UserPanel/GetC
 import { getItem } from "../../../Core/Services/common/storage.services";
 import { useDispatch, useSelector } from "react-redux";
 import { onSetUserInfo } from "../../../redux/user";
+import { FaRegUser } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isFixed, setIsFixed] = useState(false);
@@ -68,12 +69,22 @@ const Navbar = () => {
         isFixed && "fixed"
       }  sticky top-0 ${isBgOn && "bg-white/40 backdrop-blur-md"}  `}
     >
-      <div className="width-handler h-full border-2 flex-row-all-center ">
-        <img src={IconBahr} alt="Logo" className="h-12" />
-        <div className="  h-full border-2  text-center  f-bold text-base flex-row-all-center  mx-auto">
+      <div className="width-handler h-full border-2 flex-row-all-center p-2">
+        <img src={IconBahr} alt="Logo" className="h-7 md:h-10" />
+        <div className="  h-full border-2  text-center  f-bold text-sm md:text-base flex-row-all-center  mx-auto">
           {navItemsList.map((items) => {
             return <NavBarItems key={items.id} data={items} />;
           })}
+
+          <FaRegUser
+            className="sm:hidden"
+            size={16}
+            onClick={() =>
+              token
+                ? navigate("/User/Panel/Dashboard")
+                : navigate("/User/Login")
+            }
+          />
         </div>
         <div className="font-semibold text-base flex justify-end">
           {token ? (
@@ -90,7 +101,7 @@ const Navbar = () => {
               </figure>
             </div>
           ) : (
-            <div className=" flex justify-end">
+            <div className=" justify-end hidden sm:flex">
               <NavLink
                 to="/User/Register/Step1"
                 className="bg-bluePrimary text-white rounded-full text-base flex-row-all-center h-10 px-6 ml-2"
